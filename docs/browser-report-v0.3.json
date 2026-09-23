@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "Demo starts once; manual next-hand button hidden",
+    "Automatic next hand; pause/resume; prior settlement survives rollover",
+    "Action timeout shows sit-out and explicit return control",
+    "Return is queued, current hand stays inactive; queue can be cancelled",
+    "No horizontal overflow at 390px",
+    "Desktop layout at 1440px"
+  ],
+  "errors": []
+}

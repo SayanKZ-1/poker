@@ -1,0 +1,53 @@
+{
+  "status": "pass",
+  "checked": 2598960,
+  "elapsedMs": 4682,
+  "categories": [
+    {
+      "name": "Старшая карта",
+      "actual": 1302540,
+      "expected": 1302540
+    },
+    {
+      "name": "Пара",
+      "actual": 1098240,
+      "expected": 1098240
+    },
+    {
+      "name": "Две пары",
+      "actual": 123552,
+      "expected": 123552
+    },
+    {
+      "name": "Тройка",
+      "actual": 54912,
+      "expected": 54912
+    },
+    {
+      "name": "Стрит",
+      "actual": 10200,
+      "expected": 10200
+    },
+    {
+      "name": "Флеш",
+      "actual": 5108,
+      "expected": 5108
+    },
+    {
+      "name": "Фулл-хаус",
+      "actual": 3744,
+      "expected": 3744
+    },
+    {
+      "name": "Каре",
+      "actual": 624,
+      "expected": 624
+    },
+    {
+      "name": "Стрит-флеш",
+      "actual": 40,
+      "expected": 40
+    }
+  ],
+  "note": "Exhaustive category counts, not a proof of every tie-break or RNG fairness."
+}

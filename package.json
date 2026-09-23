@@ -1,0 +1,27 @@
+{
+  "name": "svoi-poker",
+  "version": "0.4.2",
+  "private": true,
+  "type": "module",
+  "description": "Private mobile-first play-money Hold’em PWA",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.mjs",
+    "test": "node --test --test-concurrency=1 test/*.test.mjs",
+    "preview:build": "node scripts/build-preview.mjs",
+    "test:exhaustive": "node scripts/exhaustive-five.mjs",
+    "build": "node scripts/build.mjs"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "0.5.8",
+    "@supabase/supabase-js": "2.116.0",
+    "postgres": "3.4.9"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "playwright": "1.63.0",
+    "supabase": "2.117.0"
+  }
+}

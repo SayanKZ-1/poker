@@ -1,0 +1,214 @@
+{
+  "appVersion": "0.2.0",
+  "reportType": "untrusted-local-demo",
+  "roomId": "test-fixture",
+  "handId": 1,
+  "rulesVersion": "svoi-nlhe-0.2",
+  "mode": "cash",
+  "phase": "showdown",
+  "me": "you",
+  "board": [
+    "2c",
+    "3h",
+    "7s",
+    "8c",
+    "9h"
+  ],
+  "players": [
+    {
+      "id": "you",
+      "name": "Вы",
+      "seat": 0,
+      "bot": false,
+      "stack": 300,
+      "bet": 0,
+      "total": 0,
+      "folded": false,
+      "inHand": true,
+      "autoStraddle": false,
+      "connected": true,
+      "sittingOut": false,
+      "lastAction": "",
+      "cards": [
+        "As",
+        "Ad"
+      ]
+    },
+    {
+      "id": "b1",
+      "name": "Арман",
+      "seat": 1,
+      "bot": false,
+      "stack": 400,
+      "bet": 0,
+      "total": 0,
+      "folded": false,
+      "inHand": true,
+      "autoStraddle": false,
+      "connected": true,
+      "sittingOut": false,
+      "lastAction": "",
+      "cards": [
+        "Ks",
+        "Kd"
+      ]
+    },
+    {
+      "id": "b2",
+      "name": "Дана",
+      "seat": 2,
+      "bot": false,
+      "stack": 200,
+      "bet": 0,
+      "total": 0,
+      "folded": false,
+      "inHand": true,
+      "autoStraddle": false,
+      "connected": true,
+      "sittingOut": false,
+      "lastAction": "",
+      "cards": [
+        "Qs",
+        "Qd"
+      ]
+    }
+  ],
+  "pots": [
+    {
+      "id": 0,
+      "label": "Основной банк",
+      "amount": 300,
+      "eligible": [
+        "you",
+        "b1",
+        "b2"
+      ],
+      "contributions": {
+        "you": 100,
+        "b1": 100,
+        "b2": 100
+      },
+      "winners": [
+        "you"
+      ],
+      "awards": [
+        {
+          "id": "you",
+          "amount": 300
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "label": "Побочный банк 1",
+      "amount": 400,
+      "eligible": [
+        "b1",
+        "b2"
+      ],
+      "contributions": {
+        "b1": 200,
+        "b2": 200
+      },
+      "winners": [
+        "b1"
+      ],
+      "awards": [
+        {
+          "id": "b1",
+          "amount": 400
+        }
+      ]
+    }
+  ],
+  "refunds": [
+    {
+      "id": "b2",
+      "amount": 200,
+      "reason": "Непокрытая часть ставки"
+    }
+  ],
+  "accounting": [
+    {
+      "id": "you",
+      "name": "Вы",
+      "startStack": 100,
+      "contributed": 100,
+      "won": 300,
+      "returned": 0,
+      "net": 200,
+      "finalStack": 300
+    },
+    {
+      "id": "b1",
+      "name": "Арман",
+      "startStack": 300,
+      "contributed": 300,
+      "won": 400,
+      "returned": 0,
+      "net": 100,
+      "finalStack": 400
+    },
+    {
+      "id": "b2",
+      "name": "Дана",
+      "startStack": 500,
+      "contributed": 500,
+      "won": 0,
+      "returned": 200,
+      "net": -300,
+      "finalStack": 200
+    }
+  ],
+  "events": [
+    {
+      "id": 4,
+      "handId": 1,
+      "phase": "river",
+      "text": "Дана: возврат 200 (не выигрыш)",
+      "kind": "return",
+      "playerId": "b2",
+      "amount": 200
+    },
+    {
+      "id": 5,
+      "handId": 1,
+      "phase": "river",
+      "text": "Основной банк 300: Вы получает 300",
+      "kind": "win",
+      "potId": 0,
+      "amount": 300,
+      "awards": [
+        {
+          "id": "you",
+          "amount": 300
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "handId": 1,
+      "phase": "river",
+      "text": "Побочный банк 1 400: Арман получает 400",
+      "kind": "win",
+      "potId": 1,
+      "amount": 400,
+      "awards": [
+        {
+          "id": "b1",
+          "amount": 400
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "handId": 1,
+      "phase": "river",
+      "text": "Расчёт завершён: выплаты + возвраты = все взносы",
+      "kind": "settlement",
+      "committedPot": 900,
+      "awardedPot": 700
+    }
+  ],
+  "historyTruncated": false
+}

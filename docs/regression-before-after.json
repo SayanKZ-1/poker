@@ -1,0 +1,42 @@
+{
+  "scenario": "Legally played tie, contributions 200/200/51/102/153; last three players fold on flop/turn/river",
+  "expected": {
+    "p0": 353,
+    "p1": 353
+  },
+  "v01": {
+    "pots": [
+      255,
+      204,
+      153,
+      94
+    ],
+    "awards": {
+      "p1": 354,
+      "p0": 352
+    },
+    "stacks": [
+      2152,
+      2154,
+      1949,
+      1898,
+      1847
+    ]
+  },
+  "v02": {
+    "pots": [
+      706
+    ],
+    "awards": {
+      "p1": 353,
+      "p0": 353
+    },
+    "stacks": [
+      2153,
+      2153,
+      1949,
+      1898,
+      1847
+    ]
+  }
+}

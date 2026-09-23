@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101917">
+  <meta name="description" content="СВОИ — приватный техасский холдем с друзьями на условные фишки.">
+  <title>СВОИ — покер своей компанией</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <script type="module" src="/app.mjs"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="brand" id="brand-home" aria-label="На главную">
+        <span class="brand-icon">♠</span><span class="brand-word">свои<span>POKER WITH FRIENDS</span></span>
+      </button>
+      <div class="topbar-right"><span class="chip-label play-money">Только игровые фишки</span><button class="icon-button" id="sound-toggle" aria-label="Включить звук" title="Звук выключен">♫<span class="sound-slash">/</span></button><button class="icon-button" id="fullscreen" aria-label="Полный экран" title="Полный экран">⛶</button></div>
+    </header>
+    <main>
+      <section id="lobby" class="lobby">
+        <div class="lobby-copy">
+          <div class="eyebrow"><span class="dot"></span>ТОЛЬКО СВОЯ КОМПАНИЯ</div>
+          <h1>Карты на стол.<br><em>Свои — рядом.</em></h1>
+          <p class="hero-description">Ваш вечер покера, где бы вы ни были.<br>Закрытый стол, знакомые лица и ещё одна раздача.</p>
+          <div class="hero-actions"><button id="create-room" class="button primary">Создать стол <span>↗</span></button><button id="join-room" class="button secondary">По приглашению</button></div>
+          <button id="resume-room" class="button secondary" hidden>Вернуться за свой стол ↗</button><button id="try-demo" class="text-button">Сначала попробовать с ботами <span>→</span></button>
+          <div class="hero-features"><div><strong>2–6</strong><span>друзей за столом</span></div><div><strong>Только вы</strong><span>вход с подтверждением</span></div><div><strong>Без денег</strong><span>игра ради игры</span></div></div>
+        </div>
+        <div class="hero-visual" aria-label="Превью покерного стола">
+          <div class="visual-heading"><span class="mini-lock">▣</span> ВАШ ПРИВАТНЫЙ СТОЛ <span class="visual-live">PREVIEW</span></div>
+          <div class="preview-table"><div class="preview-table-inner"></div><div class="preview-watermark">свои</div><div class="preview-pot"><div class="chip-stack"><i></i><i></i><i></i></div><span>Хорошая компания.<br>Красивая игра.</span></div><div class="preview-cards"><div class="playing-card red"><b>A</b><span>♥</span><small>A</small></div><div class="playing-card"><b>K</b><span>♠</span><small>K</small></div><div class="playing-card red"><b>Q</b><span>♦</span><small>Q</small></div></div><div class="preview-seat ps-one">А<span>Арман</span></div><div class="preview-seat ps-two">Д<span>Дана</span></div><div class="preview-seat ps-three">Вы<span>Ваше место</span></div><div class="dealer-preview">D</div></div>
+          <div class="visual-footer"><span>♠ &nbsp;Техасский холдем</span><span>Без лимита</span></div>
+        </div>
+        <div class="lobby-foot"><span>СВОИ / PWA 0.4.1</span><span>Никаких случайных соперников.</span></div>
+      </section>
+      <section id="waiting-room" class="waiting-screen" hidden><div class="waiting-symbol">♠</div><div class="eyebrow">ПРИВАТНАЯ КОМНАТА</div><h2 id="waiting-title">Почти за столом</h2><p id="waiting-message">Хозяин стола подтверждает ваше приглашение.</p><div class="waiting-pulse"><i></i><i></i><i></i></div><button class="button secondary" id="cancel-wait">На главную</button></section>
+      <section id="game" hidden>
+        <div class="room-header"><div><div class="eyebrow" id="room-eyebrow">ПРИВАТНЫЙ СТОЛ</div><h1 id="room-name">Свои за столом</h1></div><div class="room-tools"><span class="connection" id="connection"><i></i><span>На связи</span></span><button class="button small secondary" id="invite-button">Пригласить <span>↗</span></button><button class="icon-button" id="room-settings" aria-label="Настройки комнаты">⋯</button></div></div>
+        <div id="demo-banner" class="demo-banner" hidden><span>ДЕМО</span> Вы и 5 ботов. Это локальная пробная игра, не онлайн-комната.</div>
+        <div class="game-grid">
+          <div class="table-column">
+            <div class="table-card">
+              <div class="table-topline"><span>♠ &nbsp; ХОЛДЕМ <span class="muted">/ БЕЗ ЛИМИТА</span></span><span id="hand-counter">РАЗДАЧА #01</span></div>
+              <div class="arena" id="arena"><div class="felt"><div class="felt-line"></div><span class="felt-brand">свои</span></div><div class="deck" id="deck" aria-hidden="true"><i></i><i></i><i>♠</i></div><div class="pot-display" id="pot-display"><span class="pot-label">ОБЩИЙ БАНК</span><div><span class="tiny-chip"></span><strong id="pot-amount">0</strong></div></div><div class="community-cards" id="board" aria-label="Общие карты"></div><div class="street-label" id="street-label">Собираем друзей</div><div id="seats"></div><div class="result-label" id="result-label" hidden></div></div>
+              <div class="table-bottomline"><span id="table-players">0 / 6 за столом</span><span id="table-blinds">Блайнды 10 / 20</span><span>ИГРОВЫЕ ФИШКИ</span></div>
+            </div>
+            <div id="rebuy-banner" class="rebuy-banner" role="status" hidden></div><div id="rebuy-pending-credit" class="pending-changes" role="status" hidden></div><div id="pending-changes" class="pending-changes" role="status" hidden></div><div id="pending-requests" class="pending-requests" hidden></div>
+            <div class="action-panel">
+              <div class="turn-line"><div><span class="turn-indicator" id="turn-indicator"></span><strong id="turn-title">Ждём друзей</strong><span id="turn-subtitle"></span></div><div class="time-counter" id="time-counter"></div></div>
+              <div class="timer-track"><i id="timer-progress"></i></div>
+              <div id="auto-status" class="auto-status" role="status" aria-live="polite"></div>
+              <div id="waiting-actions" class="waiting-actions"><p id="start-help">Пригласите друзей. Раздача начнётся, когда вы будете готовы.</p><button class="button primary" id="start-hand">Раздать карты <span>→</span></button><button class="button secondary" id="top-up" hidden>Запросить фишки</button></div>
+              <div id="playing-actions" class="playing-actions" hidden><div class="main-actions"><button id="fold" class="action-button fold" disabled><span>Пас</span><small>Сбросить карты</small></button><button id="check-call" class="action-button call" disabled><span>Чек</span><small>Продолжить</small></button><button id="raise-toggle" class="action-button raise" disabled><span>Повысить</span><small>Выбрать ставку</small></button></div><div class="raise-panel" id="raise-panel" hidden><div class="raise-heading"><label for="raise-amount">Общая ставка на этом круге</label><div><span>до</span><input type="number" id="raise-amount" min="0" step="1" inputmode="numeric" aria-label="Повысить до"></div></div><input id="raise-range" type="range" min="0" max="100" value="0" aria-label="Размер повышения"><div class="raise-bottom"><div class="presets"><button data-preset="half">½ банка</button><button data-preset="two-thirds">⅔ банка</button><button data-preset="pot">Банк</button><button data-preset="all">Олл-ин</button></div><button class="button primary small" id="confirm-raise">Повысить</button></div></div></div>
+            </div>
+            <div class="session-controls"><button class="button secondary small" id="request-rebuy" hidden>Запросить закуп</button><button class="button secondary small" id="participation-button">Не играю</button><button class="text-button" id="pause-table" hidden>Пауза после раздачи</button></div><p class="participation-note" id="participation-note" hidden></p>
+            <div class="review-actions"><button class="button secondary small" id="settlement-button" hidden>Разбор банков и выплат</button><button class="text-button" id="hand-report-button" hidden>Сохранить отчёт раздачи</button></div><div class="under-table"><span>▣ &nbsp; Чужие карты закрыты до вскрытия</span><button class="text-button" id="rules-button">Как играть <span>↗</span></button></div>
+          </div>
+          <aside class="sidebar"><section class="side-card"><div class="side-heading"><h2>За столом</h2><span id="roster-count">0 / 6</span></div><div id="roster"></div><div class="privacy-note"><span>▣</span><p><strong>Вход только с разрешения</strong><br>Хозяин подтверждает каждого гостя.</p></div></section><section class="side-card history-card"><div class="side-heading"><h2>Ход игры</h2><span class="history-icon">↺</span></div><div id="history" aria-live="polite" aria-relevant="additions"></div></section><div class="sidebar-note">Важен не банк.<br><span>Важна компания.</span></div></aside>
+        </div>
+      </section>
+    </main>
+    <footer class="global-footer"><span>СВОИ © 2026</span><span>Прототип · без денежных ставок и платежей</span></footer>
+  </div>
+  <aside id="rebuy-notice" class="rebuy-notice" role="region" aria-label="Запросы на закуп" hidden><strong>Запросы на закуп</strong><p id="rebuy-notice-names"></p><button id="open-rebuy-requests" class="button primary">Открыть запросы · пауза игры</button></aside>
+  <dialog id="modal"><div class="modal-head"><span class="eyebrow">СВОИ / PRIVATE POKER</span><button id="close-modal" class="icon-button" aria-label="Закрыть">×</button></div><div id="modal-content"></div></dialog>
+  <div id="toast" class="toast" role="alert" hidden></div>
+</body>
+</html>

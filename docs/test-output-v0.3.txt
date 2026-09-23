@@ -1,0 +1,452 @@
+
+> svoi-poker@0.3.0 test
+> node --test test/*.test.mjs
+
+TAP version 13
+# Subtest: valid Telegram HMAC and signed user ID
+ok 1 - valid Telegram HMAC and signed user ID
+  ---
+  duration_ms: 5.262451
+  type: 'test'
+  ...
+# Subtest: new optional signature field participates in bot-token HMAC check
+ok 2 - new optional signature field participates in bot-token HMAC check
+  ---
+  duration_ms: 0.919729
+  type: 'test'
+  ...
+# Subtest: forged identity, wrong bot and malformed signature rejected
+ok 3 - forged identity, wrong bot and malformed signature rejected
+  ---
+  duration_ms: 2.617531
+  type: 'test'
+  ...
+# Subtest: expired, future-dated and duplicate auth parameters rejected
+ok 4 - expired, future-dated and duplicate auth parameters rejected
+  ---
+  duration_ms: 1.50513
+  type: 'test'
+  ...
+# Subtest: autoplay starts only once and advances exactly once after six seconds
+ok 5 - autoplay starts only once and advances exactly once after six seconds
+  ---
+  duration_ms: 19.672007
+  type: 'test'
+  ...
+# Subtest: timeout folds even a free check and requires explicit return
+ok 6 - timeout folds even a free check and requires explicit return
+  ---
+  duration_ms: 5.335854
+  type: 'test'
+  ...
+# Subtest: cash pauses with fewer than two ready players and resumes after explicit return
+ok 7 - cash pauses with fewer than two ready players and resumes after explicit return
+  ---
+  duration_ms: 4.562409
+  type: 'test'
+  ...
+# Subtest: manual sit-out never folds out of turn, and returning cannot resurrect that hand
+ok 8 - manual sit-out never folds out of turn, and returning cannot resurrect that hand
+  ---
+  duration_ms: 3.68579
+  type: 'test'
+  ...
+# Subtest: manual sit-out on own turn immediately folds once; cancellation of return works
+ok 9 - manual sit-out on own turn immediately folds once; cancellation of return works
+  ---
+  duration_ms: 1.189713
+  type: 'test'
+  ...
+# Subtest: already committed all-in is not folded by absence or sit-out and remains eligible for its pots
+ok 10 - already committed all-in is not folded by absence or sit-out and remains eligible for its pots
+  ---
+  duration_ms: 5.819032
+  type: 'test'
+  ...
+# Subtest: cash sitting out does not receive cards or post a voluntary straddle
+ok 11 - cash sitting out does not receive cards or post a voluntary straddle
+  ---
+  duration_ms: 1.62137
+  type: 'test'
+  ...
+# Subtest: after missing cash hands return waits for natural BB and cannot see earlier cards
+ok 12 - after missing cash hands return waits for natural BB and cannot see earlier cards
+  ---
+  duration_ms: 9.239699
+  type: 'test'
+  ...
+# Subtest: short-handed restart gives returning cash seat BB rather than deadlocking the table
+ok 13 - short-handed restart gives returning cash seat BB rather than deadlocking the table
+  ---
+  duration_ms: 5.076133
+  type: 'test'
+  ...
+# Subtest: two returning players can restart an otherwise empty ready lineup
+ok 14 - two returning players can restart an otherwise empty ready lineup
+  ---
+  duration_ms: 5.597917
+  type: 'test'
+  ...
+# Subtest: tournament absence continues to post blinds and acts automatically without repeating a full timer
+ok 15 - tournament absence continues to post blinds and acts automatically without repeating a full timer
+  ---
+  duration_ms: 3.998507
+  type: 'test'
+  ...
+# Subtest: disconnect during a live hand does not reset or shorten the allotted turn clock
+ok 16 - disconnect during a live hand does not reset or shorten the allotted turn clock
+  ---
+  duration_ms: 1.489026
+  type: 'test'
+  ...
+# Subtest: disconnect at showdown cancels unsafe next deal; reconnect alone does not opt in
+ok 17 - disconnect at showdown cancels unsafe next deal; reconnect alone does not opt in
+  ---
+  duration_ms: 2.300811
+  type: 'test'
+  ...
+# Subtest: owner-independent timer continues when an unrelated absent seat remains at the table
+ok 18 - owner-independent timer continues when an unrelated absent seat remains at the table
+  ---
+  duration_ms: 3.270291
+  type: 'test'
+  ...
+# Subtest: pause takes effect only after settlement, and resume gives a fresh full countdown
+ok 19 - pause takes effect only after settlement, and resume gives a fresh full countdown
+  ---
+  duration_ms: 19.891294
+  type: 'test'
+  ...
+# Subtest: tournament pause freezes level time only after the live hand finishes
+ok 20 - tournament pause freezes level time only after the live hand finishes
+  ---
+  duration_ms: 2.524831
+  type: 'test'
+  ...
+# Subtest: last completed hand remains readable after auto-deal with per-viewer card privacy
+ok 21 - last completed hand remains readable after auto-deal with per-viewer card privacy
+  ---
+  duration_ms: 2.468408
+  type: 'test'
+  ...
+# Subtest: late action at the exact deadline is rejected, then timeout is applied once
+ok 22 - late action at the exact deadline is rejected, then timeout is applied once
+  ---
+  duration_ms: 1.159022
+  type: 'test'
+  ...
+# Subtest: an error halt disables action and auto-deal instead of looping retries
+ok 23 - an error halt disables action and auto-deal instead of looping retries
+  ---
+  duration_ms: 1.2978
+  type: 'test'
+  ...
+# Subtest: autoplay stops when a tournament has a winner
+ok 24 - autoplay stops when a tournament has a winner
+  ---
+  duration_ms: 1.745065
+  type: 'test'
+  ...
+# Subtest: a new or rejoining cash seat after game start waits for BB rather than entering for free
+ok 25 - a new or rejoining cash seat after game start waits for BB rather than entering for free
+  ---
+  duration_ms: 1.435042
+  type: 'test'
+  ...
+# Subtest: up to 500 mixed sit-out, return and timeout hands preserve chips and make bounded progress
+ok 26 - up to 500 mixed sit-out, return and timeout hands preserve chips and make bounded progress
+  ---
+  duration_ms: 2149.226693
+  type: 'test'
+  ...
+# Subtest: all nine hand categories, wheel and kicker ordering
+ok 27 - all nine hand categories, wheel and kicker ordering
+  ---
+  duration_ms: 4.935409
+  type: 'test'
+  ...
+# Subtest: best five out of seven, two triples, and board-only tie
+ok 28 - best five out of seven, two triples, and board-only tie
+  ---
+  duration_ms: 4.037521
+  type: 'test'
+  ...
+# Subtest: deck contains 52 unique, valid cards
+ok 29 - deck contains 52 unique, valid cards
+  ---
+  duration_ms: 21.454575
+  type: 'test'
+  ...
+# Subtest: three-handed blinds, action order and big-blind option
+ok 30 - three-handed blinds, action order and big-blind option
+  ---
+  duration_ms: 5.021678
+  type: 'test'
+  ...
+# Subtest: heads-up button is SB, first preflop, last postflop
+ok 31 - heads-up button is SB, first preflop, last postflop
+  ---
+  duration_ms: 1.402358
+  type: 'test'
+  ...
+# Subtest: reject wrong turn, invalid check, fractional and undersized raises
+ok 32 - reject wrong turn, invalid check, fractional and undersized raises
+  ---
+  duration_ms: 1.59327
+  type: 'test'
+  ...
+# Subtest: minimum raise tracks the last full raise, not total bet
+ok 33 - minimum raise tracks the last full raise, not total bet
+  ---
+  duration_ms: 1.246776
+  type: 'test'
+  ...
+# Subtest: fold victory does not expose winner cards and returns uncalled chips
+ok 34 - fold victory does not expose winner cards and returns uncalled chips
+  ---
+  duration_ms: 4.586776
+  type: 'test'
+  ...
+# Subtest: public snapshots contain no deck, RNG state, or opponent hole cards
+ok 35 - public snapshots contain no deck, RNG state, or opponent hole cards
+  ---
+  duration_ms: 4.476443
+  type: 'test'
+  ...
+# Subtest: different stack all-ins create side pots and return unmatched amount
+ok 36 - different stack all-ins create side pots and return unmatched amount
+  ---
+  duration_ms: 3.69552
+  type: 'test'
+  ...
+# Subtest: split pot, folded contribution and odd chip clockwise after button
+ok 37 - split pot, folded contribution and odd chip clockwise after button
+  ---
+  duration_ms: 9.880266
+  type: 'test'
+  ...
+# Subtest: short all-in does not reopen a player who already acted
+ok 38 - short all-in does not reopen a player who already acted
+  ---
+  duration_ms: 29.202714
+  type: 'test'
+  ...
+# Subtest: cumulative short all-ins reopen action when full raise is reached
+ok 39 - cumulative short all-ins reopen action when full raise is reached
+  ---
+  duration_ms: 1.307034
+  type: 'test'
+  ...
+# Subtest: all-in runout terminates and accounts for every chip
+ok 40 - all-in runout terminates and accounts for every chip
+  ---
+  duration_ms: 2.005535
+  type: 'test'
+  ...
+# Subtest: short all-in BB in heads-up does not force uncontested extra call
+ok 41 - short all-in BB in heads-up does not force uncontested extra call
+  ---
+  duration_ms: 2.4005
+  type: 'test'
+  ...
+# Subtest: timeout now folds even for free and marks the seat sitting out
+ok 42 - timeout now folds even for free and marks the seat sitting out
+  ---
+  duration_ms: 1.96914
+  type: 'test'
+  ...
+# Subtest: cannot join, leave or top up during a hand
+ok 43 - cannot join, leave or top up during a hand
+  ---
+  duration_ms: 1.651518
+  type: 'test'
+  ...
+# Subtest: 1,000 randomized hands preserve chips, privacy and terminate
+ok 44 - 1,000 randomized hands preserve chips, privacy and terminate
+  ---
+  duration_ms: 1775.50408
+  type: 'test'
+  ...
+# Subtest: transition from three-handed to heads-up avoids consecutive BB
+ok 45 - transition from three-handed to heads-up avoids consecutive BB
+  ---
+  duration_ms: 2.625169
+  type: 'test'
+  ...
+# Subtest: rejection sampling rejects biased uint32 tail instead of taking it modulo n
+ok 46 - rejection sampling rejects biased uint32 tail instead of taking it modulo n
+  ---
+  duration_ms: 8.805419
+  type: 'test'
+  ...
+# Subtest: shuffle never depends on Math.random, and cryptographic failure does not fall back
+ok 47 - shuffle never depends on Math.random, and cryptographic failure does not fall back
+  ---
+  duration_ms: 7.201157
+  type: 'test'
+  ...
+# Subtest: random bounds are validated
+ok 48 - random bounds are validated
+  ---
+  duration_ms: 0.456872
+  type: 'test'
+  ...
+# Subtest: 10,000 seven-card hands match a separate direct evaluator, including kickers
+ok 49 - 10,000 seven-card hands match a separate direct evaluator, including kickers
+  ---
+  duration_ms: 977.243912
+  type: 'test'
+  ...
+# Subtest: regression: folded contributions must not manufacture four pots and two odd chips
+ok 50 - regression: folded contributions must not manufacture four pots and two odd chips
+  ---
+  duration_ms: 12.042692
+  type: 'test'
+  ...
+# Subtest: the folded-layer regression is reachable by legal actions, not only injected states
+ok 51 - the folded-layer regression is reachable by legal actions, not only injected states
+  ---
+  duration_ms: 5.942328
+  type: 'test'
+  ...
+# Subtest: three different all-ins: 300 main, 400 side, 200 returned, with net results
+ok 52 - three different all-ins: 300 main, 400 side, 200 returned, with net results
+  ---
+  duration_ms: 3.54365
+  type: 'test'
+  ...
+# Subtest: multiple real side pots are independently split; folded player cannot win
+ok 53 - multiple real side pots are independently split; folded player cannot win
+  ---
+  duration_ms: 2.100755
+  type: 'test'
+  ...
+# Subtest: a sole winner gets uncontested pot, but returned chips are not labelled as winnings
+ok 54 - a sole winner gets uncontested pot, but returned chips are not labelled as winnings
+  ---
+  duration_ms: 7.628448
+  type: 'test'
+  ...
+# Subtest: invalid later pot never partially credits an earlier pot
+ok 55 - invalid later pot never partially credits an earlier pot
+  ---
+  duration_ms: 1.313255
+  type: 'test'
+  ...
+# Subtest: rollback restores a rejected state transition, including cards, chips and event log
+ok 56 - rollback restores a rejected state transition, including cards, chips and event log
+  ---
+  duration_ms: 2.609656
+  type: 'test'
+  ...
+# Subtest: odd-chip rule wraps around a dead button and ignores card suits
+ok 57 - odd-chip rule wraps around a dead button and ignores card suits
+  ---
+  duration_ms: 3.818975
+  type: 'test'
+  ...
+# Subtest: cash UTG straddle posts 2 BB, acts last if unraised, resets sizing after flop
+ok 58 - cash UTG straddle posts 2 BB, acts last if unraised, resets sizing after flop
+  ---
+  duration_ms: 3.113723
+  type: 'test'
+  ...
+# Subtest: straddle cannot be declared after cards, by a non-UTG preference, short stack or heads-up
+ok 59 - straddle cannot be declared after cards, by a non-UTG preference, short stack or heads-up
+  ---
+  duration_ms: 2.717451
+  type: 'test'
+  ...
+# Subtest: tournament rejects straddles, late entry, removal and rebuy on server-side engine
+ok 60 - tournament rejects straddles, late entry, removal and rebuy on server-side engine
+  ---
+  duration_ms: 1.928121
+  type: 'test'
+  ...
+# Subtest: tournament levels change only between hands, not during an existing hand
+ok 61 - tournament levels change only between hands, not during an existing hand
+  ---
+  duration_ms: 1.853686
+  type: 'test'
+  ...
+# Subtest: tournament determines a champion and cannot be restarted or topped up
+ok 62 - tournament determines a champion and cannot be restarted or topped up
+  ---
+  duration_ms: 4.678916
+  type: 'test'
+  ...
+# Subtest: dead-button rotation does not make a player skip the big blind after another player busts
+ok 63 - dead-button rotation does not make a player skip the big blind after another player busts
+  ---
+  duration_ms: 2.791735
+  type: 'test'
+  ...
+# Subtest: cash excludes absent seats; tournament keeps them in mandatory blind rotation
+ok 64 - cash excludes absent seats; tournament keeps them in mandatory blind rotation
+  ---
+  duration_ms: 2.42956
+  type: 'test'
+  ...
+# Subtest: a call after the first short all-in is not reopened by a later insufficient increment
+ok 65 - a call after the first short all-in is not reopened by a later insufficient increment
+  ---
+  duration_ms: 2.25084
+  type: 'test'
+  ...
+# Subtest: 5,000 generated settlements agree player-by-player with an independent cap-based oracle
+ok 66 - 5,000 generated settlements agree player-by-player with an independent cap-based oracle
+  ---
+  duration_ms: 4019.757099
+  type: 'test'
+  ...
+# Subtest: private multiplayer lifecycle: approval, privacy, moves, reconnect, revocation
+ok 67 - private multiplayer lifecycle: approval, privacy, moves, reconnect, revocation
+  ---
+  duration_ms: 508.398976
+  type: 'test'
+  ...
+# Subtest: new player IDs cannot be selected by a client
+ok 68 - new player IDs cannot be selected by a client
+  ---
+  duration_ms: 5.361011
+  type: 'test'
+  ...
+# Subtest: HTTP origin and content-type validation
+ok 69 - HTTP origin and content-type validation
+  ---
+  duration_ms: 4.478086
+  type: 'test'
+  ...
+# Subtest: server rejects forged deck/stack fields, stale starts and requestId reuse with changed payload
+ok 70 - server rejects forged deck/stack fields, stale starts and requestId reuse with changed payload
+  ---
+  duration_ms: 41.732652
+  type: 'test'
+  ...
+# Subtest: HTTP enforces tournament rules and exposes safe per-pot accounting
+ok 71 - HTTP enforces tournament rules and exposes safe per-pot accounting
+  ---
+  duration_ms: 61.143835
+  type: 'test'
+  ...
+# Subtest: HTTP auto-deals without owner clicks; timeout/sit-out/return/pause are server-enforced
+ok 72 - HTTP auto-deals without owner clicks; timeout/sit-out/return/pause are server-enforced
+  ---
+  duration_ms: 8155.448446
+  type: 'test'
+  ...
+# Subtest: HTTP return is idempotent, has no target-player override and rejects stale hand state
+ok 73 - HTTP return is idempotent, has no target-player override and rejects stale hand state
+  ---
+  duration_ms: 46.143338
+  type: 'test'
+  ...
+1..73
+# tests 73
+# suites 0
+# pass 73
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 11445.019878

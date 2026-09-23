@@ -1,0 +1,17 @@
+{
+  "method": "Local HTML rendered in Chromium via Playwright; UI settlement uses explicit test-only fixture.",
+  "limitations": [
+    "Localhost navigation blocked by browser policy; no browser/network E2E claim.",
+    "Telegram clients not tested.",
+    "Agent-browser CLI unavailable (npm package not cached)."
+  ],
+  "checks": [
+    "real local demo starts, deals 12 hole cards, mobile has no horizontal overflow",
+    "cash cannot change straddle after deal; tournament demo has no straddle control",
+    "ledger shows main 300 / side 400 / refund 200; per-player net +200,+100,-300",
+    "JSON export succeeds and contains no deck or authentication token",
+    "desktop fixture renders without horizontal overflow"
+  ],
+  "pageErrors": [],
+  "status": "pass"
+}

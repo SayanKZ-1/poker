@@ -1,0 +1,8 @@
+.env
+.env.*
+.git
+node_modules
+test
+docs
+*.log
+svoi-preview.html

@@ -1,0 +1,1448 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101917">
+  <meta name="description" content="СВОИ — приватный техасский холдем с друзьями на условные фишки.">
+  <title>СВОИ — покер своей компанией</title>
+  
+  <style>:root{--bg:#101917;--surface:#17231f;--line:#2d3c34;--muted:#92a098;--text:#ecf1e9;--accent:#b9edce;--accent-dark:#163c2c;--gold:#dec898;--danger:#eeaaa1;--radius:22px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--text);background:var(--bg);font-synthesis:none;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% 25%,#1c342941,transparent 55%),var(--bg);min-width:320px}button,input{font:inherit}button{cursor:pointer}button:disabled{cursor:default;opacity:.4}button,a,input{-webkit-tap-highlight-color:transparent}button{color:inherit}button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:4px}button{touch-action:manipulation}[hidden]{display:none!important}input{min-width:0}input[type=range]{width:100%;accent-color:var(--accent);height:28px;cursor:pointer}.app-shell{max-width:1320px;margin:auto;padding:0 44px;padding-top:max(env(safe-area-inset-top),var(--tg-safe-area-inset-top,0px),var(--tg-content-safe-area-inset-top,0px));padding-bottom:max(env(safe-area-inset-bottom),var(--tg-safe-area-inset-bottom,0px),var(--tg-content-safe-area-inset-bottom,0px))}.topbar{height:110px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff10}.brand{border:0;background:transparent;display:flex;gap:12px;align-items:center;text-align:left;padding:0}.brand-icon{display:grid;place-items:center;background:var(--accent);color:#143725;width:43px;height:47px;border-radius:13px;font:34px Georgia}.brand-word{font:700 34px Georgia,serif;letter-spacing:-1.3px;line-height:.95}.brand-word>span{display:block;font:8px Arial,sans-serif;letter-spacing:2px;margin-top:9px;color:var(--muted)}.topbar-right{display:flex;gap:13px;align-items:center}.chip-label{border:1px solid var(--line);border-radius:30px;padding:9px 14px;color:var(--muted);font-size:11px}.icon-button{border:1px solid var(--line);background:#17211d;width:39px;height:39px;display:inline-grid;place-items:center;border-radius:12px;font-size:22px;position:relative}.icon-button:hover{background:#26372d}.sound-slash{position:absolute;inset:0;display:grid;place-items:center;color:var(--danger);font-size:27px}.lobby{padding:80px 0 0;display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center}.eyebrow{color:var(--accent);font-size:10px;letter-spacing:2.1px;font-weight:600;display:flex;align-items:center;gap:9px}.dot,.connection i{display:inline-block;width:6px;height:6px;border-radius:100%;background:var(--accent);box-shadow:0 0 10px #a8edc333}.lobby h1{font:normal clamp(43px,4.6vw,65px)/1.1 Georgia,serif;letter-spacing:-2.6px;margin:24px 0}.lobby h1 em{font-style:normal;color:var(--accent)}.hero-description{color:var(--muted);font-size:14px;line-height:1.9;margin-bottom:31px}.hero-actions{display:flex;gap:11px}.button{display:inline-flex;align-items:center;justify-content:center;gap:22px;border:1px solid transparent;padding:15px 21px;font-weight:600;border-radius:12px;font-size:13px;min-height:47px;transition:background .18s,transform .18s}.button:not(:disabled):active{transform:translateY(1px)}.button.primary{background:var(--accent);color:#143526}.button.primary:hover:not(:disabled){background:#d0f8df}.button.secondary{background:#19241f;border-color:#36483c}.button.secondary:hover:not(:disabled){background:#24362c}.button.small{padding:10px 15px;font-size:12px;min-height:39px;border-radius:10px}.text-button{border:0;background:transparent;color:var(--muted);font-size:12px;padding:0;display:inline-flex;align-items:center;gap:13px}.text-button:hover{color:var(--accent)}#try-demo{margin-top:22px}.hero-features{display:flex;gap:30px;margin-top:53px}.hero-features>div{display:flex;flex-direction:column;gap:9px}.hero-features strong{font-size:15px;font-weight:500}.hero-features span{font-size:10px;color:var(--muted)}.hero-visual{border:1px solid #45553d70;border-radius:24px;padding:24px;background:linear-gradient(140deg,#26382c88,#19251e33);box-shadow:0 34px 85px #0003;transform:rotate(-2deg)}.visual-heading{font-size:9px;letter-spacing:1.5px;display:flex;gap:8px;align-items:center;color:#bfcec1}.visual-live{margin-left:auto;color:var(--accent);border:1px solid #70857060;padding:5px 7px;border-radius:5px;font-size:8px;letter-spacing:1px}.preview-table{height:340px;position:relative;margin:18px 0 5px}.preview-table-inner{position:absolute;inset:38px 30px 32px;border-radius:49%;background:radial-gradient(ellipse at 50% 28%,#28614b,#163d30);border:12px solid #17271e;box-shadow:0 0 0 1px #78986c44,0 10px 20px #0004,inset 0 0 30px #0005}.preview-table-inner:after{content:"";position:absolute;inset:12px;border:1px solid #77916b50;border-radius:49%}.preview-watermark{position:absolute;top:75px;width:100%;text-align:center;opacity:.19;font:italic 45px Georgia;letter-spacing:1px}.preview-pot{position:absolute;top:126px;left:0;width:100%;display:flex;align-items:center;justify-content:center;gap:12px;color:#adc3ae;font-size:9px;line-height:1.7}.chip-stack{width:30px;height:25px;position:relative}.chip-stack i{position:absolute;top:12px;width:27px;height:14px;border-radius:50%;background:#d3ba7f;border:3px dashed #836c40;box-shadow:0 2px 0 #68532c}.chip-stack i:nth-child(2){top:7px}.chip-stack i:nth-child(3){top:2px}.preview-cards{display:flex;gap:7px;position:absolute;top:183px;left:50%;transform:translateX(-50%) rotate(2deg)}.playing-card{width:56px;height:79px;background:#f4f1e8;color:#1e342b;border-radius:7px;border:1px solid #ffffffe0;box-shadow:0 4px 5px #0003;position:relative;flex-shrink:0;backface-visibility:hidden}.playing-card b{position:absolute;left:7px;top:4px;font:600 21px Georgia}.playing-card>span{position:absolute;left:50%;top:51%;transform:translate(-50%,-50%);font:34px Georgia}.playing-card small{position:absolute;right:6px;bottom:4px;font:600 16px Georgia;transform:rotate(180deg)}.playing-card.red{color:#b3453c}.playing-card.back{background:repeating-linear-gradient(45deg,#3c6956 0 2px,#315945 2px 6px);border:3px solid #e0e4d1;box-shadow:0 2px 4px #0003}.playing-card.back>span{color:#c8d8bb80;font-size:21px}.preview-cards .playing-card:first-child{transform:rotate(-7deg) translateY(3px)}.preview-cards .playing-card:last-child{transform:rotate(7deg) translateY(3px)}.preview-seat{position:absolute;display:grid;place-items:center;width:42px;height:42px;border-radius:100%;background:#9e806b;color:#f4e9dc;font-size:14px;font-weight:600;border:3px solid #17221a;box-shadow:0 0 0 1px #93ac8160}.preview-seat span{position:absolute;top:47px;font-size:9px;white-space:nowrap;letter-spacing:.3px;font-weight:400}.ps-one{top:38px;left:37px;background:#576e94}.ps-two{right:12px;top:140px;background:#927764}.ps-three{bottom:16px;left:43%;background:var(--accent);color:#1b392a}.dealer-preview{position:absolute;top:116px;left:34px;width:20px;height:20px;display:grid;place-items:center;border-radius:50%;background:#efe6ca;color:#263e2c;font:600 10px Arial}.visual-footer{border-top:1px solid #8ca07f23;display:flex;justify-content:space-between;padding-top:16px;font-size:10px;color:#a7b69e}.lobby-foot{grid-column:1/-1;display:flex;justify-content:space-between;padding:50px 0 34px;font-size:9px;letter-spacing:1px;color:#63766a}.room-header{display:flex;align-items:center;justify-content:space-between;margin:30px 0 22px;gap:12px}.room-header h1{font:normal 30px Georgia;letter-spacing:-.5px;margin:8px 0 0;overflow-wrap:anywhere}.room-header .eyebrow{font-size:8px;letter-spacing:1.6px}.room-tools{display:flex;align-items:center;gap:10px}.connection{font-size:10px;color:var(--muted);display:flex;align-items:center;gap:7px;margin-right:7px}.connection.offline{color:var(--danger)}.connection.offline i{background:var(--danger)}.demo-banner{display:flex;align-items:center;gap:9px;border:1px solid #715d3e66;background:#3e342233;border-radius:9px;font-size:11px;color:#cdbc9a;margin-bottom:15px;padding:10px 13px;line-height:1.5}.demo-banner>span{font-size:8px;letter-spacing:1px;background:#5a492d;padding:4px 6px;border-radius:4px;color:#f4ddb0;white-space:nowrap}.game-grid{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:22px}.table-column{min-width:0}.table-card{border:1px solid var(--line);border-radius:var(--radius);background:radial-gradient(ellipse at 50% 50%,#293c2b5c,#18241dc7);overflow:hidden}.table-topline,.table-bottomline{display:flex;justify-content:space-between;color:#9fab98;font-size:9px;letter-spacing:1.1px;padding:19px 22px}.table-topline .muted{color:#667767}.table-bottomline{border-top:1px solid #73876920;font-size:9px;letter-spacing:.25px;padding:13px 20px}.table-bottomline>span:last-child{font-size:8px;color:#778b76;letter-spacing:1px}.arena{height:475px;position:relative;isolation:isolate}.felt{position:absolute;inset:55px 63px 65px;border-radius:47%;background:radial-gradient(ellipse at 45% 28%,#28644d,#164d39 55%,#103b2e);border:13px solid #192c21;box-shadow:0 0 0 1px #637b4c55,0 0 0 6px #121e16,0 18px 28px #0004,inset 0 0 44px #0005;z-index:-1}.felt:after{content:"";position:absolute;inset:0;border-radius:inherit;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='.045' filter='url(%23n)'/%3E%3C/svg%3E");pointer-events:none}.felt-line{position:absolute;inset:13px;border:1px solid #c2ca8933;border-radius:47%}.felt-brand{position:absolute;top:23%;left:50%;transform:translate(-50%,-50%);font:italic 35px Georgia;opacity:.11;letter-spacing:2px}.deck{position:absolute;left:50%;top:24%;width:28px;height:39px;transform:translateX(-50%) rotate(-9deg)}.deck>i{position:absolute;inset:0;display:grid;place-items:center;font-size:17px;font-style:normal;background:repeating-linear-gradient(45deg,#4a7659 0 2px,#37583f 2px 5px);border:2px solid #cdd2b7;border-radius:3px;color:#cfdbb794;box-shadow:1px 1px 3px #0005}.deck>i:nth-child(1){transform:translate(3px,4px)}.deck>i:nth-child(2){transform:translate(1px,2px)}.pot-display{position:absolute;top:36%;left:50%;transform:translateX(-50%);text-align:center}.pot-label{font-size:8px;letter-spacing:1.8px;color:#9ebca4}.pot-display>div{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:7px}.pot-display strong{font-size:24px;letter-spacing:-.7px;font-weight:600}.tiny-chip{width:17px;height:17px;border-radius:50%;border:3px dashed #768448;background:#d2c483;box-shadow:0 1px 0 #554e28}.community-cards{position:absolute;top:49%;left:50%;transform:translateX(-50%);display:flex;gap:6px;perspective:600px}.community-cards .playing-card{width:48px;height:68px;border-radius:6px}.community-cards .playing-card b{font-size:18px;top:3px;left:5px}.community-cards .playing-card>span{font-size:29px}.community-cards .playing-card small{font-size:13px;right:4px}.card-placeholder{width:48px;height:68px;border:1px solid #a5be9826;border-radius:6px;display:grid;place-items:center;color:#a5be981d;font:26px Georgia}.playing-card.winning{box-shadow:0 0 0 2px #e8d797,0 0 18px #d9ca792b}.street-label{position:absolute;top:67%;left:50%;transform:translateX(-50%);font-size:9px;text-align:center;letter-spacing:1.1px;color:#a5bc9f;white-space:nowrap}.seat{position:absolute;width:108px;transform:translate(-50%,-50%);text-align:center;z-index:2;transition:opacity .2s}.avatar{margin:0 auto;width:44px;height:44px;background:#59685b;display:grid;place-items:center;border-radius:50%;color:#e5eadb;border:3px solid #203021;box-shadow:0 0 0 1px #a3b09730;font-size:15px;font-weight:600;position:relative}.seat.turn .avatar{box-shadow:0 0 0 2px var(--accent),0 0 20px #b9edce20}.seat.winner .avatar{box-shadow:0 0 0 2px var(--gold),0 0 25px #dec89840}.seat.folded{opacity:.43}.seat.offline .avatar:after{content:"";width:8px;height:8px;position:absolute;bottom:0;right:0;background:#c1816d;border:2px solid var(--bg);border-radius:50%}.seat-label{background:#142019eF;border:1px solid #46563890;border-radius:8px;padding:6px 5px 5px;margin-top:4px;box-shadow:0 3px 8px #0002}.seat-name{display:block;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;line-height:1.2}.seat-stack{font-size:12px;font-weight:600;display:block;margin-top:3px;color:#d9e5ce;letter-spacing:.3px}.seat.self .seat-label{border-color:#a3c3a166}.seat.self .seat-name{color:var(--accent)}.seat-hand{position:absolute;display:flex;left:50%;bottom:calc(100% - 10px);transform:translateX(-50%);gap:2px;z-index:-1;perspective:500px}.seat-hand .playing-card{width:25px;height:35px;border-radius:3px;box-shadow:none}.seat-hand .playing-card b{font-size:12px;left:3px;top:1px}.seat-hand .playing-card>span{font-size:16px;top:62%}.seat-hand .playing-card small{display:none}.seat-hand .playing-card:first-child{transform:rotate(-10deg)}.seat-hand .playing-card:last-child{transform:rotate(10deg)}.seat.self .seat-hand{gap:4px;bottom:calc(100% - 17px)}.seat.self .seat-hand .playing-card{width:40px;height:55px;border-radius:5px}.seat.self .seat-hand .playing-card b{font-size:18px;left:4px;top:2px}.seat.self .seat-hand .playing-card>span{font-size:25px;top:58%}.seat.self .avatar{width:33px;height:33px;font-size:12px}.seat-action{font-size:8px;color:#c1ceb2;height:12px;margin-top:5px;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap}.dealer-button{position:absolute;right:12px;top:8px;background:#e7dfbd;width:18px;height:18px;border-radius:50%;font:bold 10px/18px Arial;color:#354230;box-shadow:0 2px 3px #0005}.bet-badge{position:absolute;left:50%;top:calc(100% + 2px);transform:translateX(-50%);font-size:9px;white-space:nowrap;display:flex;align-items:center;gap:5px;background:#14291ba3;padding:3px 7px;border-radius:12px}.bet-badge .tiny-chip{width:11px;height:11px;border-width:2px}.seat[data-position="0"] .bet-badge,.seat[data-position="1"] .bet-badge,.seat[data-position="5"] .bet-badge{top:auto;bottom:calc(100% + 39px)}.empty-seat{opacity:.45}.empty-seat .avatar{border:1px dashed #9db29a70;background:transparent;box-shadow:none;font-size:19px;color:#94a990;font-weight:300}.empty-seat .seat-label{border:0;background:transparent}.empty-seat .seat-name{font-size:9px}.empty-seat .seat-stack{display:none}.result-label{position:absolute;top:72%;left:50%;transform:translateX(-50%);text-align:center;width:65%;font-size:11px;line-height:1.6;color:var(--gold);background:#183322dc;border:1px solid #a4a06a3b;border-radius:9px;padding:7px 10px;z-index:3}.result-label small{font-size:9px;color:#bdc6a6;display:block}.action-panel{padding:20px 21px;border:1px solid var(--line);border-radius:17px;margin-top:16px;background:#1c2921}.turn-line{display:flex;align-items:center;justify-content:space-between;gap:8px}.turn-line>div:first-child{display:flex;align-items:center;gap:8px;min-width:0}.turn-indicator{width:6px;height:6px;border-radius:50%;background:#63725e;flex-shrink:0}.turn-indicator.active{background:var(--accent);box-shadow:0 0 10px #b9edce35}.turn-line strong{font-size:12px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.turn-line #turn-subtitle{color:#8fa086;font-size:10px;margin-left:5px}.time-counter{font-size:11px;color:var(--accent);font-variant-numeric:tabular-nums;white-space:nowrap}.timer-track{height:2px;background:#354631;margin:13px 0 15px;border-radius:2px;overflow:hidden}.timer-track i{display:block;height:100%;width:0;background:var(--accent);transition:width .12s linear}.main-actions{display:grid;grid-template-columns:1fr 1.12fr 1fr;gap:9px}.action-button{border:1px solid #465b3c;background:#26372a;border-radius:11px;padding:13px 7px;display:flex;flex-direction:column;gap:6px;align-items:center;min-height:61px;transition:background .2s}.action-button span{font-size:13px;font-weight:600}.action-button small{font-size:9px;color:#9aad8c}.action-button.fold{background:#2c3027;border-color:#4b4d3d}.action-button.fold span{color:#e0c3ae}.action-button.call{background:var(--accent);border-color:var(--accent);color:var(--accent-dark)}.action-button.call small{color:#3c6b4b}.action-button:not(:disabled):hover{filter:brightness(1.1)}.action-button:disabled{opacity:.36}.waiting-actions{display:flex;gap:15px;align-items:center;justify-content:space-between}.waiting-actions p{font-size:11px;line-height:1.7;color:var(--muted);max-width:300px;margin:0}.waiting-actions button{flex-shrink:0}.raise-panel{border-top:1px solid #58714940;margin-top:15px;padding-top:15px}.raise-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:10px;color:var(--muted)}.raise-heading>div{display:flex;align-items:center;gap:8px}.raise-heading input{background:#13221a;border:1px solid #536c45;padding:7px 10px;border-radius:7px;max-width:100px;color:var(--text);font-size:12px}.raise-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px}.presets{display:flex;gap:6px}.presets button{font-size:9px;border:1px solid #475d3a;background:#243a27;border-radius:7px;padding:9px;color:#c4d5b2}.under-table{display:flex;align-items:center;justify-content:space-between;color:#71866c;font-size:9px;margin-top:14px;gap:8px}.under-table .text-button{font-size:9px;color:#8ca081}.side-card{border:1px solid var(--line);background:#18241e;border-radius:17px;padding:20px;margin-bottom:18px}.side-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:19px}.side-heading h2{margin:0;font-size:13px;font-weight:500}.side-heading>span{font-size:10px;color:#97ab90}.roster-row{display:flex;align-items:center;gap:10px;margin-bottom:17px}.roster-avatar{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:#405240;font-size:11px;color:#dce7ce;flex-shrink:0}.roster-info{min-width:0}.roster-info strong{font-size:11px;font-weight:500;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:130px}.roster-info small{display:block;color:#82977b;font-size:8px;margin-top:4px}.roster-stack{font-size:10px;margin-left:auto;color:#bbcbb0;font-variant-numeric:tabular-nums;white-space:nowrap}.privacy-note{display:flex;gap:10px;border-top:1px solid #3f543435;padding-top:16px;color:#79916d;font-size:9px;line-height:1.7}.privacy-note>span{font-size:14px}.privacy-note p{margin:0}.privacy-note strong{color:#a7bc9a;font-size:9px;font-weight:500}.history-card{padding-bottom:12px}.history-row{display:flex;gap:10px;align-items:flex-start;font-size:10px;color:#9eaf93;padding:0 0 13px;line-height:1.5}.history-row:before{content:"";width:5px;height:5px;border:1px solid #536b44;border-radius:50%;flex-shrink:0;margin-top:4px}.history-row.win{color:var(--gold)}.history-row.deal{color:#d8e2ce}.history-row.win:before{border-color:var(--gold);background:var(--gold)}.history-row.street{color:#a5c58d}.sidebar-note{font:italic 23px/1.5 Georgia;color:#7b957044;padding:5px 10px;text-align:center}.sidebar-note span{color:#7b957088}.global-footer{display:flex;justify-content:space-between;padding:34px 0 23px;color:#53694f;font-size:8px;letter-spacing:.7px;gap:12px}.pending-requests{border:1px solid #71945966;border-radius:12px;margin-top:15px;padding:12px 15px;background:#2a4027}.request-row{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:11px}.request-row>span{margin-right:auto}.request-row button{border:1px solid #8cb36b;background:transparent;border-radius:7px;padding:8px 10px;color:var(--accent);font-size:10px}.request-row button.approve{background:var(--accent);color:#1f4225}.waiting-screen{text-align:center;min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center}.waiting-symbol{font:65px Georgia;color:var(--accent);margin-bottom:30px}.waiting-screen h2{font:32px Georgia;margin:20px 0}.waiting-screen p{max-width:360px;color:var(--muted);font-size:13px;line-height:1.8}.waiting-pulse{display:flex;gap:7px;margin:25px 0}.waiting-pulse i{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:pulse 1.2s infinite}.waiting-pulse i:nth-child(2){animation-delay:.2s}.waiting-pulse i:nth-child(3){animation-delay:.4s}@keyframes pulse{50%{opacity:.2;transform:translateY(-4px)}}dialog{width:min(460px,calc(100vw - 30px));border:1px solid #465c43;background:#1b2a20;color:var(--text);border-radius:22px;padding:23px;box-shadow:0 30px 100px #0007}dialog::backdrop{background:#050e09b5;backdrop-filter:blur(5px)}.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}.modal-head .eyebrow{font-size:8px}.modal-head .icon-button{height:28px;width:28px;border-radius:8px;font-size:20px}dialog h2{font:30px Georgia;margin:15px 0 12px}dialog p{color:#a7ba9a;font-size:12px;line-height:1.8}dialog label{display:block;font-size:10px;color:#b0c1a4;margin:17px 0 7px}dialog input:not([type=checkbox]),dialog textarea{width:100%;background:#112018;color:var(--text);border:1px solid #455e3d;border-radius:10px;padding:12px 13px;font-size:13px;min-height:44px}dialog textarea{font-size:11px;resize:vertical;line-height:1.7;min-height:95px}dialog .button{width:100%;margin-top:19px}.form-row{display:flex;gap:12px}.form-row>div{flex:1;min-width:0}.form-note{font-size:10px!important;color:#819578!important;margin-top:14px!important}.modal-setting-row{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:13px;font-size:12px}.modal-setting-row button{width:auto;margin:0}.modal-players{margin-top:15px}.modal-player{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #40583766;padding:10px 0;font-size:12px}.modal-player button{border:0;background:transparent;color:var(--danger);font-size:11px}.danger-button{color:var(--danger)!important;border-color:#856247!important}.toast{position:fixed;bottom:max(25px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);max-width:calc(100vw - 30px);width:max-content;z-index:10000;background:#d9eacb;color:#1f3821;padding:13px 18px;border-radius:12px;font-size:12px;box-shadow:0 8px 30px #0005;line-height:1.6}.flying-chip{position:absolute;width:17px;height:17px;border-radius:50%;border:3px dashed #758046;background:#d2c483;z-index:10;pointer-events:none;box-shadow:0 3px 3px #0004}.state-note{padding:10px 13px;background:#2a3f2766;border-radius:9px;font-size:10px;line-height:1.7;color:#a8b898;margin-top:17px}.muted{color:var(--muted)}
+@media(min-width:1450px){.arena{height:510px}}@media(max-width:1080px){.app-shell{padding-left:25px;padding-right:25px}.game-grid{grid-template-columns:minmax(0,1fr) 230px;gap:16px}.side-card{padding:16px}.arena{height:465px}.felt{inset:55px 47px 65px}.community-cards{gap:4px}.community-cards .playing-card,.card-placeholder{width:42px;height:62px}.seat{width:90px}.lobby{gap:25px}.hero-visual{padding:18px}.hero-features{gap:20px}.lobby h1{font-size:51px}.hero-actions .button{padding:14px}.preview-table-inner{left:14px;right:14px}.ps-one{left:22px}.ps-two{right:0}.waiting-actions{flex-wrap:wrap}}
+@media(max-width:840px){.game-grid{grid-template-columns:1fr}.sidebar{display:grid;grid-template-columns:1fr 1fr;gap:16px}.sidebar-note{display:none}.side-card{margin:0}.lobby{padding-top:50px;grid-template-columns:1fr 1fr}.lobby h1{font-size:43px}.hero-description{font-size:12px}.hero-features{gap:16px}.hero-features strong{font-size:13px}.hero-features span{font-size:8px}.hero-actions{flex-wrap:wrap}.hero-visual{padding:16px}.preview-table{height:310px}.preview-cards .playing-card{width:43px;height:64px}.preview-cards .playing-card>b{font-size:17px}.preview-cards .playing-card>span{font-size:26px}.preview-cards .playing-card>small{font-size:13px}.visual-heading{letter-spacing:.7px;font-size:8px}.visual-live{display:none}.ps-one{left:8px}.ps-two{right:-2px}.dealer-preview{left:7px}.preview-cards{top:175px}.preview-pot{top:121px}.arena{height:485px}.felt{inset:55px 65px 65px}.community-cards .playing-card,.card-placeholder{width:49px;height:70px}.community-cards{gap:6px}.seat{width:103px}.room-header h1{font-size:28px}}
+@media(max-width:600px){.app-shell{padding-left:16px;padding-right:16px}.topbar{height:85px}.brand-icon{width:35px;height:39px;font-size:29px;border-radius:10px}.brand-word{font-size:30px}.brand-word>span{font-size:7px;letter-spacing:1.5px;margin-top:7px}.topbar-right{gap:8px}.play-money{display:none}.topbar .icon-button{height:33px;width:33px;font-size:20px;border-radius:10px}.lobby{grid-template-columns:1fr;padding-top:43px;gap:35px}.lobby h1{font-size:49px;letter-spacing:-1.8px;margin:24px 0 21px}.hero-description{font-size:13px;line-height:1.8;margin-bottom:27px}.hero-actions{flex-wrap:nowrap}.hero-actions .button{flex:1;gap:15px;font-size:12px;padding:14px 12px}.eyebrow{font-size:9px;letter-spacing:1.5px}.hero-features{justify-content:space-between;margin-top:37px;gap:12px}.hero-features strong{font-size:14px}.hero-features span{font-size:9px}.hero-visual{max-width:440px;width:100%;justify-self:center;margin:0 3px;transform:rotate(-1deg);padding:21px}.preview-table{height:300px}.preview-table-inner{inset:30px 24px 24px}.preview-watermark{top:61px}.preview-pot{top:111px}.preview-cards{top:160px}.preview-cards .playing-card{width:49px;height:70px}.ps-one{top:31px;left:27px}.ps-two{right:7px;top:133px}.ps-three{bottom:17px}.dealer-preview{left:19px;top:103px}.visual-heading{font-size:9px;letter-spacing:1px}.visual-live{display:block}.lobby-foot{padding:0 0 6px;font-size:7px;gap:10px;letter-spacing:.5px}.lobby-foot span:last-child{display:none}.room-header{margin:21px 0 17px;align-items:center}.room-header h1{font-size:25px;margin-top:7px;max-width:210px}.room-header .eyebrow{font-size:7px;letter-spacing:1.1px}.room-tools{gap:7px}.room-tools .button{font-size:10px;padding:9px 10px;gap:5px;min-height:34px}.room-tools .icon-button{width:33px;height:33px;font-size:22px}.connection{position:absolute;top:95px;right:18px;font-size:8px;margin:0}.connection i{width:4px;height:4px}.demo-banner{font-size:9px;padding:8px 10px;gap:8px;margin-bottom:12px}.table-card{border-radius:17px;margin:0 -4px}.table-topline{padding:15px 12px;font-size:7px;letter-spacing:.7px}.table-topline .muted{font-size:6px}.arena{height:415px}.felt{inset:40px 35px 53px;border-width:10px;border-radius:45%;box-shadow:0 0 0 1px #6c805151,0 0 0 4px #121e16,0 12px 20px #0005,inset 0 0 26px #0005}.felt-line{inset:10px;border-radius:45%}.felt-brand{font-size:27px}.seat{width:78px}.avatar{width:34px;height:34px;border-width:2px;font-size:12px}.seat-label{padding:5px 3px 4px;border-radius:7px;margin-top:3px}.seat-name{font-size:8px}.seat-stack{font-size:10px;margin-top:3px}.seat-action{font-size:6px;letter-spacing:.3px;margin-top:4px;height:9px}.seat-hand .playing-card{width:21px;height:29px;border-width:2px}.seat-hand .playing-card b{font-size:10px;left:2px}.seat-hand .playing-card>span{font-size:13px}.seat.self .seat-hand .playing-card{width:33px;height:47px}.seat.self .seat-hand .playing-card b{font-size:15px}.seat.self .seat-hand .playing-card>span{font-size:21px}.seat.self .avatar{width:28px;height:28px;font-size:10px}.dealer-button{height:15px;width:15px;line-height:15px;right:2px;top:3px;font-size:8px}.bet-badge{font-size:7px;gap:3px;padding:3px 4px}.bet-badge .tiny-chip{width:9px;height:9px}.seat[data-position="0"] .bet-badge,.seat[data-position="1"] .bet-badge,.seat[data-position="5"] .bet-badge{bottom:calc(100% + 31px)}.community-cards{gap:4px;top:48%}.community-cards .playing-card,.card-placeholder{width:35px;height:50px;border-radius:4px}.community-cards .playing-card b{font-size:14px;left:4px;top:2px}.community-cards .playing-card>span{font-size:23px;top:56%}.community-cards .playing-card small{font-size:9px;right:3px;bottom:2px}.card-placeholder{font-size:20px}.deck{width:23px;height:32px;top:23%}.pot-display{top:34%}.pot-label{font-size:7px;letter-spacing:1.1px}.pot-display strong{font-size:20px}.pot-display>div{margin-top:5px;gap:5px}.pot-display .tiny-chip{width:14px;height:14px;border-width:2px}.street-label{top:63%;font-size:7px;letter-spacing:.9px}.result-label{top:68%;font-size:9px;width:62%;padding:5px 7px}.result-label small{font-size:7px}.table-bottomline{font-size:7px;padding:12px 10px;letter-spacing:0}.table-bottomline>span:last-child{font-size:6px;letter-spacing:.6px}.action-panel{border-radius:14px;margin:12px -4px 0;padding:16px 13px}.turn-line strong{font-size:11px}.turn-line #turn-subtitle{font-size:8px;margin-left:1px}.turn-line>div:first-child{gap:6px}.time-counter{font-size:10px}.timer-track{margin:12px 0}.action-button{padding:11px 6px;border-radius:9px;min-height:58px;gap:6px}.action-button span{font-size:12px}.action-button small{font-size:8px}.main-actions{gap:7px}.under-table{font-size:7px;margin-top:11px}.under-table .text-button{font-size:8px}.sidebar{display:none}.global-footer{padding-top:27px;font-size:6px;letter-spacing:.4px}.waiting-actions{gap:11px}.waiting-actions p{font-size:10px}.waiting-actions .button{font-size:12px;width:100%}.waiting-actions p{max-width:none}.raise-heading{font-size:9px}.raise-heading input{max-width:79px;font-size:11px}.presets button{font-size:8px;padding:9px 8px}.raise-bottom .button{font-size:10px;padding:10px 12px}.pending-requests{margin-left:-4px;margin-right:-4px;padding:10px}.request-row{font-size:10px}.request-row button{font-size:9px;padding:7px}.room-header h1{max-width:190px}.toast{font-size:11px}}
+@media(max-width:365px){.lobby h1{font-size:43px}.app-shell{padding-left:13px;padding-right:13px}.room-header h1{font-size:22px;max-width:150px}.room-tools .button{font-size:9px;padding:8px;gap:3px}.arena{height:390px}.community-cards .playing-card,.card-placeholder{width:31px;height:46px}.community-cards{gap:3px}.seat{width:71px}.hero-features span{font-size:8px}.hero-features strong{font-size:12px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}.waiting-pulse i{animation:none}}
+
+#resume-room{display:flex;margin-top:18px} @media(max-width:600px){.arena{height:clamp(345px,calc(100svh - 495px),415px)}.felt{inset:37px 35px 48px}.street-label{top:65%}.result-label{top:68%}}
+
+/* Rules audit additions: keyboard-readable controls and a narrow-screen ledger. */
+select{font:inherit;color:var(--text,#e5ebe4);background:#19241f;border:1px solid var(--line);border-radius:9px;padding:12px;width:100%;margin-bottom:10px}select:focus-visible{outline:2px solid var(--accent)}.check-setting{display:flex!important;gap:10px;align-items:center;line-height:1.5}.check-setting input{width:18px;height:18px;flex:0 0 18px;accent-color:var(--accent)}.review-actions{display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin-top:14px}.review-actions:has([hidden]):not(:has(button:not([hidden]))){display:none}.settlement-pot,.settlement-player{padding:12px 0;border-bottom:1px solid var(--line)}.settlement-pot h3{display:flex;justify-content:space-between;gap:12px;font-size:15px;margin:0 0 8px}.settlement-pot p,.settlement-player p{font-size:12px!important;line-height:1.65!important;margin:7px 0!important;overflow-wrap:anywhere}.settlement-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;font-size:13px;padding:5px 0}.settlement-row span{overflow-wrap:anywhere;min-width:0}.settlement-row strong:last-child{white-space:nowrap}.settlement-player>.settlement-row>strong:first-child{white-space:normal;overflow-wrap:anywhere;min-width:0}.state-note{overflow-wrap:anywhere}#modal-content>h3{font-size:16px}.result-label{overflow-wrap:anywhere}@media(max-width:600px){.review-actions{gap:10px}.review-actions .button{font-size:11px}.review-actions .text-button{font-size:10px}.settlement-row{font-size:12px}}
+
+/* Session lifecycle: auto-deal, explicit participation and owner pause. */
+.auto-status{font-size:12px;line-height:1.5;margin:0 0 12px;color:var(--accent,#cedbb6);min-height:18px}
+.session-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:12px 0 0}
+.session-controls .button{min-height:40px}.session-controls .text-button{min-height:40px}
+.participation-note{font-size:11px;line-height:1.6;color:var(--muted);margin:9px 0 0}
+.seat.sitting-out .avatar{filter:saturate(.15);border-style:dashed}
+.seat.sitting-out .seat-action{color:#d8c695}.seat.sitting-out .seat-hand{opacity:.6}
+@media(max-width:600px){.session-controls{gap:8px}.session-controls .button{font-size:11px;padding:10px 13px}.session-controls .text-button{font-size:10px}.auto-status{font-size:11px}.participation-note{font-size:10px}.turn-line>div:first-child{flex-wrap:wrap}}
+/* PWA controls: touch targets, safe areas and a compact editable level table. */
+.pending-changes {padding:12px 16px;background:#293e33;color:#e0c590;border:1px solid #5d7257;border-radius:12px;margin:10px 0;font-size:14px;}
+.levels-editor{width:100%;border-collapse:collapse;margin:12px 0}.levels-editor th{text-align:left;font-size:12px}.levels-editor td{padding:3px}.levels-editor input{width:100%;min-width:0;padding:9px 5px;min-height:44px}
+#blinds-form,#rebuy-form{margin:20px 0;padding-top:12px;border-top:1px solid #37473b}#pending-changes[hidden],#cash-options[hidden],#buy-in-range[hidden]{display:none}
+@media(max-width:600px){input,select,textarea{font-size:16px!important}button{touch-action:manipulation}.main-actions button{min-height:64px}.presets{display:flex;flex-wrap:wrap}.presets button{min-height:44px;padding:8px 10px}.action-panel{padding-bottom:max(16px,env(safe-area-inset-bottom))}.levels-editor{table-layout:fixed}.levels-editor th:first-child{width:24px}.room-header h1{font-size:21px}.connection{font-size:11px}}
+.rebuy-banner{margin:10px 0;padding:14px 16px;border-radius:12px;border:1px solid #d5bc89;background:#332f20;color:#f6e3b7;font-weight:600}
+.rebuy-notice{position:fixed;z-index:15;top:80px;right:18px;width:min(340px,calc(100vw - 36px));padding:18px;border:1px solid #a7966c;border-radius:16px;background:#1d2c27;box-shadow:0 12px 40px #0008;color:#f2eadb}
+.rebuy-notice p{font-size:14px;overflow-wrap:anywhere}.rebuy-notice .button{width:100%;min-height:44px}.rebuy-request{padding:14px 0;border-bottom:1px solid #3a4a40}.rebuy-request p{overflow-wrap:anywhere}.rebuy-decisions{display:flex;gap:10px}.rebuy-decisions .button{flex:1;min-height:44px;padding:12px 8px}.rebuy-queue{margin:14px 0}.session-controls{flex-wrap:wrap}
+.rebuy-banner[hidden],.rebuy-notice[hidden],#request-rebuy[hidden],#rebuy-pending-credit[hidden]{display:none}
+.seat-stack,.pot-display strong,.roster-stack{font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+@media(max-width:600px){.rebuy-notice{top:66px;right:12px;width:min(330px,calc(100vw - 24px));padding:14px}.seat-stack{font-size:clamp(10px,3vw,14px)}.pot-display strong{max-width:180px;font-size:clamp(16px,5vw,28px)}.action-button span{overflow-wrap:anywhere}.main-actions{grid-template-columns:repeat(3,minmax(0,1fr))}.rebuy-decisions{flex-wrap:wrap}}
+</style>
+  
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <script type="module">window.__STANDALONE__=true;
+/**
+ * Server-authoritative no-limit Hold'em core, integer play chips only.
+ * No I/O. The same engine powers the explicitly labelled, local bot preview.
+ * No balances, payments, deposits, withdrawals, rake or real-money support.
+ */
+const RANKS = '23456789TJQKA';
+const SUITS = 'cdhs';
+const HAND_NAMES = ['Старшая карта', 'Пара', 'Две пары', 'Тройка', 'Стрит', 'Флеш', 'Фулл-хаус', 'Каре', 'Стрит-флеш'];
+// Integer chips only. Table-wide budget leaves headroom for raise/pot arithmetic.
+const MAX_TABLE_CHIPS = 1_000_000_000_000_000;
+const REBUY_REVIEW_LEASE_MS = 120000;
+const chipText = n => new Intl.NumberFormat('ru-RU').format(n);
+const phases = ['preflop', 'flop', 'turn', 'river'];
+const sum = xs => xs.reduce((a, b) => a + b, 0);
+const ensure = (condition, message) => { if (!condition) throw new Error(message); };
+const integer = (x, min, max) => Number.isSafeInteger(x) && x >= min && x <= max;
+
+/** Unbiased, cryptographically random integer using rejection sampling. */
+function randomBelow(n) {
+  ensure(integer(n, 1, 0xffffffff), 'Invalid random bound');
+  ensure(globalThis.crypto?.getRandomValues, 'Криптографический ГСЧ недоступен: раздача запрещена');
+  const limit = Math.floor(0x100000000 / n) * n;
+  const bytes = new Uint32Array(1);
+  do { globalThis.crypto.getRandomValues(bytes); } while (bytes[0] >= limit);
+  return bytes[0] % n;
+}
+function shuffledDeck() {
+  const cards = [...SUITS].flatMap(s => [...RANKS].map(r => r + s));
+  for (let i = cards.length - 1; i > 0; i--) {
+    const j = randomBelow(i + 1); [cards[i], cards[j]] = [cards[j], cards[i]];
+  }
+  return cards;
+}
+function compareRanks(a, b) {
+  for (let i = 0; i < Math.max(a.length, b.length); i++) {
+    if ((a[i] || 0) !== (b[i] || 0)) return (a[i] || 0) - (b[i] || 0);
+  }
+  return 0;
+}
+function evaluateFive(cards) {
+  ensure(cards.length === 5 && new Set(cards).size === 5 && cards.every(c => /^[2-9TJQKA][cdhs]$/.test(c)), 'Invalid five-card hand');
+  const ranks = cards.map(c => RANKS.indexOf(c[0]) + 2).sort((a, b) => b - a);
+  const counts = new Map();
+  ranks.forEach(r => counts.set(r, (counts.get(r) || 0) + 1));
+  const groups = [...counts].sort((a, b) => b[1] - a[1] || b[0] - a[0]);
+  const flush = cards.every(c => c[1] === cards[0][1]);
+  const unique = [...new Set(ranks)];
+  const straight = unique.length === 5 && unique[0] - unique[4] === 4 ? unique[0]
+    : unique.join(',') === '14,5,4,3,2' ? 5 : 0;
+  if (straight && flush) return [8, straight];
+  if (groups[0][1] === 4) return [7, groups[0][0], groups[1][0]];
+  if (groups[0][1] === 3 && groups[1][1] === 2) return [6, groups[0][0], groups[1][0]];
+  if (flush) return [5, ...ranks];
+  if (straight) return [4, straight];
+  if (groups[0][1] === 3) return [3, groups[0][0], ...groups.slice(1).map(g => g[0])];
+  if (groups[0][1] === 2 && groups[1][1] === 2) return [2, ...groups.map(g => g[0])];
+  if (groups[0][1] === 2) return [1, ...groups.map(g => g[0])];
+  return [0, ...ranks];
+}
+function bestHand(cards) {
+  ensure(cards.length >= 5 && cards.length <= 7 && new Set(cards).size === cards.length, 'Invalid hand');
+  let result = null;
+  for (let a = 0; a < cards.length - 4; a++)
+    for (let b = a + 1; b < cards.length - 3; b++)
+      for (let c = b + 1; c < cards.length - 2; c++)
+        for (let d = c + 1; d < cards.length - 1; d++)
+          for (let e = d + 1; e < cards.length; e++) {
+            const five = [cards[a], cards[b], cards[c], cards[d], cards[e]];
+            const rank = evaluateFive(five);
+            if (!result || compareRanks(rank, result.rank) > 0) result = {rank, cards: five, name: HAND_NAMES[rank[0]]};
+          }
+  return result;
+}
+
+/**
+ * Build real pots BEFORE rounding any payout. A folded contribution does not
+ * create a new side pot by itself. Adjacent layers with the same eligible
+ * players must be merged, otherwise odd chips can be awarded multiple times.
+ * This function neither debits nor credits any stack.
+ */
+function buildPots(players) {
+  ensure(players.length >= 2 && new Set(players.map(p => p.id)).size === players.length, 'Некорректные участники банка');
+  ensure(players.every(p => integer(p.total, 0, MAX_TABLE_CHIPS)), 'Некорректные взносы в банк');
+  ensure(players.reduce((n,p)=>n+BigInt(p.total),0n) <= BigInt(MAX_TABLE_CHIPS), 'Превышена безопасная сумма фишек');
+  const contenders = players.filter(p => p.inHand && !p.folded);
+  ensure(contenders.length > 0, 'Нет участников, имеющих право на банк');
+  const levels = [...new Set(players.map(p => p.total).filter(Boolean))].sort((a,b) => a-b);
+  const pots = [], refunds = [];
+  let previous = 0;
+  for (const level of levels) {
+    const contributors = players.filter(p => p.total >= level);
+    const slice = level - previous, amount = slice * contributors.length;
+    previous = level;
+    if (contributors.length === 1) {
+      refunds.push({id: contributors[0].id, amount, reason: 'Непокрытая часть ставки'});
+      continue;
+    }
+    const eligible = contenders.filter(p => p.total >= level).map(p => p.id);
+    ensure(eligible.length > 0, 'Банк без правомочного участника: требуется проверка раздачи');
+    const last = pots.at(-1);
+    if (last && JSON.stringify(last.eligible) === JSON.stringify(eligible)) {
+      last.amount += amount;
+      for (const p of contributors) last.contributions[p.id] = (last.contributions[p.id] || 0) + slice;
+    } else {
+      pots.push({id: pots.length, label: pots.length ? `Побочный банк ${pots.length}` : 'Основной банк', amount, eligible,
+        contributions: Object.fromEntries(contributors.map(p => [p.id, slice]))});
+    }
+  }
+  ensure(sum(pots.map(p => p.amount)) + sum(refunds.map(r => r.amount)) === sum(players.map(p => p.total)), 'Банки и возвраты не сходятся');
+  return {pots, refunds};
+}
+
+class Table {
+  constructor({smallBlind = 10, bigBlind = 20, startingStack = 2000, maxPlayers = 6, turnMs = 30000, mode = 'cash', straddleAllowed = false, levelMinutes = 10, handDelayMs = 6000, buyInMode = 'fixed', minBuyIn = startingStack, maxBuyIn = startingStack, rebuyAllowed = true, levels = null, now = () => Date.now()} = {}) {
+    ensure(integer(smallBlind, 1, 5000) && integer(bigBlind, smallBlind + 1, 10000), 'Некорректные блайнды');
+    ensure(integer(startingStack, bigBlind * 20, MAX_TABLE_CHIPS), 'Стек должен быть от 20 больших блайндов');
+    ensure(integer(maxPlayers, 2, 6) && integer(turnMs, 1000, 120000), 'Некорректные настройки');
+    ensure(['cash', 'tournament'].includes(mode), 'Неизвестный формат игры');
+    ensure(typeof straddleAllowed === 'boolean', 'Некорректная настройка страдла');
+    ensure(mode === 'cash' || !straddleAllowed, 'В турнире страдл запрещён');
+    ensure(integer(handDelayMs, 1000, 30000), 'Пауза между раздачами: от 1 до 30 секунд');
+    ensure(integer(levelMinutes, 1, 120), 'Длительность уровня: от 1 до 120 минут');
+    ensure(['fixed','range'].includes(buyInMode) && typeof rebuyAllowed === 'boolean', 'Некорректный buy-in');
+    if (buyInMode === 'fixed') minBuyIn = maxBuyIn = startingStack;
+    ensure(integer(minBuyIn, bigBlind * 20, MAX_TABLE_CHIPS) && integer(maxBuyIn, minBuyIn, MAX_TABLE_CHIPS) && integer(startingStack, minBuyIn, maxBuyIn), 'Стек вне диапазона buy-in');
+    if (levels !== null) {
+      ensure(Array.isArray(levels) && levels.length > 0 && levels.length <= 50, 'От 1 до 50 уровней');
+      levels = levels.map(l => {
+        ensure(l && integer(l.smallBlind,1,500000) && integer(l.bigBlind,l.smallBlind+1,MAX_TABLE_CHIPS) && integer(l.durationMinutes,1,120), 'Некорректный уровень');
+        ensure((l.ante ?? 0) === 0 && (l.bbAnte ?? 0) === 0, 'Анте ещё не поддерживается');
+        return {smallBlind:l.smallBlind,bigBlind:l.bigBlind,durationMinutes:l.durationMinutes,ante:0,bbAnte:0};
+      });
+      ensure(startingStack >= levels[0].bigBlind * 20, 'Стек должен быть от 20 BB первого уровня');
+    }
+    Object.assign(this, {buyInMode, minBuyIn, maxBuyIn, rebuyAllowed, levels, pendingBlinds:null});
+    Object.assign(this, {smallBlind, bigBlind, startingStack, maxPlayers, turnMs, mode, straddleAllowed, levelMinutes, handDelayMs, now});
+    this.baseSmallBlind = smallBlind; this.baseBigBlind = bigBlind;
+    this.startedAt = null; this.level = 0; this.tournamentOver = false; this.championId = null;
+    this.straddle = null; this.rulesVersion = 'svoi-nlhe-0.4.1';
+    this.running = false; this.paused = false; this.nextHandAt = null; this.haltReason = null;
+    this.lastHand = null; this.pauseStartedAt = null;
+    this.rebuyRequests = []; this.rebuyReview = null;
+    this.players = [];
+    this.phase = 'waiting'; this.dealer = -1; this.handId = 0; this.version = 0;
+    this.board = []; this.deck = []; this.pending = new Set(); this.actor = null;
+    this.currentBet = 0; this.minRaise = bigBlind; this.deadline = null;
+    this.payouts = []; this.pots = []; this.refunds = []; this.accounting = []; this.lastPot = 0; this.committedPot = 0; this.history = []; this.handHistory = []; this.historyTruncated = false;
+    this.nextEventId = 1; this.reveal = false; this.chipsIssued = 0;
+    this.lastBigBlind = null; this.lastSmallBlind = null; this.lastParticipantCount = 0;
+  }
+  get idle() { return this.phase === 'waiting' || this.phase === 'showdown'; }
+  get pot() { return sum(this.players.map(p => p.total)); }
+  player(id) { return this.players.find(p => p.id === id); }
+  contenders() { return this.players.filter(p => p.inHand && !p.folded); }
+  actors() { return this.contenders().filter(p => p.stack > 0); }
+  record(text, extra = {}) {
+    const event = {id: this.nextEventId++, handId: this.handId, phase: this.phase, text, ...extra};
+    this.history.push(event);
+    if (!this.idle || ['win','return','settlement'].includes(extra.kind)) {
+      this.handHistory.push(event);
+      if (this.handHistory.length > 1000) { this.handHistory.splice(1,1); this.historyTruncated = true; }
+    }
+    this.history = this.history.slice(-60);
+  }
+  addPlayer(id, name, {bot = false, buyIn = this.startingStack, unfunded = false} = {}) {
+    if(unfunded)buyIn=0;
+    ensure(unfunded || (this.mode === 'cash' ? integer(buyIn,this.minBuyIn,this.maxBuyIn) : buyIn === this.startingStack), 'Стек вне диапазона buy-in');
+    ensure(unfunded || this.idle, 'Новые игроки садятся между раздачами');
+    ensure(!this.player(id), 'Вы уже за столом');
+    ensure(this.players.length < this.maxPlayers, 'За столом нет свободных мест');
+    if(buyIn)this.ensureChipCapacity(buyIn);
+    const seat = Array.from({length: this.maxPlayers}, (_, i) => i).find(i => !this.players.some(p => p.seat === i));
+    this.players.push({id, name: String(name).slice(0, 32), seat, bot, connected: true, sittingOut: false, returnPending: false, missedHands: this.mode === 'cash' && this.handId > 0, sitOutReason: null,
+      fundedBefore: !unfunded, stack: buyIn, pendingBuyIn: 0, cards: [], bet: 0, total: 0, folded: false, inHand: false, actedAt: null, actedRaiseSize: this.bigBlind, lastAction: '', autoStraddle: false});
+    this.players.sort((a, b) => a.seat - b.seat);
+    this.chipsIssued += buyIn;
+    this.version++; this.record(`${name} за столом`);
+    this.assertChips();
+  }
+  removePlayer(id) {
+    ensure(this.idle, 'Покинуть место можно между раздачами');
+    ensure(this.mode !== 'tournament' || this.handId === 0 || this.tournamentOver, 'Нельзя удалять участника начавшегося турнира');
+    const p = this.player(id); ensure(p, 'Игрок не найден');
+    this.chipsIssued -= p.stack + (p.pendingBuyIn || 0);
+    this.rebuyRequests = this.rebuyRequests.filter(r => r.playerId !== id);
+    this.players = this.players.filter(x => x.id !== id);
+    this.version++; this.record(`${p.name} покинул стол`);
+    this.assertChips();
+  }
+  ensureChipCapacity(amount) {
+    ensure(integer(amount,1,MAX_TABLE_CHIPS), 'Укажите целое положительное число фишек в безопасном диапазоне');
+    ensure(BigInt(this.chipsIssued) + BigInt(amount) <= BigInt(MAX_TABLE_CHIPS), 'Сумма фишек стола превысит предел точного расчёта');
+  }
+  requestRebuy(playerId, amount, requestId, fundingType = 'rebuy') {
+    ensure(!this.haltReason, 'Стол остановлен из-за ошибки');
+    const p=this.player(playerId); ensure(p, 'Игрок не найден');
+    ensure(['buyIn','rebuy','reentry','addon'].includes(fundingType),'Неизвестный вид закупа');
+    if(!p.fundedBefore){
+      fundingType='buyIn';
+      ensure(this.mode==='tournament'?amount===this.startingStack:integer(amount,this.minBuyIn,this.maxBuyIn),'Стартовый стек вне диапазона buy-in');
+    }else ensure(fundingType!=='buyIn','Первый бай-ин уже подтверждён; выберите ребай или реэнтри');
+    this.ensureChipCapacity(amount);
+    ensure(!this.rebuyRequests.some(r=>r.playerId===playerId), 'Ваш запрос уже ожидает администратора');
+    ensure(typeof requestId === 'string' && requestId.length >= 10, 'Некорректный идентификатор запроса');
+    this.rebuyRequests.push({id:requestId,playerId,name:p.name,amount,fundingType,createdAt:this.now()});
+    this.version++;
+    this.record(`${p.name} запросил докупку ${chipText(amount)} фишек`, {kind:'rebuyRequested',playerId,amount,requestId});
+  }
+  // Internal approved issuance. HTTP clients can only request, never call this directly.
+  topUp(playerId, amount = this.startingStack, fundingType = 'rebuy') {
+    return this.transaction(()=>{
+      const p=this.player(playerId); ensure(p, 'Игрок не найден');
+      ensure(['buyIn','rebuy','reentry','addon'].includes(fundingType),'Неизвестный вид закупа');
+      if(fundingType==='reentry')ensure(p.stack===0 && p.total===0 && !p.pendingBuyIn,'Реэнтри доступен после выбывания и расчёта текущей руки');
+      this.ensureChipCapacity(amount);
+      p.fundedBefore=true;
+      const deferred=!this.idle;
+      if(deferred) p.pendingBuyIn=(p.pendingBuyIn||0)+amount;
+      else p.stack+=amount;
+      this.chipsIssued+=amount;this.version++;
+      this.record(`${p.name} докупил ${chipText(amount)} фишек${deferred ? ' — со следующей раздачи' : ''}`, {kind:'rebuyApproved',playerId,amount,fundingType,effectiveHandId:this.handId+1});
+      this.reopenTournament();
+      if(this.idle)this.syncNextHand();
+    });
+  }
+  decideRebuy(requestId, approved) {
+    ensure(this.rebuyReview && this.now()<this.rebuyReview.expiresAt, 'Сначала откройте окно запросов');
+    const request=this.rebuyRequests.find(r=>r.id===requestId);ensure(request, 'Запрос уже обработан или отменён');
+    if(approved)this.topUp(request.playerId,request.amount,request.fundingType || 'rebuy');
+    else {this.version++;this.record(`Докупка ${request.name} отклонена`,{kind:'rebuyDenied',playerId:request.playerId,requestId});}
+    this.rebuyRequests=this.rebuyRequests.filter(r=>r.id!==requestId);
+  }
+  cancelRebuy(playerId, requestId) {
+    const r=this.rebuyRequests.find(r=>r.id===requestId&&r.playerId===playerId);ensure(r,'Запрос не найден');
+    this.rebuyRequests=this.rebuyRequests.filter(r=>r.id!==requestId);this.version++;
+    this.record(`${r.name} отменил запрос докупки`,{kind:'rebuyCancelled',playerId,requestId});
+  }
+  beginRebuyReview(reviewId, admissionNames=[]) {
+    ensure(!this.haltReason,'Проверка докупок недоступна');
+    if(this.rebuyReview)return;
+    ensure(this.rebuyRequests.length+admissionNames.length>0,'Нет ожидающих запросов');
+    const now=this.now();
+    this.rebuyReview={id:reviewId,names:[...this.rebuyRequests.map(r=>r.name),...admissionNames],startedAt:now,expiresAt:now+REBUY_REVIEW_LEASE_MS,
+      deadlineRemaining:this.deadline===null?null:Math.max(0,this.deadline-now),
+      nextHandRemaining:this.nextHandAt===null?null:Math.max(0,this.nextHandAt-now)};
+    this.deadline=null;this.nextHandAt=null;this.version++;
+    this.record(`Закуп в игре: ${[...this.rebuyRequests.map(r=>r.name),...admissionNames].join(', ')}. Игра приостановлена`,{kind:'rebuyReviewStarted',reviewId});
+  }
+  renewRebuyReview(reviewId) {
+    ensure(this.rebuyReview?.id===reviewId,'Окно запросов уже закрыто');
+    this.rebuyReview.expiresAt=this.now()+REBUY_REVIEW_LEASE_MS;
+  }
+  endRebuyReview(reviewId, automatic=false) {
+    // A stale close from another tab must never resume a newer review.
+    if(!this.rebuyReview || this.rebuyReview.id!==reviewId)return;
+    const review=this.rebuyReview;
+    if(this.mode==='tournament' && this.startedAt!==null && this.pauseStartedAt===null && this.tournamentEndedAt==null)this.startedAt+=this.now()-review.startedAt;
+    this.rebuyReview=null;
+    this.deadline=review.deadlineRemaining===null?null:this.now()+review.deadlineRemaining;
+    this.nextHandAt=review.nextHandRemaining===null?null:this.now()+review.nextHandRemaining;
+    this.version++;
+    this.record(automatic?'Окно закупа потеряло связь. Игра продолжена':'Окно закупа закрыто. Игра продолжена',{kind:'rebuyReviewEnded',automatic,reviewId});
+    this.syncNextHand();
+  }
+  applyApprovedRebuys() {
+    ensure(this.idle,'Фишки докупки применяются только между раздачами');
+    for(const p of this.players)if(p.pendingBuyIn){
+      const amount=p.pendingBuyIn;p.stack+=amount;p.pendingBuyIn=0;this.version++;
+      this.record(`${p.name}: ${chipText(amount)} фишек доступны со следующей раздачи`,{kind:'rebuyAvailable',playerId:p.id,amount,effectiveHandId:this.handId+1});
+    }
+  }
+  reopenTournament() {
+    if(this.mode!=='tournament' || !this.tournamentOver || this.players.filter(p=>p.stack>0).length<2)return;
+    const resumeAt=this.rebuyReview?.startedAt ?? this.now();
+    if(this.tournamentEndedAt!=null && this.startedAt!==null && this.pauseStartedAt===null)this.startedAt+=Math.max(0,resumeAt-this.tournamentEndedAt);
+    this.tournamentEndedAt=null;this.tournamentOver=false;this.championId=null;
+    this.record('Турнир продолжен после подтверждённого закупа',{kind:'tournamentResumed'});
+  }
+  clockFrozenAt() {
+    const times=[this.pauseStartedAt,this.rebuyReview?.startedAt,this.tournamentEndedAt].filter(n=>n!=null);
+    return times.length?Math.min(...times):null;
+  }
+  setStraddle(id, enabled) {
+    ensure(this.idle, 'Страдл выбирается до раздачи карт, между раздачами');
+    ensure(this.mode === 'cash' && this.straddleAllowed, 'Страдл за этим столом запрещён');
+    ensure(typeof enabled === 'boolean', 'Некорректная настройка страдла');
+    const p = this.player(id); ensure(p, 'Игрок не найден');
+    p.autoStraddle = enabled; this.version++;
+    this.record(`${p.name}: автострадл UTG ${enabled ? 'включён' : 'выключен'}`);
+  }
+  /** A session is started once. Subsequent hands are server-timed, never client-timed. */
+  startPlay() {
+    return this.transaction(() => {
+      ensure(!this.running && this.handId === 0, 'Игра уже запущена; следующая раздача автоматическая');
+      this.running = true;
+      this._startHand();
+    });
+  }
+  setPaused(paused) {
+    ensure(!this.rebuyReview,'Сначала закройте окно закупа');
+    ensure(typeof paused === 'boolean', 'Некорректная настройка паузы');
+    ensure(this.running && !this.tournamentOver && !this.haltReason, 'Пауза сейчас недоступна');
+    if (this.paused === paused) return;
+    this.paused = paused;
+    // A requested pause never stops a live hand, its action timer or settlement.
+    if (!paused && this.pauseStartedAt !== null) {
+      if (this.mode === 'tournament' && this.startedAt !== null) this.startedAt += this.now() - this.pauseStartedAt;
+      this.pauseStartedAt = null;
+    }
+    this.version++;
+    this.record(paused ? 'Пауза стола после текущей раздачи' : 'Автоматическая игра продолжена', {kind: 'pause'});
+    this.syncNextHand();
+  }
+  setConnected(id, connected) {
+    const p = this.player(id); ensure(p, 'Игрок не найден');
+    ensure(typeof connected === 'boolean', 'Некорректный статус соединения');
+    p.connected = connected;
+    // Reconnection restores the view, never consent to play or a new action clock.
+    if (this.idle) this.markDisconnected();
+    this.syncNextHand();
+  }
+  markDisconnected() {
+    // Network presence is advisory. Only an expired action clock opts a player out.
+    return false;
+  }
+  scheduleBlinds(smallBlind, bigBlind) {
+    ensure(this.mode === 'cash', 'В турнире действует структура уровней');
+    ensure(integer(smallBlind,1,5000) && integer(bigBlind,smallBlind+1,10000), 'Некорректные блайнды');
+    this.pendingBlinds = {smallBlind,bigBlind}; this.version++;
+    this.record(`Со следующей раздачи: ${smallBlind} / ${bigBlind}`, {kind:'blindsPending',smallBlind,bigBlind});
+  }
+  levelAt(time = this.now()) {
+    time=Math.min(time,this.clockFrozenAt() ?? time);
+    const levels = this.levels;
+    if (!levels) return Math.min(20, Math.floor((time - this.startedAt) / (this.levelMinutes * 60000)));
+    let elapsed = Math.max(0,time - this.startedAt), i = 0;
+    while (i < levels.length - 1 && elapsed >= levels[i].durationMinutes * 60000) elapsed -= levels[i++].durationMinutes * 60000;
+    return i;
+  }
+  levelEndsAt() {
+    if (this.mode !== 'tournament' || this.startedAt === null) return null;
+    if (this.levels && this.level === this.levels.length - 1) return null;
+    const duration = this.levels ? this.levels.slice(0,this.level+1).reduce((n,l)=>n+l.durationMinutes,0) : (this.level+1)*this.levelMinutes;
+    return this.startedAt + duration * 60000 + (this.clockFrozenAt() !== null ? this.now()-this.clockFrozenAt() : 0);
+  }
+  serialize() {
+    const {now, pending, ...data} = this;
+    return {...structuredClone(data), pending:[...pending]};
+  }
+  static restore(data, now = () => Date.now()) {
+    const table = Object.create(Table.prototype);
+    Object.assign(table, {rebuyRequests:[],rebuyReview:null}, structuredClone(data), {now, pending:new Set(data.pending)});
+    for(const p of table.players){p.pendingBuyIn ??= 0;p.fundedBefore ??= true;}
+    table.assertChips(); return table;
+  }
+
+  sitOut(id) {
+    ensure(!this.rebuyReview,'Игра приостановлена: закуп в игре');
+    return this.transaction(() => {
+      const p = this.player(id); ensure(p, 'Игрок не найден');
+      p.sittingOut = true; p.returnPending = false; p.sitOutReason = 'manual';
+      this.version++;
+      this.record(`${p.name}: не играет; автопас в свой ход`, {kind: 'sitOut', playerId: id, reason: 'manual'});
+      if (!this.idle && this.actor === id) this.foldAbsent(id, 'manual');
+      this.syncNextHand();
+    });
+  }
+  returnToPlay(id) {
+    const p = this.player(id); ensure(p, 'Игрок не найден');
+    ensure(p.connected, 'Сначала восстановите соединение');
+    ensure(p.stack > 0 || (!this.idle && p.inHand && !p.folded), 'Для возвращения нужны фишки');
+    ensure(!this.tournamentOver && !this.haltReason, 'Игра завершена или остановлена');
+    if (!p.sittingOut || p.returnPending) return;
+    // Even before the seat's turn, return cannot resurrect this hand or undo a fold.
+    p.returnPending = true; this.version++;
+    this.record(`${p.name}: запрос на возвращение`, {kind: 'returnToPlay', playerId: id});
+    this.syncNextHand();
+  }
+  lineup() {
+    if (this.mode === 'tournament') return {players: this.players.filter(p => p.stack > 0), forcedBB: null};
+    const ready = p => p.stack > 0 && (!p.sittingOut || p.returnPending);
+    const regular = this.players.filter(p => ready(p) && !p.missedHands);
+    const waiting = this.players.filter(p => ready(p) && p.missedHands);
+    let forcedBB = null;
+    if (waiting.length) {
+      const next = this.nextSeat(this.lastBigBlind ?? -1, ready);
+      if (regular.length >= 2) {
+        if (next?.missedHands) { regular.push(next); forcedBB = next.id; }
+      } else if (regular.length === 1) {
+        // Restart a short-handed cash table with the returning seat paying BB.
+        const bb = this.nextSeat(this.lastBigBlind ?? -1, p => waiting.includes(p));
+        regular.push(bb); forcedBB = bb.id;
+      } else if (waiting.length >= 2) {
+        const bb = next, sb = this.nextSeat(bb.seat, p => waiting.includes(p));
+        regular.push(bb, sb); forcedBB = bb.id;
+      }
+    }
+    return {players: regular, forcedBB};
+  }
+  syncNextHand() {
+    if(this.rebuyReview)return false;
+    if (this.paused && this.idle && this.pauseStartedAt === null) this.pauseStartedAt = this.now();
+    const allowed = this.running && !this.paused && !this.haltReason && this.idle &&
+      !this.tournamentOver && this.lineup().players.length >= 2;
+    const next = allowed ? (this.nextHandAt ?? this.now() + this.handDelayMs) : null;
+    if (next === this.nextHandAt) return false;
+    this.nextHandAt = next; this.version++; return true;
+  }
+  foldAbsent(id, reason) {
+    const p = this.player(id);
+    ensure(p && this.actor === id && p.inHand && !p.folded && p.stack > 0, 'Автопас здесь недоступен');
+    if (!p.sittingOut) {
+      p.sittingOut = true; p.returnPending = false; p.sitOutReason = reason;
+    }
+    this._act(id, 'fold', null, reason);
+  }
+  halt() {
+    // Fail closed: never repeatedly retry a corrupt/failed hand on the next tick.
+    this.haltReason = 'Игра остановлена из-за ошибки. Нужна проверка сервера.';
+    this.paused = true; this.deadline = null; this.nextHandAt = null; this.version++;
+  }
+  nextSeat(after, predicate) {
+    for (let n = 1; n <= this.maxPlayers; n++) {
+      const seat = (after + n + this.maxPlayers) % this.maxPlayers;
+      const p = this.players.find(x => x.seat === seat);
+      if (p && predicate(p)) return p;
+    }
+    return null;
+  }
+  pay(p, amount) {
+    const paid = Math.min(amount, p.stack);
+    ensure(integer(paid, 0, MAX_TABLE_CHIPS), 'Некорректная ставка');
+    p.stack -= paid; p.bet += paid; p.total += paid;
+    return paid;
+  }
+  transaction(fn) {
+    // In-process rollback only; this is NOT durable persistence / a database transaction.
+    const {now, ...data} = this, before = structuredClone(data);
+    try { const result = fn(); this.assertChips(); return result; }
+    catch (error) { Object.assign(this, before); throw error; }
+  }
+  /** suppliedDeck is a test seam. It is never accepted by the HTTP API. */
+  startHand(suppliedDeck = null) { return this.transaction(() => this._startHand(suppliedDeck)); }
+  _startHand(suppliedDeck = null) {
+    ensure(!this.rebuyReview,'Игра приостановлена: закуп в игре');
+    ensure(this.idle, 'Раздача уже идёт');
+    this.applyApprovedRebuys();
+    ensure(!this.tournamentOver, 'Турнир уже завершён');
+    ensure(!this.haltReason, 'Стол остановлен из-за ошибки');
+    this.markDisconnected();
+    const lineup = this.lineup(), eligibleIds = new Set(lineup.players.map(p => p.id));
+    const eligible = p => eligibleIds.has(p.id);
+    ensure(lineup.players.length >= 2, 'Для раздачи нужны хотя бы 2 готовых игрока с фишками');
+    if (suppliedDeck) ensure(suppliedDeck.length === 52 && new Set(suppliedDeck).size === 52 && suppliedDeck.every(c => /^[2-9TJQKA][cdhs]$/.test(c)), 'Invalid deck');
+    // Fail closed on entropy failure, before changing any table state.
+    const deck = suppliedDeck ? [...suppliedDeck] : shuffledDeck();
+    if (this.mode === 'tournament') {
+      if (this.startedAt === null) this.startedAt = this.now();
+      this.level = this.levelAt();
+      this.smallBlind = this.levels?.[this.level].smallBlind ?? this.baseSmallBlind * 2 ** this.level;
+      this.bigBlind = this.levels?.[this.level].bigBlind ?? this.baseBigBlind * 2 ** this.level;
+    } else if (this.pendingBlinds) {
+      Object.assign(this, this.pendingBlinds); this.pendingBlinds = null;
+      this.record(`Применены блайнды ${this.smallBlind} / ${this.bigBlind}`, {kind:'blindsApplied',effectiveHandId:this.handId+1,smallBlind:this.smallBlind,bigBlind:this.bigBlind});
+    }
+    for (const p of this.players) {
+      if (eligible(p)) {
+        if (p.returnPending && p.connected) { p.sittingOut = false; p.returnPending = false; p.sitOutReason = null; }
+        p.missedHands = false;
+      } else if (this.mode === 'cash' && p.stack > 0) p.missedHands = true;
+    }
+    this.nextHandAt = null;
+    this.deck = deck; this.board = []; this.phase = 'preflop'; this.handId++;
+    this.payouts = []; this.pots = []; this.refunds = []; this.accounting = []; this.handHistory = []; this.historyTruncated = false;
+    this.lastPot = 0; this.committedPot = 0; this.reveal = false; this.straddle = null;
+    this.currentBet = this.bigBlind; this.minRaise = this.bigBlind;
+    for (const p of this.players) Object.assign(p, {cards: [], bet: 0, total: 0, handStartStack: p.stack,
+      inHand: eligible(p), folded: false, actedAt: null, actedRaiseSize: this.bigBlind, lastAction: ''});
+    const active = this.contenders();
+    let sb, bb, sbSeat;
+    if (this.lastBigBlind === null) {
+      this.dealer = this.nextSeat(this.dealer, p => p.inHand).seat;
+      sb = active.length === 2 ? this.players.find(p => p.seat === this.dealer) : this.nextSeat(this.dealer, p => p.inHand);
+      bb = this.nextSeat(sb.seat, p => p.inHand); sbSeat = sb.seat;
+    } else {
+      // Dead-button rotation. The BB advances to the next funded occupied seat;
+      // the previous BB seat is the SB, even when it is now empty (dead SB).
+      bb = lineup.forcedBB ? this.player(lineup.forcedBB) : this.nextSeat(this.lastBigBlind, p => p.inHand);
+      if (active.length === 2) {
+        sb = active.find(p => p.id !== bb.id); sbSeat = sb.seat; this.dealer = sb.seat;
+      } else {
+        sbSeat = this.lastBigBlind;
+        sb = active.find(p => p.seat === sbSeat);
+        this.dealer = this.lastSmallBlind;
+      }
+    }
+    this.lastBigBlind = bb.seat; this.lastSmallBlind = sbSeat; this.lastParticipantCount = active.length;
+    this.record(`Раздача #${this.handId}`, {kind: 'deal', dealer: this.dealer, smallBlind: this.smallBlind,
+      bigBlind: this.bigBlind, mode: this.mode, rulesVersion: this.rulesVersion,
+      startingStacks: Object.fromEntries(active.map(p => [p.id, p.stack]))});
+    if (sb) { this.pay(sb, this.smallBlind); sb.lastAction = 'Малый блайнд'; }
+    this.pay(bb, this.bigBlind); bb.lastAction = 'Большой блайнд';
+    let lastForced = bb;
+    if (this.mode === 'cash' && this.straddleAllowed && active.length >= 3) {
+      const utg = this.nextSeat(bb.seat, p => p.inHand);
+      if (utg.autoStraddle && utg.stack >= this.bigBlind * 2) {
+        const amount = this.bigBlind * 2;
+        this.pay(utg, amount); utg.lastAction = 'Страдл';
+        this.straddle = {id: utg.id, amount}; this.currentBet = amount; this.minRaise = amount;
+        lastForced = utg;
+        this.record(`${utg.name} · страдл ${amount}`, {kind: 'straddle', playerId: utg.id, paid: amount});
+      }
+    }
+    // All forced bets and straddle preferences have been fixed BEFORE dealing.
+    for (let round = 0; round < 2; round++) {
+      let after = this.dealer;
+      for (let i = 0; i < active.length; i++) {
+        const p = this.nextSeat(after, x => x.inHand); p.cards.push(this.deck.shift()); after = p.seat;
+      }
+    }
+    this.pending = new Set(this.actors().map(p => p.id));
+    this.advance(lastForced.seat); this.version++; this.assertChips();
+  }
+  legal(id) {
+    const p = this.player(id);
+    if (!p || this.actor !== id || this.idle) return null;
+    const othersWithChips = this.actors().filter(x => x.id !== id);
+    // A lone player cannot bet into an uncontestable, empty side pot.
+    const target = othersWithChips.length ? this.currentBet : Math.min(this.currentBet, Math.max(0, ...this.players.filter(x => x.id !== id).map(x => x.bet)));
+    const toCall = Math.max(0, target - p.bet);
+    const maxTo = p.bet + p.stack;
+    const reopened = p.actedAt === null || this.currentBet - p.actedAt >= p.actedRaiseSize;
+    const canRaise = reopened && othersWithChips.length > 0 && maxTo > this.currentBet;
+    return {toCall, callAmount: Math.min(toCall, p.stack), canCheck: toCall === 0, canRaise,
+      minTo: this.currentBet + this.minRaise, maxTo, allInOnly: maxTo < this.currentBet + this.minRaise};
+  }
+  act(id, action, amount = null) {
+    ensure(!this.rebuyReview,'Игра приостановлена: закуп в игре');
+    ensure(!this.haltReason, 'Стол остановлен из-за ошибки');
+    ensure(!this.player(id)?.sittingOut, 'Вы не играете; возвращение возможно только в новой раздаче');
+    ensure(this.deadline === null || this.now() < this.deadline, 'Время хода истекло');
+    return this.transaction(() => this._act(id, action, amount));
+  }
+  _act(id, action, amount = null, autoReason = null) {
+    const p = this.player(id), legal = this.legal(id);
+    ensure(p && legal, 'Сейчас ход другого игрока');
+    const before = p.stack;
+    if (action === 'fold') { p.folded = true; p.lastAction = autoReason === 'timeout' ? 'Пас по таймеру' : autoReason ? 'Автопас' : 'Пас'; }
+    else if (action === 'check') { ensure(legal.canCheck, 'Нужно ответить на ставку'); p.lastAction = 'Чек'; }
+    else if (action === 'call') { ensure(legal.toCall > 0, 'Можно сделать чек'); this.pay(p, legal.callAmount); p.lastAction = p.stack === 0 ? 'Олл-ин' : 'Колл'; }
+    else if (action === 'raise') {
+      ensure(legal.canRaise, 'Повышение сейчас недоступно');
+      ensure(integer(amount, this.currentBet + 1, legal.maxTo), 'Некорректный размер ставки');
+      ensure(amount >= legal.minTo || amount === legal.maxTo, `Минимальное повышение до ${legal.minTo}`);
+      const raiseSize = amount - this.currentBet;
+      this.pay(p, amount - p.bet);
+      if (raiseSize >= this.minRaise) this.minRaise = raiseSize;
+      this.currentBet = amount;
+      p.lastAction = p.stack === 0 ? 'Олл-ин' : 'Рейз';
+      this.pending = new Set(this.actors().filter(x => x.id !== id).map(x => x.id));
+    } else throw new Error('Неизвестное действие');
+    p.actedAt = this.currentBet; p.actedRaiseSize = this.minRaise;
+    this.pending.delete(id);
+    const paid = before - p.stack;
+    this.record(`${p.name} · ${p.lastAction}${paid ? ` ${paid}` : ''}`, {kind: action, playerId: id, paid, to: p.bet, currentBet: this.currentBet, ...(autoReason ? {automatic: true, reason: autoReason} : {})});
+    this.advance(p.seat); this.version++; this.assertChips();
+  }
+  advance(afterSeat) {
+    if (this.contenders().length === 1) { this.finish(false); return; }
+    const actors = this.actors();
+    for (const id of this.pending) if (!actors.some(p => p.id === id)) this.pending.delete(id);
+    if (actors.length === 1) {
+      const p = actors[0];
+      const highestOther = Math.max(0, ...this.players.filter(x => x.id !== p.id).map(x => x.bet));
+      if (p.bet >= highestOther) this.pending.clear();
+      else this.pending = new Set([p.id]);
+    }
+    if (!this.pending.size) {
+      if (this.phase === 'river') { this.finish(true); return; }
+      this.nextStreet(); return;
+    }
+    const next = this.nextSeat(afterSeat, p => this.pending.has(p.id));
+    ensure(next, 'No pending actor');
+    this.actor = next.id; this.deadline = this.now() + (next.sittingOut ? 350 : this.turnMs);
+  }
+  nextStreet() {
+    this.phase = phases[phases.indexOf(this.phase) + 1];
+    this.deck.shift(); // Burn card.
+    const count = this.phase === 'flop' ? 3 : 1;
+    for (let i = 0; i < count; i++) this.board.push(this.deck.shift());
+    for (const p of this.players) Object.assign(p, {bet: 0, actedAt: null, actedRaiseSize: this.bigBlind, lastAction: p.folded ? 'Пас' : (p.inHand && p.stack === 0 ? 'Олл-ин' : '')});
+    this.currentBet = 0; this.minRaise = this.bigBlind;
+    this.record({flop: 'Флоп', turn: 'Тёрн', river: 'Ривер'}[this.phase], {kind: 'street'});
+    this.pending = new Set(this.actors().map(p => p.id));
+    if (this.actors().length <= 1) this.pending.clear();
+    this.advance(this.dealer);
+  }
+  finish(reveal) {
+    ensure(!this.idle, 'Раздача уже завершена');
+    const committedPot = this.pot, contenders = this.contenders();
+    ensure(reveal || contenders.length === 1, 'Нельзя назначить победителя без вскрытия');
+    if (reveal) {
+      const shown = [...this.board, ...contenders.flatMap(p => p.cards)];
+      ensure(this.board.length === 5 && new Set(shown).size === shown.length, 'Повтор карт или неполный борд');
+    }
+    const results = new Map(reveal ? contenders.map(p => [p.id, bestHand([...p.cards, ...this.board])]) : []);
+    const {pots, refunds} = buildPots(this.players);
+    const paid = new Map(), returned = new Map(refunds.map(r => [r.id, r.amount]));
+    // Plan ALL pots, winners and odd chips before mutating ANY stack.
+    for (const pot of pots) {
+      let winners = [this.player(pot.eligible[0])];
+      if (reveal) for (const id of pot.eligible.slice(1)) {
+        const p = this.player(id), cmp = compareRanks(results.get(id).rank, results.get(winners[0].id).rank);
+        if (cmp > 0) winners = [p]; else if (cmp === 0) winners.push(p);
+      }
+      winners.sort((a,b) => ((a.seat - this.dealer - 1 + this.maxPlayers) % this.maxPlayers) - ((b.seat - this.dealer - 1 + this.maxPlayers) % this.maxPlayers));
+      const each = Math.floor(pot.amount / winners.length), extra = pot.amount % winners.length;
+      pot.winners = winners.map(p => p.id);
+      pot.awards = winners.map((p,i) => ({id: p.id, amount: each + (i < extra ? 1 : 0)}));
+      for (const award of pot.awards) paid.set(award.id, (paid.get(award.id) || 0) + award.amount);
+      ensure(sum(pot.awards.map(a => a.amount)) === pot.amount, 'Неверное деление банка');
+    }
+    const accounting = this.players.filter(p => p.inHand || p.total).map(p => {
+      const won = paid.get(p.id) || 0, returnedAmount = returned.get(p.id) || 0;
+      const startStack = p.handStartStack ?? p.stack + p.total;
+      const finalStack = p.stack + won + returnedAmount;
+      return {id: p.id, name: p.name, startStack, contributed: p.total, won, returned: returnedAmount,
+        net: won + returnedAmount - p.total, finalStack};
+    });
+    ensure(sum([...paid.values()]) + sum([...returned.values()]) === committedPot, 'Выплаты не сходятся с банком');
+    ensure(sum(accounting.map(p => p.net)) === 0, 'Итоги раздачи не сходятся');
+    ensure(accounting.every(p => p.finalStack - p.startStack === p.net), 'Расхождение начального и конечного стека');
+    ensure(this.players.every(p => integer(p.stack + (paid.get(p.id) || 0) + (returned.get(p.id) || 0), 0, MAX_TABLE_CHIPS)), 'Недопустимый итоговый стек');
+    this.committedPot = committedPot; this.lastPot = sum(pots.map(p => p.amount));
+    this.pots = pots; this.refunds = refunds; this.accounting = accounting; this.reveal = reveal;
+    this.payouts = [...paid].map(([id, amount]) => ({id, amount, name: this.player(id).name,
+      net: accounting.find(p => p.id === id).net, hand: results.get(id)?.name || 'Все соперники сбросили',
+      bestCards: results.get(id)?.cards || []}));
+    for (const p of this.players) p.stack += (paid.get(p.id) || 0) + (returned.get(p.id) || 0);
+    for (const r of refunds) this.record(`${this.player(r.id).name}: возврат ${r.amount} (не выигрыш)`, {kind: 'return', playerId: r.id, amount: r.amount});
+    for (const pot of pots) this.record(`${pot.label} ${pot.amount}: ${pot.awards.map(a => `${this.player(a.id).name} получает ${a.amount}`).join('; ')}`, {kind: 'win', potId: pot.id, amount: pot.amount, awards: pot.awards});
+    this.record('Расчёт завершён: выплаты + возвраты = все взносы', {kind: 'settlement', committedPot, awardedPot: this.lastPot});
+    for (const p of this.players) { p.total = 0; p.bet = 0; }
+    this.phase = 'showdown'; this.actor = null; this.deadline = null; this.pending.clear();
+    // Keep one completed hand for inspection even after the automatic next deal.
+    this.lastHand = {handId: this.handId, phase: this.phase, rulesVersion: this.rulesVersion,
+      mode: this.mode, board: [...this.board], reveal: this.reveal, committedPot: this.committedPot,
+      lastPot: this.lastPot, pots: structuredClone(this.pots), payouts: structuredClone(this.payouts),
+      refunds: structuredClone(this.refunds), accounting: structuredClone(this.accounting),
+      handHistory: structuredClone(this.handHistory), historyTruncated: this.historyTruncated,
+      players: this.players.map(p => ({id: p.id, name: p.name, seat: p.seat, cards: [...p.cards],
+        inHand: p.inHand, folded: p.folded, stack: p.stack}))};
+    this.applyApprovedRebuys();
+    if(this.mode==='tournament' && this.players.filter(p=>p.stack>0).length===1){
+      this.tournamentOver=true;this.tournamentEndedAt=this.now();this.championId=this.players.find(p=>p.stack>0).id;
+    }
+    this.markDisconnected(); this.syncNextHand(); this.assertChips();
+  }
+  tick() {
+    if (this.haltReason) return false;
+    return this.transaction(() => {
+      if(this.rebuyReview){
+        if(this.now()<this.rebuyReview.expiresAt)return false;
+        this.endRebuyReview(this.rebuyReview.id,true);return true;
+      }
+      if (!this.idle && this.deadline !== null && this.now() >= this.deadline) {
+        const p = this.player(this.actor);
+        this.foldAbsent(this.actor, p.sittingOut ? (p.sitOutReason || 'manual') : 'timeout');
+        return true;
+      }
+      if (!this.idle) return false;
+      let changed = this.markDisconnected();
+      changed = this.syncNextHand() || changed;
+      if (this.nextHandAt !== null && this.now() >= this.nextHandAt) {
+        this._startHand(); return true;
+      }
+      return changed;
+    });
+  }
+  assertChips() {
+    ensure(integer(this.chipsIssued,0,MAX_TABLE_CHIPS), 'Unsafe table chip total');
+    ensure(this.players.every(p => integer(p.stack,0,MAX_TABLE_CHIPS) && integer(p.total,0,MAX_TABLE_CHIPS) && integer(p.pendingBuyIn||0,0,MAX_TABLE_CHIPS)), 'Chip accounting error');
+    const total=this.players.reduce((n,p)=>n+BigInt(p.stack)+BigInt(p.total)+BigInt(p.pendingBuyIn||0),0n);
+    ensure(total===BigInt(this.chipsIssued), 'Chip conservation failed');
+  }
+  /** Whitelist only. Never serialize the Table instance, deck, or RNG state. */
+  viewFor(id) {
+    return {phase: this.phase, handId: this.handId, version: this.version, board: [...this.board],
+      dealer: this.dealer, actor: this.actor, deadline: this.deadline, serverNow: this.now(),
+      pot: this.pot, lastPot: this.lastPot, smallBlind: this.smallBlind, bigBlind: this.bigBlind,
+      startingStack: this.startingStack, maxPlayers: this.maxPlayers, turnMs: this.turnMs,
+      mode: this.mode, straddleAllowed: this.straddleAllowed, straddle: this.straddle ? {...this.straddle} : null,
+      rulesVersion: this.rulesVersion, level: this.level, levelMinutes: this.levelMinutes,
+      levels: this.levels, levelEndsAt:this.levelEndsAt(), pendingLevel:this.mode === 'tournament' && this.startedAt !== null ? this.levelAt(this.pauseStartedAt ?? this.now()) : null,
+      pendingBlinds: this.pendingBlinds ? {...this.pendingBlinds} : null, buyInMode:this.buyInMode,minBuyIn:this.minBuyIn,maxBuyIn:this.maxBuyIn,rebuyAllowed:true,
+      tournamentOver: this.tournamentOver, championId: this.championId,
+      rebuyRequests:structuredClone(this.rebuyRequests),rebuyReview:this.rebuyReview?{...this.rebuyReview}:null,maxTableChips:MAX_TABLE_CHIPS,
+      running: this.running, paused: this.paused, handDelayMs: this.handDelayMs, nextHandAt: this.nextHandAt,
+      haltReason: this.haltReason, readyCount: this.lineup().players.length,
+      lastHand: this.lastHand ? {...structuredClone(this.lastHand), players: this.lastHand.players.map(p => ({...p, cards: p.id === id || (this.lastHand.reveal && p.inHand && !p.folded) ? [...p.cards] : p.cards.map(() => '??')}))} : null,
+      committedPot: this.committedPot, refunds: structuredClone(this.refunds), accounting: structuredClone(this.accounting),
+      handHistory: structuredClone(this.handHistory), historyTruncated: this.historyTruncated,
+      legal: this.rebuyReview || this.player(id)?.sittingOut || this.haltReason ? null : this.legal(id), payouts: structuredClone(this.payouts), pots: structuredClone(this.pots),
+      history: structuredClone(this.history),
+      players: this.players.map(p => ({id: p.id, name: p.name, seat: p.seat, bot: p.bot,
+        fundedBefore: p.fundedBefore, stack: p.stack, pendingBuyIn:p.pendingBuyIn||0, bet: p.bet, total: p.total, folded: p.folded, inHand: p.inHand,
+        autoStraddle: p.autoStraddle, connected: p.connected, sittingOut: p.sittingOut, returnPending: p.returnPending, missedHands: p.missedHands, sitOutReason: p.sitOutReason, lastAction: p.lastAction,
+        cards: p.id === id || (this.reveal && p.inHand && !p.folded) ? [...p.cards] : p.cards.map(() => '??')}))};
+  }
+}
+
+/** Local bots are explicitly identified in the UI; never used in private rooms. */
+class DemoGame {
+  constructor(onState, name = 'Вы', mode = 'cash') {
+    this.onState = onState; this.closed = false; this.timer = null;
+    this.table = new Table({mode, straddleAllowed: mode === 'cash'});
+    this.table.addPlayer('you', name);
+    ['Арман', 'Дана', 'Тимур', 'Алия', 'Никита'].forEach((n, i) => this.table.addPlayer(`bot${i}`, n, {bot: true}));
+    this.table.startPlay(); this.emit(); this.schedule();
+    this.tick = setInterval(() => {
+      if (this.closed) return;
+      try {
+        let changed = false;
+        if (this.table.idle && this.table.mode === 'cash') for (const p of this.table.players) {
+          if (p.bot && p.stack === 0) { this.table.topUp(p.id); changed = true; }
+        }
+        changed = this.table.tick() || changed;
+        if (changed) { this.emit(); this.schedule(); }
+      } catch { this.table.halt(); this.emit(); }
+    }, 250);
+  }
+  emit() {
+    if (!this.closed) this.onState({type: 'state', demo: true, me: 'you', room: {id: 'demo', name: 'Свои за столом', ownerId: 'you', pending: [], invite: null, locked: true}, table: this.table.viewFor('you')});
+  }
+  async send(action, data = {}) {
+    if (action === 'act') this.table.act('you', data.move, data.amount);
+    else if (action === 'start') this.table.startPlay();
+    else if (action === 'sitOut') this.table.sitOut('you');
+    else if (action === 'returnToPlay') this.table.returnToPlay('you');
+    else if (action === 'pause') this.table.setPaused(data.paused);
+    else if (action === 'straddle') this.table.setStraddle('you', data.enabled);
+    else if (action === 'topUp') this.table.topUp('you');
+    else throw new Error('Эта функция доступна в комнате с друзьями, не в демо');
+    this.table.syncNextHand(); this.emit(); this.schedule();
+  }
+  schedule() {
+    clearTimeout(this.timer);
+    if (this.closed || this.table.haltReason || this.table.idle || this.table.actor === 'you' || this.table.player(this.table.actor)?.sittingOut) return;
+    this.timer = setTimeout(() => {
+      if (this.closed || this.table.haltReason || this.table.idle || this.table.actor === 'you' || this.table.player(this.table.actor)?.sittingOut) return;
+      // A throttled/background tab may wake after a bot deadline. Apply the clock first.
+      if (this.table.tick()) { this.emit(); this.schedule(); return; }
+      const id = this.table.actor, l = this.table.legal(id), roll = randomBelow(100);
+      if (l.canRaise && !l.allInOnly && roll < 8) this.table.act(id, 'raise', l.minTo);
+      else if (l.canCheck) this.table.act(id, 'check');
+      else if (l.toCall > this.table.bigBlind * 5 && roll < 24) this.table.act(id, 'fold');
+      else this.table.act(id, 'call');
+      this.emit(); this.schedule();
+    }, 850 + randomBelow(700));
+  }
+  close() { this.closed = true; clearTimeout(this.timer); clearInterval(this.tick); }
+}
+
+
+const $ = id => document.getElementById(id);
+const escapeHTML = x => String(x ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const signed = n => `${n > 0 ? '+' : ''}${fmt(n)}`;
+const fmt = n => new Intl.NumberFormat('ru-RU').format(n || 0);
+const storage = {get(k) { try { return localStorage.getItem(`svoi:${k}`); } catch { return null; } }, set(k,v) { try { v === null ? localStorage.removeItem(`svoi:${k}`) : localStorage.setItem(`svoi:${k}`,v); } catch {} }};
+const standalone = Boolean(window.__STANDALONE__);
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const symbols = {s:'♠',h:'♥',d:'♦',c:'♣'};
+const suitNames = {s:'пики',h:'червы',d:'бубны',c:'трефы'};
+const colors = ['#63785f','#6b7893','#a1836c','#737759','#8b7484','#688b88'];
+const positions = [[50,88],[13,69],[13,27],[50,12],[87,27],[87,69]];
+let cloud = null;
+let config = {authMode: standalone ? 'preview' : 'unknown'};
+let token = storage.get('token'), user = null, state = null, transport = null;
+let connected = false, busy = false, clockOffset = 0, toastTimer, sound = false, audio;
+let raiseOpen = false, inspectedHand = null;
+let rebuyReviewOpen=false,rebuyReviewId=null,rebuyClosing=false;
+function telegram() { return window.Telegram?.WebApp; }
+function toast(text) {
+  $('toast').textContent = text; $('toast').hidden = false;
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => $('toast').hidden = true, 4300);
+}
+function modal(html) { $('modal-content').innerHTML = html; if (!$('modal').open) $('modal').showModal(); }
+async function closeModal() {
+  if(rebuyClosing)return false;
+  if(rebuyReviewOpen){
+    rebuyClosing=true;
+    const result=await send('endRebuyReview',{reviewId:rebuyReviewId});
+    rebuyClosing=false;
+    if(!result){toast('Закрытие окна не подтверждено. При потере связи сервер снимет паузу автоматически.');return false;}
+    rebuyReviewOpen=false;rebuyReviewId=null;
+  }
+  $('modal').close();inspectedHand=null;return true;
+}
+function screen(name) { if(name!=='game')$('rebuy-notice').hidden=true; ['lobby','waiting-room','game'].forEach(id => $(id).hidden = id !== name); }
+function tone(type = 'chip') {
+  if (!sound || !audio) return;
+  try {
+    const osc = audio.createOscillator(), gain = audio.createGain();
+    osc.type = 'sine'; osc.frequency.value = type === 'deal' ? 600 : type === 'win' ? 840 : 340;
+    gain.gain.setValueAtTime(.035, audio.currentTime); gain.gain.exponentialRampToValueAtTime(.001, audio.currentTime + .09);
+    osc.connect(gain); gain.connect(audio.destination); osc.start(); osc.stop(audio.currentTime + .1);
+  } catch {}
+}
+async function api(path, data) {
+  if (cloud) { const {data} = await cloud.auth.getSession(); token = data.session?.access_token; path = config.supabaseUrl + '/functions/v1/game' + path.replace('/api',''); }
+  const response = await fetch(path, {method: data === undefined ? 'GET' : 'POST',
+    headers: {...(cloud?{apikey:config.publishableKey}:{}),...(data === undefined ? {} : {'Content-Type':'application/json'}), ...(token ? {Authorization:`Bearer ${token}`} : {})},
+    ...(data === undefined ? {} : {body: JSON.stringify(data)})});
+  const result = await response.json();
+  if (!response.ok) { const e = new Error(result.error || 'Не удалось выполнить запрос'); e.status = response.status; throw e; }
+  return result;
+}
+async function login(name = 'Игрок') {
+  if (standalone) throw new Error('Для приватной комнаты запустите сервер из архива проекта');
+  if (user && token) return user;
+  if (cloud) {
+    let {data} = await cloud.auth.getSession();
+    if (!data.session) { const result = await cloud.auth.signInAnonymously({options:{data:{name}}}); if(result.error) throw result.error; data=result.data; }
+    token=data.session.access_token; user={id:data.session.user.id,name:data.session.user.user_metadata?.name||name}; return user;
+  }
+  const initData = telegram()?.initData;
+  if (!initData && !['dev','guest'].includes(config.authMode)) throw new Error('Откройте Mini App через своего Telegram-бота');
+  const result = await api('/api/session', initData ? {initData} : {name});
+  token = result.token; user = result.user; storage.set('token', token); return user;
+}
+class OnlineGame {
+  constructor(roomId) { this.roomId = roomId; this.closed = false; this.controller = null; this.run(); }
+  async run() {
+    if(cloud) return this.cloudRun();
+    let retry = 600;
+    while (!this.closed) {
+      this.controller = new AbortController();
+      try {
+        const response = await fetch(`/api/events?room=${encodeURIComponent(this.roomId)}`, {headers:{Authorization:`Bearer ${token}`}, signal:this.controller.signal});
+        if (!response.ok) {
+          const data = await response.json();
+          if ([401,403,404].includes(response.status)) { this.closed = true; handlePacket({type: response.status === 401 ? 'expired':'denied', message:data.error}); return; }
+          throw new Error(data.error);
+        }
+        const reader = response.body.getReader(), decoder = new TextDecoder(); let buffer = '';
+        while (!this.closed) {
+          const {value,done} = await reader.read(); if (done) break;
+          buffer += decoder.decode(value,{stream:true});
+          if (buffer.length > 1000000) throw new Error('Некорректный поток');
+          let boundary;
+          while ((boundary = buffer.indexOf('\n\n')) >= 0) {
+            const block = buffer.slice(0,boundary); buffer = buffer.slice(boundary + 2);
+            const data = block.split('\n').filter(l => l.startsWith('data: ')).map(l => l.slice(6)).join('\n');
+            if (data) { setConnection(true); handlePacket(JSON.parse(data)); retry = 600; }
+          }
+        }
+      } catch (e) { if (this.closed) return; }
+      if (this.closed) return;
+      setConnection(false);
+      await new Promise(resolve => setTimeout(resolve,retry)); retry = Math.min(retry * 1.6,7000);
+    }
+  }
+  async cloudRun() {
+    this.channel=cloud.channel(`room:${this.roomId}:${user.id}`).on('postgres_changes',{event:'*',schema:'public',table:'svoi_views',filter:`room_id=eq.${this.roomId}`},()=>this.refresh()).subscribe(status=>{if(status==='SUBSCRIBED')this.refresh();else if(['CHANNEL_ERROR','TIMED_OUT','CLOSED'].includes(status))setConnection(false);});
+    await this.refresh();
+    this.poll=setInterval(()=>this.refresh(),4000);
+  }
+  async refresh(){
+    if(this.refreshing||this.closed)return;this.refreshing=true;
+    try{const packet=await api(`/api/room?room=${this.roomId}`);if(!this.closed){setConnection(true);handlePacket(packet);}}
+    catch(e){setConnection(false);if([401,403,404].includes(e.status)){this.close();handlePacket({type:'denied',message:e.message});}}
+    finally{this.refreshing=false;}
+  }
+  async send(action, data = {}) {
+    // Retry a lost response with exactly the same immutable action ID and payload.
+    const payload={roomId:this.roomId,action,requestId:crypto.randomUUID(),handId:state?.table.handId,version:state?.table.version,...data};
+    storage.set('pendingCommand',JSON.stringify(payload));
+    let result;
+    try{result=await api('/api/command',payload);}
+    catch(e){if(e.status){storage.set('pendingCommand',null);throw e;}result=await api('/api/command',payload);}
+    storage.set('pendingCommand',null);await this.refresh();return result;
+  }
+  close() { this.closed = true; this.controller?.abort();clearInterval(this.poll);if(this.channel)cloud.removeChannel(this.channel); }
+
+}
+function setConnection(value) {
+  connected = value;
+  $('connection').classList.toggle('offline', !value);
+  $('connection').querySelector('span').textContent = state?.demo ? 'Локальное демо' : value ? 'На связи' : 'Восстанавливаем связь';
+  updateActions();
+}
+function openRoom(roomId) {
+  transport?.close(); state = null; storage.set('room',roomId); setConnection(false);
+  $('waiting-title').textContent = 'Открываем стол';
+  $('waiting-message').textContent = 'Подключаемся к приватной комнате.'; screen('waiting-room');
+  transport = new OnlineGame(roomId);
+}
+function startDemo(mode = 'cash') {
+  if (!['cash','tournament'].includes(mode)) mode = 'cash';
+  transport?.close(); state = null; busy = false; raiseOpen = false; closeModal();
+  transport = new DemoGame(handlePacket, user?.name || 'Вы', mode);
+  setConnection(true);
+}
+function updateResume() { $('resume-room').hidden = standalone || !user || !storage.get('room'); }
+async function home({forget = false} = {}) {
+  if(rebuyReviewOpen && !await closeModal())return;
+  transport?.close(); transport = null; state = null; connected = false;
+  if (forget) storage.set('room',null);
+  screen('lobby'); closeModal(); updateResume();
+}
+function handlePacket(packet) {
+  if (packet.type === 'pending') {
+    screen('waiting-room'); $('waiting-title').textContent = packet.roomName;
+    $('waiting-message').textContent = packet.message; return;
+  }
+  if (['denied','closed','expired'].includes(packet.type)) {
+    if (packet.type === 'expired') { token = null; user = null; storage.set('token',null); }
+    home({forget:true}); toast(packet.message || 'Комната закрыта'); return;
+  }
+  if (packet.type !== 'state') return;
+  const previous = state; state = packet;
+  const pending=storage.get('pendingCommand');
+  if(pending&&!busy){const d=JSON.parse(pending);if(d.roomId===packet.room.id){busy=true;api('/api/command',d).then(()=>storage.set('pendingCommand',null)).catch(e=>{if(e.status){storage.set('pendingCommand',null);toast(e.message);}}).finally(()=>{busy=false;updateActions();});}} clockOffset = packet.table.serverNow - Date.now();
+  if (packet.demo) connected = true;
+  screen('game'); render(previous);
+}
+function card(code, extra = '') {
+  if (code === '??') return '<div class="playing-card back" aria-label="Закрытая карта"><span>♠</span></div>';
+  const red = code[1] === 'h' || code[1] === 'd';
+  const rank = code[0] === 'T' ? '10' : code[0];
+  return `<div class="playing-card ${red?'red ':''}${extra}" data-card="${code}" aria-label="${rank}, ${suitNames[code[1]]}"><b>${rank}</b><span>${symbols[code[1]]}</span><small>${rank}</small></div>`;
+}
+function render(previous) {
+  const {table:t, room:r, me} = state, mine = t.players.find(p => p.id === me);
+  const isNewHand = !previous || previous.table.handId !== t.handId;
+  const idle = ['waiting','showdown'].includes(t.phase);
+  const winning = new Set(t.payouts.flatMap(p => p.bestCards));
+  const originSeat = mine?.seat || 0;
+  $('room-name').textContent = r.name;
+  $('room-eyebrow').textContent = state.demo ? 'ПРОБНЫЙ СТОЛ / УСЛОВНЫЕ ФИШКИ' : 'ПРИВАТНЫЙ СТОЛ / ТОЛЬКО ПО ПРИГЛАШЕНИЮ';
+  $('demo-banner').hidden = !state.demo;
+  $('invite-button').hidden = state.demo || r.ownerId !== me;
+  $('hand-counter').textContent = t.handId ? `РАЗДАЧА #${String(t.handId).padStart(2,'0')}` : 'ЖДЁМ ДРУЗЕЙ';
+  $('pot-amount').textContent = fmt(t.phase === 'showdown' ? t.lastPot : t.pot);
+  $('pot-display').querySelector('.pot-label').textContent = t.phase === 'showdown' ? 'БАНК РАЗДАЧИ' : 'ОБЩИЙ БАНК';
+  $('table-players').textContent = `${t.players.length} / ${t.maxPlayers} за столом`;
+  $('table-blinds').textContent = `${t.mode === 'tournament' ? `Турнир · ур. ${t.level + 1}` : 'Кэш'} ${fmt(t.smallBlind)} / ${fmt(t.bigBlind)}${t.straddle ? ` / ${fmt(t.straddle.amount)}` : ''}`;
+  $('pending-changes').textContent=t.pendingBlinds?`Со следующей раздачи: ${fmt(t.pendingBlinds.smallBlind)} / ${fmt(t.pendingBlinds.bigBlind)}`:t.pendingLevel>t.level?`Со следующей раздачи: уровень ${t.pendingLevel+1}`:'';
+  $('pending-changes').hidden=!$('pending-changes').textContent;
+  $('street-label').textContent = {waiting:'СОБИРАЕМ ДРУЗЕЙ',preflop:'ПРЕФЛОП',flop:'ФЛОП',turn:'ТЁРН',river:'РИВЕР',showdown:'ВСКРЫТИЕ'}[t.phase];
+  if (t.phase === 'showdown' && !t.board.length) $('street-label').textContent = 'РАЗДАЧА ЗАВЕРШЕНА';
+  $('board').innerHTML = Array.from({length:5},(_,i) => t.board[i] ? card(t.board[i],winning.has(t.board[i])?'winning':'') : '<div class="card-placeholder" aria-label="Карта ещё не открыта">♠</div>').join('');
+  $('seats').innerHTML = Array.from({length:6}, (_,pos) => {
+    const seat = (originSeat + pos) % 6, p = t.players.find(p => p.seat === seat), [x,y] = positions[pos];
+    if (!p) return `<div class="seat empty-seat" style="left:${x}%;top:${y}%" data-position="${pos}"><div class="avatar">+</div><div class="seat-label"><span class="seat-name">Для друга</span></div></div>`;
+    const self = p.id === me, winner = t.payouts.some(w => w.id === p.id);
+    return `<div class="seat ${self?'self ':''}${p.folded?'folded ':''}${t.actor===p.id?'turn ':''}${winner?'winner ':''}${p.sittingOut?'sitting-out ':''}${!p.connected?'offline ':''}" data-player="${escapeHTML(p.id)}" data-position="${pos}" style="left:${x}%;top:${y}%"><div class="seat-hand">${p.cards.map(c => card(c,winning.has(c)?'winning':'')).join('')}</div><div class="avatar" style="background:${colors[p.seat%6]}">${escapeHTML((p.name || '?')[0])}</div>${t.dealer===p.seat?'<span class="dealer-button" aria-label="Дилер">D</span>':''}<div class="seat-label"><span class="seat-name">${escapeHTML(p.name)}${self&&p.name!=='Вы'?' · вы':''}${p.bot?' · бот':''}</span><span class="seat-stack">${fmt(p.stack)}</span></div><div class="seat-action">${escapeHTML(p.returnPending ? (p.missedHands && t.mode==='cash' ? 'Ждёт BB' : 'Со следующей руки') : p.sittingOut ? 'Не играет' : p.missedHands && t.mode==='cash' ? 'Ждёт BB' : p.lastAction || (!p.connected?'Нет связи':''))}</div>${p.bet?`<span class="bet-badge"><i class="tiny-chip"></i>${fmt(p.bet)}</span>`:''}</div>`;
+  }).join('');
+  $('result-label').hidden = t.phase !== 'showdown';
+  if (t.phase === 'showdown') {
+    $('result-label').innerHTML = t.payouts.length === 1
+      ? `${escapeHTML(t.payouts[0].name)} получает <strong>${fmt(t.payouts[0].amount)}</strong><small>Итог стека: ${signed(t.payouts[0].net)} · разбор ниже</small>`
+      : `Из банков выплачено <strong>${fmt(t.lastPot)}</strong><small>${t.payouts.length} получателей · разбор ниже</small>`;
+  }
+  $('settlement-button').hidden = !t.lastHand && t.phase !== 'showdown';
+  $('settlement-button').textContent = t.phase === 'showdown' ? 'Разбор банков и выплат' : `Разбор раздачи #${t.lastHand?.handId || ''}`;
+  $('hand-report-button').hidden = !t.handId;
+  $('roster-count').textContent = `${t.players.length} / 6`;
+  $('roster').innerHTML = t.players.map(p => `<div class="roster-row"><div class="roster-avatar" style="background:${colors[p.seat%6]}">${escapeHTML(p.name[0])}</div><div class="roster-info"><strong>${escapeHTML(p.name)}${p.id===me&&p.name!=='Вы'?' · вы':''}</strong><small>${p.returnPending?'Возвращается':p.sittingOut?'Не играет':p.bot?'Демо-бот':p.id===r.ownerId?'Хозяин стола':p.connected?'За столом':'Нет связи'}</small></div><span class="roster-stack">${fmt(p.stack)}</span></div>`).join('');
+  $('history').innerHTML = t.history.slice(-9).reverse().map(e => `<div class="history-row ${escapeHTML(e.kind || '')}">${escapeHTML(e.text)}</div>`).join('');
+  $('pending-requests').hidden = true; // Admission buy-ins use the same paused approval window.
+
+  if (previous?.table.actor !== t.actor || isNewHand) raiseOpen = false;
+  renderRebuys(previous);
+  updateActions(); animateChanges(previous);
+  try {const tg=telegram();if(tg?.initData && tg.isVersionAtLeast('6.2')) idle?tg.disableClosingConfirmation():tg.enableClosingConfirmation();} catch {}
+  $('connection').querySelector('span').textContent = state.demo ? 'Локальное демо' : connected ? 'На связи':'Восстанавливаем связь';
+}
+function updateActions() {
+  if (!state) return;
+  const {table:t,room:r,me} = state, l = t.legal, mine = t.players.find(p => p.id === me);
+  const idle = ['waiting','showdown'].includes(t.phase), yourTurn = Boolean(l);
+  const canAct = yourTurn && connected && !busy && !t.rebuyReview;
+  $('waiting-actions').hidden = !idle && !mine?.sittingOut; $('playing-actions').hidden = idle || mine?.sittingOut;
+  $('turn-title').textContent = !connected ? 'Восстанавливаем связь' : idle ? t.phase === 'waiting' ? 'Вечер начинается' : 'Раздача завершена' : yourTurn ? 'Ваш ход' : `Ходит ${t.players.find(p => p.id === t.actor)?.name || 'игрок'}`;
+  $('turn-indicator').classList.toggle('active',yourTurn && connected);
+  $('turn-subtitle').textContent = yourTurn && connected ? l.toCall ? `К ответу ${fmt(l.callAmount)}` : 'Можно сделать чек' : '';
+  $('fold').disabled = !canAct; $('check-call').disabled = !canAct; $('raise-toggle').disabled = !canAct || !l?.canRaise;
+  $('check-call').querySelector('span').textContent = l?.toCall ? `Колл ${fmt(l.callAmount)}` : 'Чек';
+  $('check-call').querySelector('small').textContent = l?.toCall && l.callAmount === mine?.stack ? 'Все ваши фишки' : l?.toCall ? 'Ответить на ставку' : 'Без ставки';
+  $('raise-panel').hidden = !raiseOpen || !l?.canRaise;
+  if (l?.canRaise) {
+    const min = Math.min(l.minTo,l.maxTo), max = l.maxTo;
+    for (const id of ['raise-range','raise-amount']) { $(id).min = min; $(id).max = max; }
+    let value = Number($('raise-amount').value) || min; value = Math.min(max,Math.max(min,value));
+    $('raise-amount').value = value; $('raise-range').value = value;
+    $('confirm-raise').disabled = !canAct;
+    $('confirm-raise').textContent = value === max ? `Олл-ин ${fmt(value)}` : `До ${fmt(value)}`;
+  }
+  $('start-hand').hidden = r.ownerId !== me || t.running;
+  $('start-hand').disabled = !!t.rebuyReview || busy || !connected || t.tournamentOver || t.readyCount < 2;
+  $('start-hand').innerHTML = 'Начать игру <span>→</span>';
+  $('top-up').hidden = !idle || mine?.stack !== 0; $('top-up').disabled = busy || !connected;
+  $('start-help').textContent = !t.running
+    ? (r.ownerId === me ? (t.readyCount < 2 ? 'Подтвердите стартовые закупы — свой и друга — в окне запросов.' : 'Начните игру один раз. Дальше карты раздаются автоматически.') : 'Хозяин один раз запускает игру; далее — автораздача.')
+    : mine?.sittingOut ? (mine.returnPending ? (t.mode === 'cash' && mine.missedHands ? 'Возвращение на большом блайнде. До этого новые карты не выдаются.' : 'Возвращение подтверждено. Эта раздача не возобновляется.') : 'Вы не играете. Для возвращения нажмите «Я вернулся».')
+    : t.paused ? 'Стол на паузе. Текущая раздача всегда доигрывается.'
+    : t.readyCount < 2 ? 'Ждём хотя бы двух готовых игроков с фишками.'
+    : 'Следующая рука начнётся автоматически. Разбор предыдущей остаётся доступен.';
+  $('participation-button').textContent = mine?.returnPending ? 'Отменить возвращение' : mine?.sittingOut ? 'Я вернулся' : 'Не играю';
+  $('participation-button').disabled = !!t.rebuyReview || busy || !connected || t.tournamentOver || !!t.haltReason || (!mine?.stack && (idle || !mine?.inHand || mine?.folded));
+  $('participation-button').setAttribute('aria-pressed', String(!!mine?.sittingOut));
+  $('pause-table').hidden = r.ownerId !== me || !t.running || t.tournamentOver;
+  $('pause-table').disabled = !!t.rebuyReview || busy || !connected || !!t.haltReason;
+  $('pause-table').textContent = t.paused ? 'Продолжить игру' : idle ? 'Пауза стола' : 'Пауза после раздачи';
+  $('participation-note').hidden = !mine?.sittingOut;
+  $('participation-note').textContent = t.mode === 'tournament'
+    ? 'Не играю: блайнды продолжают списываться. Уже сделанный олл-ин остаётся в игре.'
+    : mine?.returnPending && mine?.missedHands ? 'Ожидайте большого блайнда: пауза не позволяет обходить обязательные ставки.'
+    : 'Автопас только в свой ход. Уже сделанный олл-ин доигрывается; стек остаётся за вами.';
+  if (mine?.sittingOut) $('turn-title').textContent = mine.returnPending ? 'Возвращение в игру' : 'Вы не играете';
+  if (t.haltReason) { $('turn-title').textContent = 'Игра остановлена'; $('start-help').textContent = t.haltReason; }
+  if (t.tournamentOver) { $('turn-title').textContent = 'Турнир завершён'; $('start-help').textContent = `Победитель: ${t.players.find(p => p.id === t.championId)?.name || ''}`; }
+  if(t.rebuyReview)$('turn-title').textContent='Пауза · закуп в игре';
+  $('request-rebuy').hidden=!!state.demo;
+  $('request-rebuy').disabled=busy||!connected||!!t.haltReason;
+  updateTimer();
+}
+function updateTimer() {
+  if (!state) return;
+  const t = state.table;
+  const idle = ['waiting','showdown'].includes(t.phase);
+  let status = '';
+  if(t.rebuyReview)status='Закуп в игре · таймер хода приостановлен';
+  else if (t.haltReason) status = 'Автораздача остановлена: нужна проверка сервера';
+  else if (t.tournamentOver) status = 'Турнир завершён';
+  else if (t.paused) status = idle ? 'Стол на паузе' : 'Пауза начнётся после выплаты банка';
+  else if (t.nextHandAt !== null && t.nextHandAt !== undefined) status = `Следующая раздача через ${Math.max(0,Math.ceil((t.nextHandAt - Date.now() - clockOffset)/1000))} с`;
+  else if (t.running) status = idle ? 'Ожидаем игроков для следующей раздачи' : 'Автораздача включена';
+  if ($('auto-status').textContent !== status) $('auto-status').textContent = status;
+  $('auto-status').hidden = !status;
+  if(t.mode==='tournament'&&t.levelEndsAt!==null){const remaining=Math.max(0,t.levelEndsAt-(Date.now()+clockOffset));$('pending-changes').hidden=false;$('pending-changes').textContent=remaining===0?'Новый уровень со следующей раздачи':`Следующий уровень через ${Math.ceil(remaining/60000)} мин · смена с новой раздачи`;}
+  const ms = t.rebuyReview ? (t.rebuyReview.deadlineRemaining||0) : t.deadline ? Math.max(0,t.deadline - (Date.now() + clockOffset)) : 0;
+  $('time-counter').textContent = t.rebuyReview ? `Пауза · ${Math.ceil(ms/1000)} с` : t.deadline ? `${Math.ceil(ms/1000)} с` : '';
+  $('timer-progress').style.width = `${Math.min(100,ms/t.turnMs*100)}%`;
+}
+setInterval(updateTimer,100);
+function flyChip(from, to, delay = 0) {
+  if (reducedMotion || !from || !to) return;
+  const arena = $('arena'), root = arena.getBoundingClientRect(), a = from.getBoundingClientRect(), b = to.getBoundingClientRect();
+  const chip = document.createElement('i'); chip.className = 'flying-chip';
+  chip.style.left = `${a.x+a.width/2-root.x-8}px`; chip.style.top = `${a.y+a.height/2-root.y-8}px`; arena.append(chip);
+  const animation = chip.animate([{transform:'translate(0,0) scale(.8)',opacity:1},{transform:`translate(${b.x+b.width/2-a.x-a.width/2}px,${b.y+b.height/2-a.y-a.height/2}px) scale(1)`,opacity:.9}],{duration:470,easing:'cubic-bezier(.22,.7,.3,1)',delay,fill:'both'});
+  animation.onfinish = () => chip.remove(); animation.oncancel = () => chip.remove();
+}
+function animateChanges(previous) {
+  if (!state || reducedMotion) return;
+  const t = state.table, old = previous?.table, newHand = !old || old.handId !== t.handId;
+  if (newHand && t.handId) {
+    const deck = $('deck').getBoundingClientRect();
+    document.querySelectorAll('.seat-hand .playing-card').forEach((el,i) => {
+      const rect = el.getBoundingClientRect(), final = getComputedStyle(el).transform;
+      el.animate([{transform:`translate(${deck.x-rect.x}px,${deck.y-rect.y}px) rotate(-15deg) scale(.55)`,opacity:0},{transform:final,opacity:1}],{duration:380,delay:i*47,easing:'cubic-bezier(.2,.75,.2,1)',fill:'backwards'});
+    });
+    tone('deal');
+  }
+  const oldCount = newHand ? 0 : old?.board.length || 0;
+  document.querySelectorAll('#board .playing-card').forEach((el,i) => {
+    if (i >= oldCount) el.animate([{transform:'rotateY(90deg) translateY(-8px)',opacity:0},{transform:'rotateY(0deg) translateY(0)',opacity:1}],{duration:360,delay:(i-oldCount)*170,easing:'ease-out',fill:'backwards'});
+  });
+  if (old && old.handId === t.handId) {
+    const lastId = old.history.at(-1)?.id || 0;
+    t.history.filter(e => e.id > lastId && e.paid > 0).forEach(e => {
+      const seat = [...document.querySelectorAll('.seat')].find(el => el.dataset.player === e.playerId);
+      for (let j=0;j<3;j++) flyChip(seat,$('pot-display'),j*70);
+      tone('chip');
+    });
+    if (t.phase === 'showdown' && old.phase !== 'showdown') {
+      t.payouts.forEach(p => {
+        const seat = [...document.querySelectorAll('.seat')].find(el => el.dataset.player === p.id);
+        for (let j=0;j<4;j++) flyChip($('pot-display'),seat,500+j*65);
+      }); tone('win');
+    }
+  }
+  if (t.actor === state.me && old?.actor !== state.me) {
+    try { if (telegram()?.isVersionAtLeast('6.1')) telegram().HapticFeedback.notificationOccurred('success'); } catch {}
+  }
+}
+async function send(action,data = {}) {
+  if (!transport || busy || !connected) return false;
+  busy = true; updateActions();
+  try { return await transport.send(action,data) || {ok:true}; }
+  catch (e) { toast(e.message || 'Нет связи с сервером'); return false; }
+  finally { busy = false; updateActions();if(rebuyReviewOpen)renderRebuyDialog(); }
+}
+function move(name, amount = null) {
+  if (!state?.table.legal) return;
+  raiseOpen = false;
+  send('act',{move:name,amount,handId:state.table.handId,version:state.table.version});
+}
+function extractInvite(value) {
+  const trimmed = String(value || '').trim();
+  if (/^r[0-9a-f]{12}_[A-Za-z0-9_-]{24,36}$/.test(trimmed) || /^[A-HJ-NP-Z2-9]{8}$/i.test(trimmed)) return trimmed;
+  try { const url = new URL(trimmed); return url.searchParams.get('startapp') || url.searchParams.get('room') || ''; } catch { return ''; }
+}
+const presetMinutes={Hyper:3,Turbo:5,Normal:10,Deep:20};
+function levelRows(preset='Normal') {
+  const pairs=[[25,50],[50,100],[75,150],[100,200],[150,300],[200,400],[300,600],[400,800],[600,1200],[1000,2000]];
+  return pairs.map(([sb,bb],i)=>`<tr><td>${i+1}</td><td><input aria-label="SB уровня ${i+1}" type="number" min="1" value="${sb}" data-level="smallBlind" required></td><td><input aria-label="BB уровня ${i+1}" type="number" min="2" value="${bb}" data-level="bigBlind" required></td><td><input aria-label="Минут уровня ${i+1}" type="number" min="1" max="120" value="${presetMinutes[preset]||10}" data-level="durationMinutes" required></td></tr>`).join('');
+}
+function createDialog() {
+ if(standalone)return startDemo();
+ modal(`<h2>Соберём своих</h2><p>Только условные фишки. Каждый гость входит с вашего подтверждения.</p><form id="create-form">
+ ${!user?'<label for="player-name">Ваше имя</label><input id="player-name" name="playerName" value="Игрок" maxlength="32" required>':''}
+ <label for="new-room-name">Название стола</label><input id="new-room-name" name="name" value="Свои за столом" maxlength="50" required>
+ <label for="game-mode">Формат</label><select id="game-mode" name="mode"><option value="cash">Cash · условные фишки</option><option value="tournament">Tournament · с закупами</option></select>
+ <div id="cash-options"><div class="form-row"><div><label for="small-blind">SB</label><input id="small-blind" name="smallBlind" type="number" min="1" max="5000" value="10" required></div><div><label for="big-blind">BB</label><input id="big-blind" name="bigBlind" type="number" min="2" max="10000" value="20" required></div></div>
+ <label for="buy-in-mode">Buy-in</label><select id="buy-in-mode" name="buyInMode"><option value="fixed">Фиксированный</option><option value="range">Диапазон min / max</option></select>
+ <div class="form-row" id="buy-in-range" hidden><div><label for="min-buy">Минимум</label><input id="min-buy" name="minBuyIn" type="number" min="40" value="2000"></div><div><label for="max-buy">Максимум</label><input id="max-buy" name="maxBuyIn" type="number" min="40" value="6000"></div></div>
+ <p class="form-note">Докупка во время игры — по подтверждению администратора, без лимита buy-in.</p>
+ <label class="check-setting"><input type="checkbox" name="straddleAllowed" id="allow-straddle"> Добровольный UTG-страдл 2 BB</label></div>
+ <div id="tournament-options" hidden><label for="tournament-preset">Структура</label><select id="tournament-preset" name="preset">${['Hyper','Turbo','Normal','Deep','Custom'].map(n=>`<option ${n==='Normal'?'selected':''}>${n}</option>`).join('')}</select><p class="form-note">Уровень меняется только с новой раздачи. Последний уровень действует до конца турнира.</p><table class="levels-editor"><thead><tr><th>№</th><th>SB</th><th>BB</th><th>Мин.</th></tr></thead><tbody id="levels-body">${levelRows()}</tbody></table><button type="button" class="text-button" id="add-level">+ Уровень</button><button type="button" class="text-button" id="remove-level">− Последний уровень</button></div>
+ <div class="form-row"><div><label for="starting-stack">Стартовый стек</label><input type="number" id="starting-stack" name="startingStack" min="40" max="1000000000000000" value="2000" required></div><div><label for="turn-seconds">Секунд на ход</label><input type="number" id="turn-seconds" name="turnSeconds" min="10" max="120" value="30" required></div></div>
+ <label for="max-players">Максимум игроков</label><select id="max-players" name="maxPlayers">${[2,3,4,5,6].map(n=>`<option ${n===6?'selected':''}>${n}</option>`).join('')}</select>
+ <button class="button primary" type="submit">Создать приватный стол →</button><p class="form-note">Фишки бесплатны и не обмениваются на деньги, товары или услуги.</p></form>`);
+}
+
+function joinDialog(code = '') {
+  if (standalone) { modal('<h2>Друзья — в полной версии</h2><p>Этот HTML-файл — автономное демо с ботами. Приватные комнаты работают при запуске сервера из архива проекта.</p><button class="button primary" id="modal-demo">Попробовать демо</button>'); return; }
+  modal(`<h2>Вход по приглашению</h2><p>Вставьте ссылку от хозяина стола. Он увидит вашу заявку и сможет посадить вас за стол.</p><form id="join-form">${!user?'<label for="join-name">Ваше имя</label><input id="join-name" name="playerName" value="Друг" maxlength="32" required>':''}<label for="invite-link">Ссылка или код</label><input id="invite-link" name="code" value="${escapeHTML(code)}" placeholder="Приглашение в приватную комнату" required autocomplete="off"><label for="join-buy-in">Желаемый стек · необязательно</label><input id="join-buy-in" name="buyIn" type="number" min="1" placeholder="По настройкам хозяина"><button class="button primary" type="submit">Попроситься за стол <span>→</span></button></form>`);
+}
+function inviteDialog() {
+  if (!state?.room.invite) return;
+  modal(`<h2>Место для своих</h2><p>Отправьте ссылку друзьям. Даже с приглашением они не увидят игру, пока вы не подтвердите вход.</p><p>Код комнаты: <strong>${escapeHTML(state.room.code||"—")}</strong></p><label for="share-link">Приватное приглашение · действует 8 часов после создания или обновления</label><textarea id="share-link" readonly>${escapeHTML(state.room.invite)}</textarea><button id="copy-invite" class="button primary">Скопировать приглашение</button><button id="share-telegram" class="button secondary">Отправить в Telegram</button><p class="form-note">Ссылку можно отозвать в настройках комнаты.</p>`);
+}
+function straddleControl() {
+  const t=state.table,p=t.players.find(p=>p.id===state.me),idle=['waiting','showdown'].includes(t.phase);
+  if(t.mode !== 'cash' || !t.straddleAllowed) return '<p class="form-note">Страдл за этим столом запрещён.</p>';
+  return `<button class="button secondary" id="straddle-preference" ${!idle?'disabled':''}>Автострадл UTG 2 BB: ${p?.autoStraddle?'включён':'выключен'}</button><p class="form-note">Личное согласие на страдл. Меняется только между раздачами. Ставка ставится только на UTG при 3+ игроках и достаточном стеке; не является обязательной.</p>`;
+}
+function requestRebuyDialog() {
+  if(!state || state.demo)return;
+  const mine=state.table.players.find(p=>p.id===state.me);
+  const pending=state.table.rebuyRequests?.find(r=>r.playerId===state.me);
+  modal(`<h2>Запрос закупа</h2>${pending?`<p>Запрос на <strong>${fmt(pending.amount)}</strong> фишек ожидает администратора.</p><button class="button secondary" data-cancel-rebuy="${escapeHTML(pending.id)}">Отменить запрос</button>`:`<form id="rebuy-form"><label for="funding-type">Вид закупа</label><select id="funding-type" name="fundingType">${!mine?.fundedBefore?'<option value="buyIn">Бай-ин · первый вход</option>':'<option value="rebuy">Ребай · докупка</option><option value="addon">Аддон</option><option value="reentry">Реэнтри · после выбывания</option>'}</select><label for="rebuy-amount">Сколько фишек добавить</label><input id="rebuy-amount" name="amount" type="text" inputmode="numeric" maxlength="20" value="${state.table.startingStack}" autocomplete="off" required><button class="button primary" type="submit">Отправить администратору</button></form>`}<p class="form-note">Текущий стек: ${fmt(mine?.stack)}.${mine?.pendingBuyIn?` Уже подтверждено на следующую раздачу: ${fmt(mine.pendingBuyIn)}.`:''} Фишки, подтверждённые во время руки, вступают в игру со следующей раздачи и не меняют текущий олл-ин.</p>`);
+}
+async function openRebuyReview() {
+  if(rebuyReviewOpen)return;
+  const result=await send('beginRebuyReview');
+  if(!result)return;
+  rebuyReviewId=result.reviewId || state?.table.rebuyReview?.id;
+  if(!rebuyReviewId || state?.table.rebuyReview?.id!==rebuyReviewId){rebuyReviewId=null;toast('Пауза уже завершилась. Откройте запросы ещё раз.');return;}
+  rebuyReviewOpen=true;$('rebuy-notice').hidden=true;renderRebuyDialog();
+}
+const fundingLabel=type=>({buyIn:'Бай-ин',rebuy:'Ребай',reentry:'Реэнтри',addon:'Аддон'}[type]||'Закуп');
+function fundingRequests(){return [...(state.table.rebuyRequests||[]),...(state.room.pending||[]).map(p=>({...p,amount:p.buyIn,fundingType:'buyIn',admission:true}))];}
+function renderRebuyDialog() {
+  if(!rebuyReviewOpen || !state)return;
+  const requests=fundingRequests();
+  modal(`<h2>Закуп в игре</h2><p>Игра и таймер приостановлены. После закрытия окна ход продолжится с оставшимся временем.</p><div class="rebuy-queue">${requests.length?requests.map(r=>`<section class="rebuy-request"><strong>${escapeHTML(r.name)}</strong><p>${fundingLabel(r.fundingType)} · <b>${fmt(r.amount)}</b> фишек</p><div class="rebuy-decisions"><button class="button primary" ${r.admission?'data-approve-admission':'data-approve-rebuy'}="${escapeHTML(r.id)}" ${busy||!connected?'disabled':''}>Подтвердить</button><button class="button secondary" ${r.admission?'data-deny-admission':'data-deny-rebuy'}="${escapeHTML(r.id)}" ${busy||!connected?'disabled':''}>Отклонить</button></div></section>`).join(''):'<p>Все запросы обработаны.</p>'}</div><button id="end-rebuy-review" class="button secondary" ${rebuyClosing?'disabled':''}>Закрыть и продолжить игру</button><p class="form-note">При потере связи с администратором пауза снимается автоматически в течение 2 минут. Необработанные запросы сохраняются.</p>`);
+}
+function renderRebuys(previous) {
+  const {table:t,room:r,me}=state,requests=fundingRequests();
+  $('rebuy-notice').hidden=r.ownerId!==me||!requests.length||rebuyReviewOpen||!!state.demo;
+  $('rebuy-notice-names').textContent=requests.map(q=>`${q.name}: ${fmt(q.amount)}`).join(' · ');
+  $('rebuy-banner').hidden=!t.rebuyReview;
+  $('rebuy-banner').textContent=t.rebuyReview?`Закуп в игре · ${requests.length?requests.map(q=>q.name).join(', '):(t.rebuyReview.names||[]).join(', ')||'запросы обработаны'} · игра на паузе`:'';
+  const own=t.players.find(p=>p.id===me);
+  $('rebuy-pending-credit').hidden=!own?.pendingBuyIn;
+  $('rebuy-pending-credit').textContent=own?.pendingBuyIn?`${fmt(own.pendingBuyIn)} фишек подтверждено — со следующей раздачи`:'';
+  if(rebuyReviewOpen){
+    if(!t.rebuyReview || t.rebuyReview.id!==rebuyReviewId){rebuyReviewOpen=false;rebuyReviewId=null;$('modal').close();}
+    else renderRebuyDialog();
+  }
+  if(previous){const last=previous.table.history.at(-1)?.id||0;const approved=t.history.filter(e=>e.id>last&&e.kind==='rebuyApproved');if(approved.length)toast(approved.map(e=>e.text).join(' · '));}
+}
+setInterval(async()=>{
+  if(!rebuyReviewOpen||!rebuyReviewId||!connected||document.hidden||!transport||busy)return;
+  try{await api('/api/command',{roomId:state.room.id,requestId:crypto.randomUUID(),action:'renewRebuyReview',reviewId:rebuyReviewId});}catch{}
+},20000);
+function settingsDialog() {
+  if (!state) return;
+  const {room:r,table:t,me} = state, isOwner = r.ownerId === me, idle = ['waiting','showdown'].includes(t.phase);
+  if (state.demo) {
+    modal(`<h2>Пробная игра · 0.3</h2><p>Локальное демо с ботами, не защищённая онлайн-комната. Формат: ${t.mode==='tournament'?'турнир-фризаут':'кэш на условные фишки'}.</p>${straddleControl()}<button class="button primary" id="reset-demo">Новое кэш-демо</button><button class="button secondary" id="tournament-demo">Новое турнирное демо</button><button class="button secondary" id="modal-home">На главную</button>`); return;
+  }
+  const mayRemove=idle&&(t.mode!=='tournament'||!t.handId||t.tournamentOver);
+  modal(`<h2>Ваш стол</h2><p>${escapeHTML(r.name)} · ${t.mode==='tournament'?'Турнир без анте':'Кэш'} · ${fmt(t.smallBlind)} / ${fmt(t.bigBlind)}</p>${straddleControl()}<button class="button secondary" id="modal-request-rebuy">Запросить закуп</button><p class="form-note">Любая выдача фишек, включая первый вход хозяина, требует подтверждения администратора.</p>${isOwner&&t.mode==='cash'?`<form id="blinds-form"><h3>Блайнды со следующей раздачи</h3><div class="form-row"><input aria-label="Новый SB" name="smallBlind" type="number" min="1" value="${t.smallBlind}" required><input aria-label="Новый BB" name="bigBlind" type="number" min="2" value="${t.bigBlind}" required></div><button type="submit" class="button secondary">Сохранить блайнды</button></form>`:''}${isOwner?`<div class="modal-setting-row"><span>Новые заявки: ${r.locked?'закрыты':'открыты'}</span><button class="button secondary small" id="toggle-lock">${r.locked?'Открыть':'Закрыть вход'}</button></div><button class="button secondary" id="rotate-invite">Отозвать ссылку и создать новую</button><div class="modal-players">${t.players.filter(p=>p.id!==me).map(p=>`<div class="modal-player"><span>${escapeHTML(p.name)}</span><button data-kick="${escapeHTML(p.id)}" ${!mayRemove?'disabled':''}>Убрать со стола</button></div>`).join('')}</div><button class="button secondary danger-button" id="close-room" ${!mayRemove?'disabled':''}>Закрыть стол для всех</button>`:`<button class="button secondary" id="leave-room" ${!mayRemove?'disabled':''}>Покинуть стол</button>`}<p class="form-note">По таймеру — пас и статус «Не играю», даже при доступном чеке. В турнире блайнды продолжают списываться; в кэше после пропущенных рук возвращаются на BB. Бай-ин, ребай, аддон и реэнтри подтверждает администратор. Реэнтри доступен после полного выбывания; для остальных докупок выберите ребай. Поздний вход возможен при свободном месте. Подтверждённый закуп может продолжить завершившийся турнир.</p>`);
+}
+function settlementDialog() {
+  if (!state) return;
+  const t=state.table.phase === 'showdown' ? state.table : state.table.lastHand;
+  if (!t) return;
+  inspectedHand = structuredClone(t);
+  const name=id=>escapeHTML(t.players.find(p=>p.id===id)?.name||id);
+  modal(`<h2>Разбор раздачи #${t.handId}</h2><p class="form-note">Игра продолжается автоматически. Для долгого разбора хозяин может поставить стол на паузу.</p><p>Внесено: <strong>${fmt(t.committedPot)}</strong>. Выплаты из банков: <strong>${fmt(t.lastPot)}</strong>. Возвраты: <strong>${fmt(t.refunds.reduce((s,r)=>s+r.amount,0))}</strong>.</p>${t.pots.map(p=>`<section class="settlement-pot"><h3>${escapeHTML(p.label)} <span>${fmt(p.amount)}</span></h3><p>Право на банк: ${p.eligible.map(name).join(', ')}.</p>${p.awards.map(a=>`<div class="settlement-row"><span>${name(a.id)}</span><strong>получает ${fmt(a.amount)}</strong></div>`).join('')}</section>`).join('')}${t.refunds.length?`<section class="settlement-pot"><h3>Возврат непокрытых ставок</h3>${t.refunds.map(r=>`<div class="settlement-row"><span>${name(r.id)}</span><strong>${fmt(r.amount)}</strong></div>`).join('')}<p>Это собственные фишки игрока, не выигрыш.</p></section>`:''}<h3>Итог каждого игрока</h3>${t.accounting.map(p=>`<section class="settlement-player"><div class="settlement-row"><strong>${escapeHTML(p.name)}</strong><strong>${signed(p.net)}</strong></div><p>Внесено ${fmt(p.contributed)} · из банков ${fmt(p.won)} · возврат ${fmt(p.returned)}<br>Стек: ${fmt(p.startStack)} → ${fmt(p.finalStack)}</p></section>`).join('')}<div class="state-note">Выплата из банка ≠ чистый выигрыш. Итог = выплаты + возврат − взносы. Сумма итогов всех игроков: ${fmt(t.accounting.reduce((s,p)=>s+p.net,0))}.</div><button class="button secondary" id="export-hand">Сохранить отчёт этой раздачи</button><p class="form-note">Отчёт содержит ваши карты и карты, открытые на вскрытии. Чужие сброшенные карты, колода и токены не включаются.</p>`);
+}
+function exportHand(fromModal = false) {
+  if(!state?.table.handId)return;
+  const t=fromModal === true && inspectedHand ? inspectedHand : state.table.lastHand || state.table;
+  const report={appVersion:'0.4.2',reportType:state.demo?'untrusted-local-demo':'client-visible-snapshot',
+    roomId:state.room.id,handId:t.handId,rulesVersion:t.rulesVersion,mode:t.mode,phase:t.phase,
+    me:state.me,board:t.board,players:t.players,pots:t.pots,refunds:t.refunds,
+    accounting:t.accounting,events:t.handHistory,historyTruncated:t.historyTruncated};
+  const url=URL.createObjectURL(new Blob([JSON.stringify(report,null,2)],{type:'application/json'}));
+  const a=document.createElement('a');a.href=url;a.download=`svoi-hand-${t.handId}.json`;a.click();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+  toast('Отчёт сохранён. Это снимок клиента, не независимое доказательство честности.');
+}
+function rulesDialog() {
+  modal('<h2>Правила стола · 0.3</h2><p>Безлимитный техасский холдем, 2–6 мест. Лучшая пятёрка из семи карт; можно использовать 0, 1 или 2 свои карты. Сравниваются также кикеры, масть не даёт преимущества.</p><p><strong>Банки:</strong> при разных олл-инах каждый банк получает своих участников и победителей. Сброшенные ставки остаются в банке, но их владельцы не выигрывают. Непокрытая часть ставки возвращается. При равенстве остаточная фишка идёт первому победителю слева от баттона, отдельно для каждого настоящего банка.</p><p><strong>Ставки:</strong> «повысить до» означает итоговую ставку на улице. Минимальное повышение равно последней полной ставке или полному повышению. Короткий олл-ин сам по себе не открывает повторное повышение; совокупность коротких олл-инов проверяется отдельно для каждого игрока.</p><p><strong>Кэш:</strong> фиксированные блайнды. По настройке стола — один добровольный живой UTG-страдл 2 BB, согласованный до карт. Минимальный префлоп-рейз при страдле — до 4 BB; после флопа минимальная ставка снова 1 BB. Нет баттон-страдлов, рестрадлов и страдла в heads-up.</p><p><strong>Любой закуп:</strong> запрос доступен в любой момент. Администратор открывает окно запросов — текущая раздача и её таймер замирают. Подтверждённые фишки во время руки добавляются только после расчёта банка, для следующей раздачи. Закрытие окна продолжает оставшееся время хода.</p><p><strong>Турнир:</strong> одностоловый турнир без анте и страдла; поздний вход, ребай и реэнтри — только с подтверждением администратора. Блайнды удваиваются через выбранный интервал только со следующей раздачи; максимум 21 уровень. Используется мёртвый баттон при выбывании. Побеждает последний игрок с фишками.</p><p>Хозяин запускает игру один раз. Следующая раздача начинается автоматически через 6 секунд после выплаты. По таймеру — пас и «Не играю», даже при бесплатном чеке: это выбранное правило онлайн-стола, а не правило таймера живого TDA. Уже сделанный олл-ин не сбрасывается. Кнопка «Я вернулся» действует только на будущую раздачу; после пропуска рук в кэше нужно дождаться BB. В турнире блайнды продолжают списываться. Пауза хозяина применяется между руками, не прерывает раздачу и замораживает турнирные уровни только на время самой паузы.</p><div class="state-note">Условные фишки. Это тестовая сборка, не сертифицированный покер-рум. В демо вся игра находится в браузере. Разбор последней завершённой раздачи доступен и во время следующей; сохраняйте отчёт, пока она не закончится.</div>');
+}
+$('create-room').addEventListener('click',createDialog);
+$('join-room').addEventListener('click',()=>joinDialog());
+$('try-demo').addEventListener('click',startDemo);
+$('resume-room').addEventListener('click',()=>{ if(storage.get('room')) openRoom(storage.get('room')); });
+$('brand-home').addEventListener('click',()=> {
+  if (state && !['waiting','showdown'].includes(state.table.phase) && !confirm('Выйти из экрана игры? Таймер продолжит идти; по таймеру будет пас и статус «Не играю».')) return;
+  home();
+});
+$('cancel-wait').addEventListener('click',home);
+$('close-modal').addEventListener('click',closeModal);
+$('modal').addEventListener('click',e=>{if(e.target === $('modal')) closeModal();});
+$('invite-button').addEventListener('click',inviteDialog);
+$('room-settings').addEventListener('click',settingsDialog);
+$('rules-button').addEventListener('click',rulesDialog);
+$('settlement-button').addEventListener('click',settlementDialog);
+$('hand-report-button').addEventListener('click',exportHand);
+$('start-hand').addEventListener('click',()=>send('start'));
+$('participation-button').addEventListener('click',()=>{
+  const p=state?.table.players.find(p=>p.id===state.me);
+  if(p) send(p.sittingOut && !p.returnPending ? 'returnToPlay' : 'sitOut');
+});
+$('pause-table').addEventListener('click',()=>send('pause',{paused:!state.table.paused}));
+$('top-up').addEventListener('click',()=>state?.demo?send('topUp'):requestRebuyDialog());
+$('request-rebuy').addEventListener('click',requestRebuyDialog);
+$('open-rebuy-requests').addEventListener('click',openRebuyReview);
+$('modal').addEventListener('cancel',e=>{if(rebuyReviewOpen){e.preventDefault();closeModal();}});
+$('fold').addEventListener('click',()=>move('fold'));
+$('check-call').addEventListener('click',()=>move(state.table.legal.toCall?'call':'check'));
+$('raise-toggle').addEventListener('click',()=>{raiseOpen=!raiseOpen;updateActions();});
+$('confirm-raise').addEventListener('click',()=>move('raise',Number($('raise-amount').value)));
+$('raise-range').addEventListener('input',()=>{$('raise-amount').value=$('raise-range').value;updateActions();});
+$('raise-amount').addEventListener('input',()=>{const value=Number($('raise-amount').value);$('raise-range').value=value;$('confirm-raise').textContent=`До ${fmt(value)}`;});
+$('raise-amount').addEventListener('change',updateActions);
+document.querySelector('.presets').addEventListener('click',e=>{
+  const preset=e.target.closest('[data-preset]')?.dataset.preset;if(!preset || !state?.table.legal) return;
+  const t=state.table,l=t.legal,p=t.players.find(p=>p.id===state.me);
+  const value=preset==='all'?l.maxTo:p.bet+l.toCall+Math.floor((t.pot+l.toCall)*(preset==='half'?.5:preset==='two-thirds'?2/3:1));
+  $('raise-amount').value=Math.max(Math.min(l.minTo,l.maxTo),Math.min(l.maxTo,value));updateActions();
+});
+$('pending-requests').addEventListener('click',e=>{
+  const accept=e.target.closest('[data-approve]'),deny=e.target.closest('[data-deny]');
+  if(accept && !accept.disabled) send('approve',{userId:accept.dataset.approve});
+  if(deny) send('deny',{userId:deny.dataset.deny});
+});
+$('modal-content').addEventListener('change',e=>{
+ if(e.target.id==='game-mode'){const tournament=e.target.value==='tournament';$('cash-options').hidden=tournament;$('tournament-options').hidden=!tournament;$('allow-straddle').disabled=tournament;if(tournament){$('allow-straddle').checked=false;$('starting-stack').value=10000;}}
+ if(e.target.id==='buy-in-mode')$('buy-in-range').hidden=e.target.value!=='range';
+ if(e.target.id==='tournament-preset'&&e.target.value!=='Custom')$('levels-body').innerHTML=levelRows(e.target.value);
+ if(e.target.dataset.level)$('tournament-preset').value='Custom';
+});
+$('modal-content').addEventListener('submit',async e=>{
+  e.preventDefault();const form=e.target, data=Object.fromEntries(new FormData(form)), button=form.querySelector('button[type=submit]');
+  if(!button) return;button.disabled=true;
+  try {
+    if(form.id==='blinds-form'){await send('blinds',{smallBlind:Number(data.smallBlind),bigBlind:Number(data.bigBlind)});closeModal();return;}
+    if(form.id==='rebuy-form'){const raw=String(data.amount||'').replace(/\s/g,'');if(!/^\d+$/.test(raw)||!Number.isSafeInteger(Number(raw))||Number(raw)<1)throw new Error('Введите целое положительное число фишек');const result=await send('requestRebuy',{amount:Number(raw),fundingType:data.fundingType});if(result){await closeModal();toast('Запрос отправлен администратору');}return;}
+    await login(data.playerName || 'Игрок');
+    let result;
+    if(form.id==='create-form') {
+     const levels=data.mode==='tournament'?[...$('levels-body').rows].map(row=>Object.fromEntries([...row.querySelectorAll('input')].map(i=>[i.dataset.level,Number(i.value)]))):null;
+     result=await api('/api/rooms',{name:data.name,smallBlind:levels?.[0].smallBlind??Number(data.smallBlind),bigBlind:levels?.[0].bigBlind??Number(data.bigBlind),startingStack:Number(data.startingStack),turnSeconds:Number(data.turnSeconds),mode:data.mode,straddleAllowed:data.mode==='cash'&&data.straddleAllowed==='on',maxPlayers:Number(data.maxPlayers),buyInMode:data.mode==='cash'?data.buyInMode:'fixed',minBuyIn:Number(data.minBuyIn),maxBuyIn:Number(data.maxBuyIn),rebuyAllowed:true,levels});
+    }
+    else if(form.id==='join-form') {const code=extractInvite(data.code);if(!code) throw new Error('Нужна полная ссылка-приглашение или код комнаты');result=await api('/api/join',{code,...(data.buyIn?{buyIn:Number(data.buyIn)}:{})});}
+    if(result) {closeModal();openRoom(result.roomId);}
+  } catch(err) {toast(err.message);} finally {button.disabled=false;}
+});
+$('modal-content').addEventListener('click',async e=>{
+  const button=e.target.closest('button');if(!button || button.disabled) return;
+  try {
+    if(button.id==='modal-request-rebuy'){requestRebuyDialog();return;}
+    if(button.id==='end-rebuy-review'){await closeModal();return;}
+    if(button.dataset.approveAdmission){await send('approve',{userId:button.dataset.approveAdmission});return;}
+    if(button.dataset.denyAdmission){await send('deny',{userId:button.dataset.denyAdmission});return;}
+    if(button.dataset.approveRebuy){await send('approveRebuy',{rebuyRequestId:button.dataset.approveRebuy});return;}
+    if(button.dataset.denyRebuy){await send('denyRebuy',{rebuyRequestId:button.dataset.denyRebuy});return;}
+    if(button.dataset.cancelRebuy){const result=await send('cancelRebuy',{rebuyRequestId:button.dataset.cancelRebuy});if(result)await closeModal();return;}
+    if(button.id==='add-level'){const rows=$('levels-body');if(rows.rows.length<50){const row=rows.rows[rows.rows.length-1].cloneNode(true);row.cells[0].textContent=rows.rows.length+1;rows.append(row);$('tournament-preset').value='Custom';}return;}
+    if(button.id==='remove-level'){if($('levels-body').rows.length>1)$('levels-body').lastElementChild.remove();$('tournament-preset').value='Custom';return;}
+    if(['reset-demo','modal-demo'].includes(button.id)) startDemo();
+    else if(button.id==='tournament-demo') startDemo('tournament');
+    else if(button.id==='export-hand') exportHand(true);
+    else if(button.id==='straddle-preference') {const p=state.table.players.find(p=>p.id===state.me);closeModal();await send('straddle',{enabled:!p.autoStraddle});}
+    else if(button.id==='modal-home') home();
+    else if(button.id==='copy-invite') {
+      try {await navigator.clipboard.writeText($('share-link').value);toast('Приглашение скопировано');}
+      catch {$('share-link').focus();$('share-link').select();toast('Скопируйте выделенную ссылку');}
+    } else if(button.id==='share-telegram') {
+      const url=`https://t.me/share/url?url=${encodeURIComponent(state.room.invite)}&text=${encodeURIComponent('Собираемся в СВОИ. Присоединяйся к нашему столу ♠')}`;
+      if(telegram()?.initData) telegram().openTelegramLink(url);else window.open(url,'_blank','noopener,noreferrer');
+    } else if(button.id==='toggle-lock') {closeModal();await send('lock');}
+    else if(button.id==='rotate-invite') {closeModal();await send('rotateInvite');}
+    else if(button.dataset.kick) {closeModal();await send('kick',{userId:button.dataset.kick});}
+    else if(button.id==='leave-room') {closeModal();await send('leave');}
+    else if(button.id==='close-room' && confirm('Закрыть комнату для всех игроков?')) {closeModal();await send('close');}
+  } catch(err) {toast(err.message);}
+});
+$('sound-toggle').addEventListener('click',async ()=>{
+  try {
+    if(!audio) audio=new (window.AudioContext || window.webkitAudioContext)();
+    await audio.resume();sound=!sound;$('sound-toggle').querySelector('.sound-slash').hidden=sound;
+    $('sound-toggle').setAttribute('aria-label',sound?'Выключить звук':'Включить звук');$('sound-toggle').title=sound?'Звук включён':'Звук выключен';tone('deal');
+  } catch {toast('Звук недоступен в этом браузере');}
+});
+$('fullscreen').addEventListener('click',async ()=>{
+  try { const tg=telegram();if(tg?.initData&&tg.isVersionAtLeast('8.0')) tg.isFullscreen?tg.exitFullscreen():tg.requestFullscreen();else if(document.fullscreenElement) await document.exitFullscreen();else if(document.documentElement.requestFullscreen) await document.documentElement.requestFullscreen();else toast('Полный экран доступен внутри Telegram'); }
+  catch {toast('Не удалось включить полный экран');}
+});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden && state && !state.demo) api(`/api/room?room=${state.room.id}`).then(handlePacket).catch(()=>{});});
+async function init() {
+  if(standalone) {$('create-room').innerHTML='Начать демо <span>→</span>';$('join-room').textContent='Как играть с друзьями';return;}
+  try {
+    const tg=telegram();
+    if(tg?.initData) {tg.ready();tg.expand();if(tg.isVersionAtLeast('6.1')) {tg.setHeaderColor('#101917');tg.setBackgroundColor('#101917');}if(tg.isVersionAtLeast('7.7')) tg.disableVerticalSwipes();}
+    const deployment=await fetch('/config.json',{cache:'no-store'}).then(r=>r.json()).catch(()=>({}));
+    if(deployment.supabaseUrl){config={...deployment,authMode:'guest'};const {cloudClient}=await import('./cloud.mjs');cloud=cloudClient(config);const {data}=await cloud.auth.getSession();if(data.session){token=data.session.access_token;user={id:data.session.user.id,name:data.session.user.user_metadata?.name||'Игрок'};}}
+    else config=await api('/api/config');
+    if(tg?.initData) {user=null;await login();}
+    else if(token) {try {const data=await api('/api/me');user=data.user;}catch {token=null;storage.set('token',null);}}
+    const params=new URLSearchParams(location.search);
+    const code=extractInvite(params.get('room') || params.get('tgWebAppStartParam') || tg?.initDataUnsafe?.start_param || '');
+    // A start parameter is only an invitation token; the server still verifies
+    // Telegram identity, token expiry and explicit owner approval.
+    if(code) {joinDialog(code);if(user) {const result=await api('/api/join',{code});closeModal();openRoom(result.roomId);}}
+    else if(user && storage.get('room')) openRoom(storage.get('room'));
+    updateResume();
+  } catch(e) {toast(e.message || 'Сервер недоступен. Можно попробовать локальное демо.');}
+}
+init();
+
+if('serviceWorker' in navigator && !standalone) navigator.serviceWorker.register('/sw.js').catch(()=>{});
+</script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="brand" id="brand-home" aria-label="На главную">
+        <span class="brand-icon">♠</span><span class="brand-word">свои<span>POKER WITH FRIENDS</span></span>
+      </button>
+      <div class="topbar-right"><span class="chip-label play-money">Только игровые фишки</span><button class="icon-button" id="sound-toggle" aria-label="Включить звук" title="Звук выключен">♫<span class="sound-slash">/</span></button><button class="icon-button" id="fullscreen" aria-label="Полный экран" title="Полный экран">⛶</button></div>
+    </header>
+    <main>
+      <section id="lobby" class="lobby">
+        <div class="lobby-copy">
+          <div class="eyebrow"><span class="dot"></span>ТОЛЬКО СВОЯ КОМПАНИЯ</div>
+          <h1>Карты на стол.<br><em>Свои — рядом.</em></h1>
+          <p class="hero-description">Ваш вечер покера, где бы вы ни были.<br>Закрытый стол, знакомые лица и ещё одна раздача.</p>
+          <div class="hero-actions"><button id="create-room" class="button primary">Создать стол <span>↗</span></button><button id="join-room" class="button secondary">По приглашению</button></div>
+          <button id="resume-room" class="button secondary" hidden>Вернуться за свой стол ↗</button><button id="try-demo" class="text-button">Сначала попробовать с ботами <span>→</span></button>
+          <div class="hero-features"><div><strong>2–6</strong><span>друзей за столом</span></div><div><strong>Только вы</strong><span>вход с подтверждением</span></div><div><strong>Без денег</strong><span>игра ради игры</span></div></div>
+        </div>
+        <div class="hero-visual" aria-label="Превью покерного стола">
+          <div class="visual-heading"><span class="mini-lock">▣</span> ВАШ ПРИВАТНЫЙ СТОЛ <span class="visual-live">PREVIEW</span></div>
+          <div class="preview-table"><div class="preview-table-inner"></div><div class="preview-watermark">свои</div><div class="preview-pot"><div class="chip-stack"><i></i><i></i><i></i></div><span>Хорошая компания.<br>Красивая игра.</span></div><div class="preview-cards"><div class="playing-card red"><b>A</b><span>♥</span><small>A</small></div><div class="playing-card"><b>K</b><span>♠</span><small>K</small></div><div class="playing-card red"><b>Q</b><span>♦</span><small>Q</small></div></div><div class="preview-seat ps-one">А<span>Арман</span></div><div class="preview-seat ps-two">Д<span>Дана</span></div><div class="preview-seat ps-three">Вы<span>Ваше место</span></div><div class="dealer-preview">D</div></div>
+          <div class="visual-footer"><span>♠ &nbsp;Техасский холдем</span><span>Без лимита</span></div>
+        </div>
+        <div class="lobby-foot"><span>СВОИ / PWA 0.4.1</span><span>Никаких случайных соперников.</span></div>
+      </section>
+      <section id="waiting-room" class="waiting-screen" hidden><div class="waiting-symbol">♠</div><div class="eyebrow">ПРИВАТНАЯ КОМНАТА</div><h2 id="waiting-title">Почти за столом</h2><p id="waiting-message">Хозяин стола подтверждает ваше приглашение.</p><div class="waiting-pulse"><i></i><i></i><i></i></div><button class="button secondary" id="cancel-wait">На главную</button></section>
+      <section id="game" hidden>
+        <div class="room-header"><div><div class="eyebrow" id="room-eyebrow">ПРИВАТНЫЙ СТОЛ</div><h1 id="room-name">Свои за столом</h1></div><div class="room-tools"><span class="connection" id="connection"><i></i><span>На связи</span></span><button class="button small secondary" id="invite-button">Пригласить <span>↗</span></button><button class="icon-button" id="room-settings" aria-label="Настройки комнаты">⋯</button></div></div>
+        <div id="demo-banner" class="demo-banner" hidden><span>ДЕМО</span> Вы и 5 ботов. Это локальная пробная игра, не онлайн-комната.</div>
+        <div class="game-grid">
+          <div class="table-column">
+            <div class="table-card">
+              <div class="table-topline"><span>♠ &nbsp; ХОЛДЕМ <span class="muted">/ БЕЗ ЛИМИТА</span></span><span id="hand-counter">РАЗДАЧА #01</span></div>
+              <div class="arena" id="arena"><div class="felt"><div class="felt-line"></div><span class="felt-brand">свои</span></div><div class="deck" id="deck" aria-hidden="true"><i></i><i></i><i>♠</i></div><div class="pot-display" id="pot-display"><span class="pot-label">ОБЩИЙ БАНК</span><div><span class="tiny-chip"></span><strong id="pot-amount">0</strong></div></div><div class="community-cards" id="board" aria-label="Общие карты"></div><div class="street-label" id="street-label">Собираем друзей</div><div id="seats"></div><div class="result-label" id="result-label" hidden></div></div>
+              <div class="table-bottomline"><span id="table-players">0 / 6 за столом</span><span id="table-blinds">Блайнды 10 / 20</span><span>ИГРОВЫЕ ФИШКИ</span></div>
+            </div>
+            <div id="rebuy-banner" class="rebuy-banner" role="status" hidden></div><div id="rebuy-pending-credit" class="pending-changes" role="status" hidden></div><div id="pending-changes" class="pending-changes" role="status" hidden></div><div id="pending-requests" class="pending-requests" hidden></div>
+            <div class="action-panel">
+              <div class="turn-line"><div><span class="turn-indicator" id="turn-indicator"></span><strong id="turn-title">Ждём друзей</strong><span id="turn-subtitle"></span></div><div class="time-counter" id="time-counter"></div></div>
+              <div class="timer-track"><i id="timer-progress"></i></div>
+              <div id="auto-status" class="auto-status" role="status" aria-live="polite"></div>
+              <div id="waiting-actions" class="waiting-actions"><p id="start-help">Пригласите друзей. Раздача начнётся, когда вы будете готовы.</p><button class="button primary" id="start-hand">Раздать карты <span>→</span></button><button class="button secondary" id="top-up" hidden>Запросить фишки</button></div>
+              <div id="playing-actions" class="playing-actions" hidden><div class="main-actions"><button id="fold" class="action-button fold" disabled><span>Пас</span><small>Сбросить карты</small></button><button id="check-call" class="action-button call" disabled><span>Чек</span><small>Продолжить</small></button><button id="raise-toggle" class="action-button raise" disabled><span>Повысить</span><small>Выбрать ставку</small></button></div><div class="raise-panel" id="raise-panel" hidden><div class="raise-heading"><label for="raise-amount">Общая ставка на этом круге</label><div><span>до</span><input type="number" id="raise-amount" min="0" step="1" inputmode="numeric" aria-label="Повысить до"></div></div><input id="raise-range" type="range" min="0" max="100" value="0" aria-label="Размер повышения"><div class="raise-bottom"><div class="presets"><button data-preset="half">½ банка</button><button data-preset="two-thirds">⅔ банка</button><button data-preset="pot">Банк</button><button data-preset="all">Олл-ин</button></div><button class="button primary small" id="confirm-raise">Повысить</button></div></div></div>
+            </div>
+            <div class="session-controls"><button class="button secondary small" id="request-rebuy" hidden>Запросить закуп</button><button class="button secondary small" id="participation-button">Не играю</button><button class="text-button" id="pause-table" hidden>Пауза после раздачи</button></div><p class="participation-note" id="participation-note" hidden></p>
+            <div class="review-actions"><button class="button secondary small" id="settlement-button" hidden>Разбор банков и выплат</button><button class="text-button" id="hand-report-button" hidden>Сохранить отчёт раздачи</button></div><div class="under-table"><span>▣ &nbsp; Чужие карты закрыты до вскрытия</span><button class="text-button" id="rules-button">Как играть <span>↗</span></button></div>
+          </div>
+          <aside class="sidebar"><section class="side-card"><div class="side-heading"><h2>За столом</h2><span id="roster-count">0 / 6</span></div><div id="roster"></div><div class="privacy-note"><span>▣</span><p><strong>Вход только с разрешения</strong><br>Хозяин подтверждает каждого гостя.</p></div></section><section class="side-card history-card"><div class="side-heading"><h2>Ход игры</h2><span class="history-icon">↺</span></div><div id="history" aria-live="polite" aria-relevant="additions"></div></section><div class="sidebar-note">Важен не банк.<br><span>Важна компания.</span></div></aside>
+        </div>
+      </section>
+    </main>
+    <footer class="global-footer"><span>СВОИ © 2026</span><span>Прототип · без денежных ставок и платежей</span></footer>
+  </div>
+  <aside id="rebuy-notice" class="rebuy-notice" role="region" aria-label="Запросы на закуп" hidden><strong>Запросы на закуп</strong><p id="rebuy-notice-names"></p><button id="open-rebuy-requests" class="button primary">Открыть запросы · пауза игры</button></aside>
+  <dialog id="modal"><div class="modal-head"><span class="eyebrow">СВОИ / PRIVATE POKER</span><button id="close-modal" class="icon-button" aria-label="Закрыть">×</button></div><div id="modal-content"></div></dialog>
+  <div id="toast" class="toast" role="alert" hidden></div>
+</body>
+</html>
