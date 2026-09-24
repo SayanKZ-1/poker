@@ -37,5 +37,8 @@ Deno.serve(async req=>{
   if(path==='/join')return response(await service.join(user,d));
   if(path==='/command')return response(await service.command(user,d));
   return response({error:'Not found'},404);
- }catch(e){return response({error:e.status?e.message:'Не удалось выполнить команду'},e.status||400);}
+ }catch(e){
+  console.error('game request failed',{method:req.method,path:new URL(req.url).pathname,error:e instanceof Error?e.stack||e.message:String(e)});
+  return response({error:e.status?e.message:'Не удалось выполнить команду'},e.status||400);
+ }
 });

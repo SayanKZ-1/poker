@@ -22,7 +22,7 @@ export class GameService {
   let user;try{user=(await this.session(oldToken)).user;}catch{}
   user ||= {id:id(),name:String(name||'Игрок').trim().slice(0,32)||'Игрок'};
   const token=secret()+secret(),expires=this.now()+30*86400000;
-  await this.db.query('insert into private.sessions values($1,$2,$3)',[await hash(token),json(user),expires]);
+  await this.db.query('insert into private.sessions values($1,$2::text::jsonb,$3)',[await hash(token),json(user),expires]);
   return {token,user,expires};
  }
  restore(row){const r=structuredClone(row.state);r.table=Table.restore(r.table,this.now);return r;}
@@ -34,13 +34,13 @@ export class GameService {
  async save(tx,r) {
   const t=r.table; t.assertChips();
   const due=r.closed?null:(t.rebuyReview?.expiresAt??t.deadline??t.nextHandAt);
-  await tx.query('update private.rooms set state=$2,invite_token=$3,short_code=$4,due_at=$5,revision=revision+1,updated_at=now() where id=$1',[r.id,json({...r,table:t.serialize()}),r.inviteToken,r.code,due]);
-  for(const e of t.history)await tx.query('insert into private.events values($1,$2,$3,$4) on conflict do nothing',[r.id,e.id,e.handId,json(e)]);
+  await tx.query('update private.rooms set state=$2::text::jsonb,invite_token=$3,short_code=$4,due_at=$5,revision=revision+1,updated_at=now() where id=$1',[r.id,json({...r,table:t.serialize()}),r.inviteToken,r.code,due]);
+  for(const e of t.history)await tx.query('insert into private.events values($1,$2,$3,$4::text::jsonb) on conflict do nothing',[r.id,e.id,e.handId,json(e)]);
   const {rows}=await tx.query('select revision from private.rooms where id=$1',[r.id]);
   const members=new Set([...t.players.map(p=>p.id),...Object.keys(r.pending)]);
   const old=await tx.query('select user_id from public.svoi_views where room_id=$1',[r.id]);
   for(const row of old.rows)members.add(row.user_id); // deliver revocation without ever exposing a table
-  for(const u of members)await tx.query('insert into public.svoi_views values($1,$2,$3,$4) on conflict(room_id,user_id) do update set revision=excluded.revision,payload=excluded.payload',[r.id,u,rows[0].revision,json(this.snapshot(r,u))]);
+  for(const u of members)await tx.query('insert into public.svoi_views values($1,$2,$3,$4::text::jsonb) on conflict(room_id,user_id) do update set revision=excluded.revision,payload=excluded.payload',[r.id,u,rows[0].revision,json(this.snapshot(r,u))]);
  }
  async create(user,data) {
   await this.limit(`create:${user.id}`,8);
@@ -52,7 +52,7 @@ export class GameService {
    await tx.query('insert into private.rate_limits values($1,0,0) on conflict do nothing',[`owner:${user.id}`]);
    await tx.query('select key from private.rate_limits where key=$1 for update',[`owner:${user.id}`]);
    const count=await tx.query("select count(*)::int as n from private.rooms where owner_id=$1 and not (state->>'closed')::boolean",[user.id]);ensure(count.rows[0].n<3,'Лимит комнат достигнут');
-   await tx.query('insert into private.rooms(id,owner_id,state,invite_token,short_code) values($1,$2,$3,$4,$5)',[r.id,user.id,json({...r,table:t.serialize()}),r.inviteToken,r.code]);await this.save(tx,r);
+   await tx.query('insert into private.rooms(id,owner_id,state,invite_token,short_code) values($1,$2,$3::text::jsonb,$4,$5)',[r.id,user.id,json({...r,table:t.serialize()}),r.inviteToken,r.code]);await this.save(tx,r);
   });return {roomId:r.id};
  }
  async locked(roomId,fn,{allowClosed=false}={}){
@@ -125,7 +125,7 @@ export class GameService {
    }catch(e){error={message:e.message,status:e.status||400};}
    if(error)return {error}; // commit a preceding timeout, but never a failed command
    const result={ok:true,...(d.action==='beginRebuyReview'?{reviewId:t.rebuyReview.id}:{})};await this.save(tx,r);
-   await tx.query('insert into private.commands(room_id,actor_id,request_id,fingerprint,result) values($1,$2,$3,$4,$5)',[r.id,user.id,d.requestId,fingerprint,json(result)]);return result;
+   await tx.query('insert into private.commands(room_id,actor_id,request_id,fingerprint,result) values($1,$2,$3,$4,$5::text::jsonb)',[r.id,user.id,d.requestId,fingerprint,json(result)]);return result;
   },{allowClosed:true}).then(result=>{if(result.error)fail(result.error.message,result.error.status);return result;});
  }
  async tick(){

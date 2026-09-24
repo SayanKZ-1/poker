@@ -46,9 +46,13 @@ function tone(type = 'chip') {
 }
 async function api(path, data) {
   if (cloud) { const {data} = await cloud.auth.getSession(); token = data.session?.access_token; path = config.supabaseUrl + '/functions/v1/game' + path.replace('/api',''); }
-  const response = await fetch(path, {method: data === undefined ? 'GET' : 'POST',
+  const controller=new AbortController(), timeout=setTimeout(()=>controller.abort(),12000);
+  let response;
+  try { response = await fetch(path, {signal:controller.signal,method: data === undefined ? 'GET' : 'POST',
     headers: {...(cloud?{apikey:config.publishableKey}:{}),...(data === undefined ? {} : {'Content-Type':'application/json'}), ...(token ? {Authorization:`Bearer ${token}`} : {})},
-    ...(data === undefined ? {} : {body: JSON.stringify(data)})});
+    ...(data === undefined ? {} : {body: JSON.stringify(data)})}); }
+  catch(e){if(e.name==='AbortError')throw new Error('Сервер отвечает слишком долго. Повторите попытку.');throw e;}
+  finally{clearTimeout(timeout);}
   const result = await response.json();
   if (!response.ok) { const e = new Error(result.error || 'Не удалось выполнить запрос'); e.status = response.status; throw e; }
   return result;
