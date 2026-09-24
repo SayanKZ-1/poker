@@ -4,7 +4,9 @@ const ensure=(condition,message,status)=>{if(!condition)fail(message,status);};
 const id=()=>crypto.randomUUID();
 const secret=()=>Array.from(crypto.getRandomValues(new Uint8Array(18)),x=>x.toString(16).padStart(2,'0')).join('');
 const code=()=>Array.from(crypto.getRandomValues(new Uint8Array(8)),x=>'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[x%31]).join('');
-const json=x=>JSON.stringify(x);
+// Pass structured values to database drivers. Serializing here makes postgres.js
+// encode the string again, producing a JSON string instead of a JSON object.
+const json=x=>x;
 export async function hash(value) {return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(value))),x=>x.toString(16).padStart(2,'0')).join('');}
 const fields={start:[],act:['move','amount'],approve:['userId'],deny:['userId'],lock:[],rotateInvite:[],topUp:['amount'],requestRebuy:['amount','fundingType'],approveRebuy:['rebuyRequestId'],denyRebuy:['rebuyRequestId'],cancelRebuy:['rebuyRequestId'],beginRebuyReview:[],endRebuyReview:['reviewId'],renewRebuyReview:['reviewId'],sitOut:[],returnToPlay:[],pause:['paused'],straddle:['enabled'],kick:['userId'],leave:[],close:[],blinds:['smallBlind','bigBlind']};
 export class GameService {
@@ -85,7 +87,7 @@ export class GameService {
   ensure(typeof d.requestId==='string'&&/^[\w-]{10,100}$/.test(d.requestId),'Некорректный идентификатор запроса');
   ensure(Object.hasOwn(fields,d.action),'Неизвестная команда');
   const allowed=new Set(['roomId','action','requestId','handId','version',...fields[d.action]]);ensure(Object.keys(d).every(k=>allowed.has(k)),'Недопустимое поле команды');
-  const fingerprint=json(Object.fromEntries(Object.keys(d).sort().map(k=>[k,d[k]])));
+  const fingerprint=JSON.stringify(Object.fromEntries(Object.keys(d).sort().map(k=>[k,d[k]])));
   return this.locked(d.roomId,async(tx,r)=>{
    const seen=await tx.query('select fingerprint,result from private.commands where room_id=$1 and actor_id=$2 and request_id=$3',[r.id,user.id,d.requestId]);
    if(seen.rows.length){ensure(seen.rows[0].fingerprint===fingerprint,'Идентификатор запроса уже использован с другим содержимым',409);return {...seen.rows[0].result,duplicate:true};}
