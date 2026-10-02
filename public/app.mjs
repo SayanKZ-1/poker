@@ -34,7 +34,15 @@ async function closeModal() {
   }
   $('modal').close();inspectedHand=null;return true;
 }
-function screen(name) { if(name!=='game')$('rebuy-notice').hidden=true; ['lobby','waiting-room','game'].forEach(id => $(id).hidden = id !== name); }
+function screen(name) { document.body.classList.toggle('at-table',name==='game');if(name!=='game')$('rebuy-notice').hidden=true; ['lobby','waiting-room','game'].forEach(id => $(id).hidden = id !== name); }
+function fitViewport() {
+  const tg=telegram();
+  const height=tg?.initData && tg.viewportStableHeight ? tg.viewportStableHeight : window.visualViewport?.height || window.innerHeight;
+  document.documentElement.style.setProperty('--table-viewport',`${Math.round(height)}px`);
+}
+window.addEventListener('resize',fitViewport);
+window.visualViewport?.addEventListener('resize',fitViewport);
+fitViewport();
 function tone(type = 'chip') {
   if (!sound || !audio) return;
   try {
@@ -430,6 +438,9 @@ function settingsDialog() {
   const mayRemove=idle&&(t.mode!=='tournament'||!t.handId||t.tournamentOver);
   modal(`<h2>Ваш стол</h2><p>${escapeHTML(r.name)} · ${t.mode==='tournament'?'Турнир без анте':'Кэш'} · ${fmt(t.smallBlind)} / ${fmt(t.bigBlind)}</p>${straddleControl()}<button class="button secondary" id="modal-request-rebuy">Запросить закуп</button><p class="form-note">Любая выдача фишек, включая первый вход хозяина, требует подтверждения администратора.</p>${isOwner&&t.mode==='cash'?`<form id="blinds-form"><h3>Блайнды со следующей раздачи</h3><div class="form-row"><input aria-label="Новый SB" name="smallBlind" type="number" min="1" value="${t.smallBlind}" required><input aria-label="Новый BB" name="bigBlind" type="number" min="2" value="${t.bigBlind}" required></div><button type="submit" class="button secondary">Сохранить блайнды</button></form>`:''}${isOwner?`<div class="modal-setting-row"><span>Новые заявки: ${r.locked?'закрыты':'открыты'}</span><button class="button secondary small" id="toggle-lock">${r.locked?'Открыть':'Закрыть вход'}</button></div><button class="button secondary" id="rotate-invite">Отозвать ссылку и создать новую</button><div class="modal-players">${t.players.filter(p=>p.id!==me).map(p=>`<div class="modal-player"><span>${escapeHTML(p.name)}</span><button data-kick="${escapeHTML(p.id)}" ${!mayRemove?'disabled':''}>Убрать со стола</button></div>`).join('')}</div><button class="button secondary danger-button" id="close-room" ${!mayRemove?'disabled':''}>Закрыть стол для всех</button>`:`<button class="button secondary" id="leave-room" ${!mayRemove?'disabled':''}>Покинуть стол</button>`}<p class="form-note">По таймеру — пас и статус «Не играю», даже при доступном чеке. В турнире блайнды продолжают списываться; в кэше после пропущенных рук возвращаются на BB. Бай-ин, ребай, аддон и реэнтри подтверждает администратор. Реэнтри доступен после полного выбывания; для остальных докупок выберите ребай. Поздний вход возможен при свободном месте. Подтверждённый закуп может продолжить завершившийся турнир.</p>`);
 }
+$('table-history').addEventListener('click',()=>{
+  if(state)modal(`<h2>Ход игры</h2>${$('history').innerHTML}<h2>За столом</h2>${$('roster').innerHTML}`);
+});
 function settlementDialog() {
   if (!state) return;
   const t=state.table.phase === 'showdown' ? state.table : state.table.lastHand;
@@ -565,6 +576,7 @@ async function init() {
   if(standalone) {$('create-room').innerHTML='Начать демо <span>→</span>';$('join-room').textContent='Как играть с друзьями';return;}
   try {
     const tg=telegram();
+    tg?.onEvent?.('viewportChanged',fitViewport);
     if(tg?.initData) {tg.ready();tg.expand();if(tg.isVersionAtLeast('6.1')) {tg.setHeaderColor('#101917');tg.setBackgroundColor('#101917');}if(tg.isVersionAtLeast('7.7')) tg.disableVerticalSwipes();}
     const deployment=await fetch('/config.json',{cache:'no-store'}).then(r=>r.json()).catch(()=>({}));
     if(deployment.supabaseUrl){config={...deployment,authMode:'guest'};const {cloudClient}=await import('./cloud.mjs');cloud=cloudClient(config);const {data}=await cloud.auth.getSession();if(data.session){token=data.session.access_token;user={id:data.session.user.id,name:data.session.user.user_metadata?.name||'Игрок'};}}

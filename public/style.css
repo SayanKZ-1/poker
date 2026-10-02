@@ -30,3 +30,64 @@ select{font:inherit;color:var(--text,#e5ebe4);background:#19241f;border:1px soli
 .rebuy-banner[hidden],.rebuy-notice[hidden],#request-rebuy[hidden],#rebuy-pending-credit[hidden]{display:none}
 .seat-stack,.pot-display strong,.roster-stack{font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
 @media(max-width:600px){.rebuy-notice{top:66px;right:12px;width:min(330px,calc(100vw - 24px));padding:14px}.seat-stack{font-size:clamp(10px,3vw,14px)}.pot-display strong{max-width:180px;font-size:clamp(16px,5vw,28px)}.action-button span{overflow-wrap:anywhere}.main-actions{grid-template-columns:repeat(3,minmax(0,1fr))}.rebuy-decisions{flex-wrap:wrap}}
+
+/* A phone table occupies the available webview; only dialogs scroll. */
+@media(max-width:700px){
+ body.at-table{height:var(--table-viewport,100dvh);overflow:hidden;overscroll-behavior:none}
+ .at-table .app-shell{height:100%;padding: max(env(safe-area-inset-top),var(--tg-content-safe-area-inset-top,0px)) 8px max(env(safe-area-inset-bottom),var(--tg-content-safe-area-inset-bottom,0px));display:flex;flex-direction:column;overflow:hidden}
+ .at-table .topbar{height:42px;min-height:42px;border:0}
+ .at-table .brand-icon{width:28px;height:30px;font-size:23px;border-radius:8px}
+ .at-table .brand-word{font-size:23px}.at-table .brand-word>span,.at-table .play-money{display:none}
+ .at-table .topbar-right{gap:8px}.at-table .icon-button{width:40px;height:40px}
+ .at-table main,.at-table #game,.at-table .game-grid,.at-table .table-column{min-height:0;flex:1;display:flex;flex-direction:column}
+ .at-table .global-footer,.at-table .sidebar,.at-table .under-table,.at-table #demo-banner,.at-table #room-eyebrow,.at-table #hand-report-button{display:none}
+ .at-table .room-header{flex-shrink:0;margin:0;padding:2px 0;height:44px;gap:6px}
+ .at-table .room-header h1{font:600 15px/1.2 Arial;max-width:32vw;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .at-table .room-tools{gap:6px}.at-table .room-tools .button{min-height:40px;padding:8px;font-size:11px}
+ .at-table .connection{font-size:9px}.at-table .table-column{gap:4px}
+ .at-table .table-card{display:flex;flex-direction:column;flex:1;min-height:0;margin:0;border-radius:16px}
+ .at-table .table-topline,.at-table .table-bottomline{flex-shrink:0;padding:6px 9px;font-size:8px;letter-spacing:0}
+ .at-table .table-topline .muted,.at-table .table-bottomline>span:last-child{display:none}
+ .at-table .arena{height:auto;min-height:0;flex:1;container-type:size}
+ .at-table .felt{inset:30px 26px 36px;border-width:7px}
+ .at-table .seat{width:74px}.at-table .seat .avatar{width:26px;height:26px;font-size:11px;margin:auto}
+ .at-table .seat-label{padding:3px 4px}.at-table .seat-name{font-size:10px}.at-table .seat-stack{font-size:11px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .at-table .seat-action{font-size:7px;margin-top:2px;height:9px}
+ .at-table .seat-hand{bottom:calc(100% - 8px)}
+ .at-table .seat.self .seat-hand{bottom:calc(100% - 8px)}
+ .at-table .seat.self .seat-hand .playing-card{width:32px;height:43px}
+ .at-table .seat.self .seat-hand .playing-card b{font-size:15px}.at-table .seat.self .seat-hand .playing-card>span{font-size:20px}
+ .at-table .seat[data-position="3"]{top:17%!important}
+ .at-table .seat[data-position="0"]{top:87%!important}
+ .at-table .pot-display{top:32%}.at-table .pot-display strong{font-size:19px}.at-table .pot-label{font-size:7px}
+ .at-table .community-cards{top:46%;gap:4px}
+ .at-table .community-cards .playing-card,.at-table .card-placeholder{width:clamp(29px,9vw,40px);height:clamp(42px,12vw,56px)}
+ .at-table .street-label{top:64%;font-size:8px}.at-table .result-label{top:64%;font-size:9px;padding:3px;width:64%}
+ .at-table .result-label small{display:none}.at-table .deck{display:none}
+ .at-table .bet-badge{font-size:8px;padding:2px 4px}.at-table .bet-badge .tiny-chip{display:none}
+ .at-table .action-panel{flex-shrink:0;position:relative;margin:0;padding:8px;border-radius:12px}
+ .at-table .turn-line{min-height:18px}.at-table .turn-line>div:first-child{flex-wrap:nowrap}.at-table #turn-subtitle{display:none}
+ .at-table .timer-track{margin:4px 0 6px}.at-table .auto-status{font-size:10px;min-height:0;margin:0 0 4px;line-height:1.2}
+ .at-table .main-actions button{min-height:52px;padding:7px 3px;gap:3px}.at-table .action-button small{font-size:8px}
+ .at-table .waiting-actions p{display:none}.at-table .waiting-actions .button{min-height:44px;padding:8px}
+ .at-table .session-controls{flex-shrink:0;margin:0;gap:5px;flex-wrap:nowrap}
+ .at-table .session-controls .button,.at-table .session-controls .text-button{flex:1;min-height:40px;font-size:10px;padding:5px}
+ .at-table .review-actions{flex-shrink:0;margin:0}.at-table .review-actions .button{width:100%;min-height:28px;padding:4px;font-size:10px}
+ .at-table .participation-note{margin:0;font-size:9px;line-height:1.2;flex-shrink:0}
+ .at-table .pending-changes,.at-table .rebuy-banner{margin:0;padding:4px 7px;font-size:10px;line-height:1.25;flex-shrink:0}
+ .at-table .raise-panel{position:absolute;bottom:calc(100% + 6px);left:0;right:0;z-index:12;background:#172b22;border:1px solid #769880;border-radius:14px;padding:12px;box-shadow:0 -8px 25px #0007;max-height:calc(var(--table-viewport,100dvh) - 130px);overflow:auto}
+ .at-table .raise-bottom{flex-wrap:wrap;gap:8px}.at-table .presets{display:grid;grid-template-columns:repeat(4,1fr);width:100%}.at-table #confirm-raise{width:100%;min-height:44px}
+ dialog{max-height:calc(var(--table-viewport,100dvh) - 24px);overflow:auto;overscroll-behavior:contain}
+}
+@media(max-width:700px) and (max-height:620px){
+ .at-table .topbar{display:none}.at-table .room-header{height:40px}
+ .at-table .seat .avatar{display:none}.at-table .seat-hand{bottom:100%}
+ .at-table .seat.self .seat-hand{bottom:100%}.at-table .seat[data-position="3"]{top:20%!important}
+ .at-table .auto-status{display:none}.at-table .table-topline{padding:3px 8px}
+ .at-table .review-actions .button{min-height:24px}.at-table .session-controls .button,.at-table .session-controls .text-button{min-height:36px}
+}
+@media(max-width:700px){
+ .at-table .room-tools .connection{position:static;display:flex;align-items:center;gap:3px;margin:0}
+ .at-table .connection span{display:none}.at-table .connection.offline span{display:inline;font-size:8px;max-width:58px}
+ .at-table .room-tools{display:flex;align-items:center}.at-table #invite-button span{display:none}
+}
