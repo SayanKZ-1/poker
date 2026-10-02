@@ -102,3 +102,7 @@ body:not(.inside-telegram) .hero-actions #create-room{background:#19241f;border-
 body:not(.inside-telegram) .hero-actions .button{font-size:12px;min-height:44px;padding:10px 14px}
 .inside-telegram .telegram-entry,.inside-telegram .browser-option{display:none}
 @media(max-width:700px){body:not(.inside-telegram) .lobby{padding-top:28px}.telegram-entry{margin:18px 0 22px}.telegram-play{max-width:none}.lobby .hero-description{margin-bottom:18px}.hero-features{margin-top:25px}}
+.quick-guide{margin:18px 0 22px;border:1px solid var(--line);border-radius:12px;padding:0 14px;max-width:480px;background:#17231f}
+.quick-guide summary{cursor:pointer;min-height:48px;align-content:center;font-size:14px;font-weight:600;color:var(--accent)}
+.quick-guide ol{padding-left:20px;margin:0 0 14px}.quick-guide li{font-size:13px;line-height:1.6;color:var(--text);margin:10px 0}
+.quick-guide p{font-size:12px;line-height:1.6;color:var(--muted);margin:12px 0 16px}
