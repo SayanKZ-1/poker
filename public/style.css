@@ -91,3 +91,14 @@ select{font:inherit;color:var(--text,#e5ebe4);background:#19241f;border:1px soli
  .at-table .connection span{display:none}.at-table .connection.offline span{display:inline;font-size:8px;max-width:58px}
  .at-table .room-tools{display:flex;align-items:center}.at-table #invite-button span{display:none}
 }
+
+/* Telegram is the primary entry point on the public home page. */
+.telegram-entry{margin:24px 0 26px}
+.telegram-play{width:100%;max-width:390px;min-height:60px;font-size:17px;text-decoration:none;box-shadow:0 8px 30px #b9edce15}
+.telegram-entry p{font-size:12px;line-height:1.7;color:var(--muted);margin:12px 0 8px}
+.telegram-bot-link,.lobby-foot a{color:var(--accent);text-underline-offset:4px;font-size:12px}
+.browser-option{font-size:11px;color:var(--muted);margin:0 0 10px}
+body:not(.inside-telegram) .hero-actions #create-room{background:#19241f;border-color:#36483c;color:var(--text)}
+body:not(.inside-telegram) .hero-actions .button{font-size:12px;min-height:44px;padding:10px 14px}
+.inside-telegram .telegram-entry,.inside-telegram .browser-option{display:none}
+@media(max-width:700px){body:not(.inside-telegram) .lobby{padding-top:28px}.telegram-entry{margin:18px 0 22px}.telegram-play{max-width:none}.lobby .hero-description{margin-bottom:18px}.hero-features{margin-top:25px}}

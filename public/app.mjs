@@ -576,6 +576,8 @@ async function init() {
   if(standalone) {$('create-room').innerHTML='Начать демо <span>→</span>';$('join-room').textContent='Как играть с друзьями';return;}
   try {
     const tg=telegram();
+    document.body.classList.toggle('inside-telegram',Boolean(tg?.initData));
+    if(tg?.initData){document.querySelector('.lobby h1').innerHTML='Карты на стол.<br><em>Свои — рядом.</em>';document.querySelector('.hero-description').textContent='Создайте стол или присоединитесь к друзьям по приглашению.';}
     tg?.onEvent?.('viewportChanged',fitViewport);
     if(tg?.initData) {tg.ready();tg.expand();if(tg.isVersionAtLeast('6.1')) {tg.setHeaderColor('#101917');tg.setBackgroundColor('#101917');}if(tg.isVersionAtLeast('7.7')) tg.disableVerticalSwipes();}
     const deployment=await fetch('/config.json',{cache:'no-store'}).then(r=>r.json()).catch(()=>({}));
