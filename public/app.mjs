@@ -105,10 +105,10 @@ class OnlineGame {
   async cloudRun() {
     this.channel=cloud.channel(`room:${this.roomId}:${user.id}`).on('postgres_changes',{event:'*',schema:'public',table:'svoi_views',filter:`room_id=eq.${this.roomId}`},()=>this.refresh()).subscribe(status=>{if(status==='SUBSCRIBED')this.refresh();else if(['CHANNEL_ERROR','TIMED_OUT','CLOSED'].includes(status))setConnection(false);});
     await this.refresh();
-    this.poll=setInterval(()=>this.refresh(),4000);
+    this.poll=setInterval(()=>{if(!document.hidden)this.refresh();},15000);
   }
   async refresh(){
-    if(this.refreshing||this.closed)return;this.refreshing=true;
+    if(this.refreshing||this.closed||document.hidden)return;this.refreshing=true;
     try{const packet=await api(`/api/room?room=${this.roomId}`);if(!this.closed){setConnection(true);handlePacket(packet);}}
     catch(e){setConnection(false);if([401,403,404].includes(e.status)){this.close();handlePacket({type:'denied',message:e.message});}}
     finally{this.refreshing=false;}
@@ -161,10 +161,11 @@ function handlePacket(packet) {
   }
   if (packet.type !== 'state') return;
   const previous = state; state = packet;
+  const unchanged = previous && JSON.stringify({...previous,table:{...previous.table,serverNow:0}}) === JSON.stringify({...packet,table:{...packet.table,serverNow:0}});
   const pending=storage.get('pendingCommand');
   if(pending&&!busy){const d=JSON.parse(pending);if(d.roomId===packet.room.id){busy=true;api('/api/command',d).then(()=>storage.set('pendingCommand',null)).catch(e=>{if(e.status){storage.set('pendingCommand',null);toast(e.message);}}).finally(()=>{busy=false;updateActions();});}} clockOffset = packet.table.serverNow - Date.now();
   if (packet.demo) connected = true;
-  screen('game'); render(previous);
+  if (!unchanged && !document.hidden) { screen('game'); render(previous); }
 }
 function card(code, extra = '') {
   if (code === '??') return '<div class="playing-card back" aria-label="Закрытая карта"><span>♠</span></div>';
@@ -196,7 +197,7 @@ function render(previous) {
     const seat = (originSeat + pos) % 6, p = t.players.find(p => p.seat === seat), [x,y] = positions[pos];
     if (!p) return `<div class="seat empty-seat" style="left:${x}%;top:${y}%" data-position="${pos}"><div class="avatar">+</div><div class="seat-label"><span class="seat-name">Для друга</span></div></div>`;
     const self = p.id === me, winner = t.payouts.some(w => w.id === p.id);
-    return `<div class="seat ${self?'self ':''}${p.folded?'folded ':''}${t.actor===p.id?'turn ':''}${winner?'winner ':''}${p.sittingOut?'sitting-out ':''}${!p.connected?'offline ':''}" data-player="${escapeHTML(p.id)}" data-position="${pos}" style="left:${x}%;top:${y}%"><div class="seat-hand">${p.cards.map(c => card(c,winning.has(c)?'winning':'')).join('')}</div><div class="avatar" style="background:${colors[p.seat%6]}">${escapeHTML((p.name || '?')[0])}</div>${t.dealer===p.seat?'<span class="dealer-button" aria-label="Дилер">D</span>':''}<div class="seat-label"><span class="seat-name">${escapeHTML(p.name)}${self&&p.name!=='Вы'?' · вы':''}${p.bot?' · бот':''}</span><span class="seat-stack">${fmt(p.stack)}</span></div><div class="seat-action">${escapeHTML(p.returnPending ? (p.missedHands && t.mode==='cash' ? 'Ждёт BB' : 'Со следующей руки') : p.sittingOut ? 'Не играет' : p.missedHands && t.mode==='cash' ? 'Ждёт BB' : p.lastAction || (!p.connected?'Нет связи':''))}</div>${p.bet?`<span class="bet-badge"><i class="tiny-chip"></i>${fmt(p.bet)}</span>`:''}</div>`;
+    return `<div class="seat ${self?'self ':''}${p.folded?'folded ':''}${t.actor===p.id?'turn ':''}${winner?'winner ':''}${p.sittingOut?'sitting-out ':''}${!p.connected?'offline ':''}" data-player="${escapeHTML(p.id)}" data-position="${pos}" style="left:${x}%;top:${y}%"><div class="seat-hand">${p.cards.map(c => card(c,winning.has(c)?'winning':'')).join('')}</div><div class="avatar" style="background:${colors[p.seat%6]}">${escapeHTML((p.name || '?')[0])}</div>${t.dealer===p.seat?'<span class="dealer-button" aria-label="Дилер">D</span>':''}<div class="seat-label"><span class="seat-name">${escapeHTML(p.name)}${self&&p.name!=='Вы'?' · вы':''}${p.bot?' · бот':''}</span><span class="seat-stack">${fmt(p.stack)}</span></div><div class="seat-action">${escapeHTML(p.returnPending ? (p.missedHands && t.mode==='cash' ? 'Возвращается' : 'Со следующей руки') : p.sittingOut ? 'Не играет' : p.missedHands && t.mode==='cash' ? 'Возвращается' : p.lastAction || (!p.connected?'Нет связи':''))}</div>${p.bet?`<span class="bet-badge"><i class="tiny-chip"></i>${fmt(p.bet)}</span>`:''}</div>`;
   }).join('');
   $('result-label').hidden = t.phase !== 'showdown';
   if (t.phase === 'showdown') {
@@ -245,7 +246,7 @@ function updateActions() {
   $('top-up').hidden = !idle || mine?.stack !== 0; $('top-up').disabled = busy || !connected;
   $('start-help').textContent = !t.running
     ? (r.ownerId === me ? (t.readyCount < 2 ? 'Подтвердите стартовые закупы — свой и друга — в окне запросов.' : 'Начните игру один раз. Дальше карты раздаются автоматически.') : 'Хозяин один раз запускает игру; далее — автораздача.')
-    : mine?.sittingOut ? (mine.returnPending ? (t.mode === 'cash' && mine.missedHands ? 'Возвращение на большом блайнде. До этого новые карты не выдаются.' : 'Возвращение подтверждено. Эта раздача не возобновляется.') : 'Вы не играете. Для возвращения нажмите «Я вернулся».')
+    : mine?.sittingOut ? (mine.returnPending ? (t.mode === 'cash' && mine.missedHands ? 'Возврат с новой раздачи вне SB и баттона. Пропущенные блайнды спишутся автоматически.' : 'Возвращение подтверждено. Эта раздача не возобновляется.') : 'Вы не играете. Для возвращения нажмите «Я вернулся».')
     : t.paused ? 'Стол на паузе. Текущая раздача всегда доигрывается.'
     : t.readyCount < 2 ? 'Ждём хотя бы двух готовых игроков с фишками.'
     : 'Следующая рука начнётся автоматически. Разбор предыдущей остаётся доступен.';
@@ -258,7 +259,7 @@ function updateActions() {
   $('participation-note').hidden = !mine?.sittingOut;
   $('participation-note').textContent = t.mode === 'tournament'
     ? 'Не играю: блайнды продолжают списываться. Уже сделанный олл-ин остаётся в игре.'
-    : mine?.returnPending && mine?.missedHands ? 'Ожидайте большого блайнда: пауза не позволяет обходить обязательные ставки.'
+    : mine?.returnPending && mine?.missedHands ? 'Возврат вне SB и баттона; если BB прошёл вас — оплата BB + SB.'
     : 'Автопас только в свой ход. Уже сделанный олл-ин доигрывается; стек остаётся за вами.';
   if (mine?.sittingOut) $('turn-title').textContent = mine.returnPending ? 'Возвращение в игру' : 'Вы не играете';
   if (t.haltReason) { $('turn-title').textContent = 'Игра остановлена'; $('start-help').textContent = t.haltReason; }
@@ -269,7 +270,7 @@ function updateActions() {
   updateTimer();
 }
 function updateTimer() {
-  if (!state) return;
+  if (!state || document.hidden) return;
   const t = state.table;
   const idle = ['waiting','showdown'].includes(t.phase);
   let status = '';
@@ -286,7 +287,7 @@ function updateTimer() {
   $('time-counter').textContent = t.rebuyReview ? `Пауза · ${Math.ceil(ms/1000)} с` : t.deadline ? `${Math.ceil(ms/1000)} с` : '';
   $('timer-progress').style.width = `${Math.min(100,ms/t.turnMs*100)}%`;
 }
-setInterval(updateTimer,100);
+setInterval(updateTimer,1000);
 function flyChip(from, to, delay = 0) {
   if (reducedMotion || !from || !to) return;
   const arena = $('arena'), root = arena.getBoundingClientRect(), a = from.getBoundingClientRect(), b = to.getBoundingClientRect();
@@ -559,7 +560,7 @@ $('fullscreen').addEventListener('click',async ()=>{
   try { const tg=telegram();if(tg?.initData&&tg.isVersionAtLeast('8.0')) tg.isFullscreen?tg.exitFullscreen():tg.requestFullscreen();else if(document.fullscreenElement) await document.exitFullscreen();else if(document.documentElement.requestFullscreen) await document.documentElement.requestFullscreen();else toast('Полный экран доступен внутри Telegram'); }
   catch {toast('Не удалось включить полный экран');}
 });
-document.addEventListener('visibilitychange',()=>{if(!document.hidden && state && !state.demo) api(`/api/room?room=${state.room.id}`).then(handlePacket).catch(()=>{});});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden && state){render(null);if(!state.demo) api(`/api/room?room=${state.room.id}`).then(handlePacket).catch(()=>{});}});
 async function init() {
   if(standalone) {$('create-room').innerHTML='Начать демо <span>→</span>';$('join-room').textContent='Как играть с друзьями';return;}
   try {

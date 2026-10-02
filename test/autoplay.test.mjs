@@ -51,6 +51,8 @@ test('manual sit-out never folds out of turn, and returning cannot resurrect tha
   assert.throws(()=>t.act('p1','call'),/не играете/);
   f.at(t.deadline);t.tick();assert.equal(t.player('p1').folded,true);
   assert.equal(t.player('p1').returnPending,true);finish(t);next(f);
+  assert.equal(t.player('p1').sittingOut,true);assert.equal(t.player('p1').inHand,false);
+  finish(t);next(f);
   assert.equal(t.player('p1').sittingOut,false);assert.equal(t.player('p1').inHand,true);
 });
 test('manual sit-out on own turn immediately folds once; cancellation of return works',()=>{
@@ -75,11 +77,11 @@ test('cash sitting out does not receive cards or post a voluntary straddle',()=>
   const p=t.player('p3');assert.equal(p.inHand,false);assert.equal(p.cards.length,0);assert.equal(p.bet,0);
   assert.equal(p.stack,2000);assert.equal(t.straddle,null);
 });
-test('after missing cash hands return waits for natural BB and cannot see earlier cards',()=>{
+test('return before BB passes admits player outside button/SB without a fee',()=>{
   const f=fixture(4),{t}=f;t.startPlay();t.sitOut('p1');finish(t);next(f);
   assert.equal(t.lastBigBlind,3);assert.equal(t.player('p1').inHand,false);
   t.returnToPlay('p1');finish(t);next(f);
-  assert.equal(t.lastBigBlind,0);assert.equal(t.player('p1').inHand,false);assert.deepEqual(t.player('p1').cards,[]);
+  assert.equal(t.lastBigBlind,0);assert.equal(t.player('p1').inHand,true);assert.equal(t.player('p1').total,0);
   finish(t);next(f);assert.equal(t.lastBigBlind,1);assert.equal(t.player('p1').inHand,true);
   assert.equal(t.player('p1').sittingOut,false);assert.equal(t.player('p1').bet,t.bigBlind);
 });
@@ -87,6 +89,15 @@ test('short-handed restart gives returning cash seat BB rather than deadlocking 
   const f=fixture(),{t}=f;t.startPlay();t.sitOut('p0');finish(t);next(f);finish(t);
   t.sitOut('p1');assert.equal(t.nextHandAt,null);t.returnToPlay('p0');next(f);
   assert.equal(t.lastBigBlind,0);assert.equal(t.player('p0').bet,20);assert.equal(t.contenders().length,2);
+});
+test('missed BB is charged once on return, with dead SB and durable debt',()=>{
+  const f=fixture(6),{t}=f;t.startPlay();t.sitOut('p3');finish(t);next(f);
+  assert.equal(t.player('p3').owesBlinds,true);
+  t.returnToPlay('p3');finish(t);next(f);
+  const p=t.player('p3');assert.equal(p.inHand,true);
+  assert.equal(p.bet,20);assert.equal(p.deadBlind,10);assert.equal(p.total,30);
+  assert.equal(p.owesBlinds,false);finish(t);next(f);
+  assert.equal(p.deadBlind,0);t.assertChips();
 });
 test('two returning players can restart an otherwise empty ready lineup',()=>{
   const f=fixture(4),{t}=f;t.startPlay();t.sitOut('p0');t.sitOut('p1');finish(t);next(f);finish(t);
