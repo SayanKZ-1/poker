@@ -569,12 +569,14 @@ async function init() {
     const deployment=await fetch('/config.json',{cache:'no-store'}).then(r=>r.json()).catch(()=>({}));
     if(deployment.supabaseUrl){config={...deployment,authMode:'guest'};const {cloudClient}=await import('./cloud.mjs');cloud=cloudClient(config);const {data}=await cloud.auth.getSession();if(data.session){token=data.session.access_token;user={id:data.session.user.id,name:data.session.user.user_metadata?.name||'Игрок'};}}
     else config=await api('/api/config');
-    if(tg?.initData) {user=null;await login();}
+    // Cloud mode keeps its authenticated guest session; Telegram supplies the
+    // container, not a trusted identity. Do not auto-create a nameless guest.
+    if(tg?.initData && !cloud) {user=null;await login();}
     else if(token) {try {const data=await api('/api/me');user=data.user;}catch {token=null;storage.set('token',null);}}
     const params=new URLSearchParams(location.search);
     const code=extractInvite(params.get('room') || params.get('tgWebAppStartParam') || tg?.initDataUnsafe?.start_param || '');
     // A start parameter is only an invitation token; the server still verifies
-    // Telegram identity, token expiry and explicit owner approval.
+    // Session authorization, invitation expiry and explicit owner approval.
     if(code) {joinDialog(code);if(user) {const result=await api('/api/join',{code});closeModal();openRoom(result.roomId);}}
     else if(user && storage.get('room')) openRoom(storage.get('room'));
     updateResume();

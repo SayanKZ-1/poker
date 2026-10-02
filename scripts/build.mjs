@@ -9,6 +9,6 @@ const config={supabaseUrl:process.env.PUBLIC_SUPABASE_URL||'',publishableKey:pro
 if(config.publishableKey.startsWith('sb_secret_')||config.publishableKey.includes('service_role'))throw new Error('Only publishable keys allowed');
 await writeFile('dist/config.json',JSON.stringify(config));
 const connect=config.supabaseUrl?`${config.supabaseUrl} ${config.supabaseUrl.replace('https:','wss:')}`:'';
-await writeFile('dist/_headers',`/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: no-referrer\n  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' ${connect}; object-src 'none'; base-uri 'none'; frame-ancestors 'none'\n/sw.js\n  Cache-Control: no-cache\n/config.json\n  Cache-Control: no-store\n`);
+await writeFile('dist/_headers',`/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: no-referrer\n  Content-Security-Policy: default-src 'self'; script-src 'self' https://telegram.org; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' ${connect}; object-src 'none'; base-uri 'none'; frame-ancestors 'self' https://web.telegram.org https://*.web.telegram.org\n/sw.js\n  Cache-Control: no-cache\n/config.json\n  Cache-Control: no-store\n`);
 await writeFile('dist/_redirects','/* /index.html 200\n');
 console.log('Built PWA in dist and shared Supabase sources.');
