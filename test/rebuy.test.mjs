@@ -36,7 +36,8 @@ test('request and review recover with the original remaining clock; abandoned re
  assert.deepEqual(restored.rebuyRequests,t.rebuyRequests);
  const expiry=restored.rebuyReview.expiresAt,remaining=restored.rebuyReview.deadlineRemaining;
  f.at(expiry);restored.tick();assert.equal(restored.rebuyReview,null);assert.equal(restored.deadline,expiry+remaining);
- assert.equal(restored.rebuyRequests.length,1);assert.equal(restored.player('b').stack,2000);
+ assert.equal(restored.rebuyRequests.length,1);assert.equal(restored.player('b').stack,t.player('b').stack);
+ assert.equal(restored.player('b').stack+restored.player('b').total,2000);
  restored.beginRebuyReview('review-admin-02');restored.endRebuyReview('review-admin-01');assert.equal(restored.rebuyReview.id,'review-admin-02');
 });
 test('large unequal all-ins preserve integer chips, side pots, awards and refunds',()=>{

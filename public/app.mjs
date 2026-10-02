@@ -3,7 +3,8 @@ import {DemoGame} from './demo.mjs';
 const $ = id => document.getElementById(id);
 const escapeHTML = x => String(x ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const signed = n => `${n > 0 ? '+' : ''}${fmt(n)}`;
-const fmt = n => new Intl.NumberFormat('ru-RU').format(n || 0);
+const numberFormat = new Intl.NumberFormat('ru-RU');
+const fmt = n => numberFormat.format(n || 0);
 const storage = {get(k) { try { return localStorage.getItem(`svoi:${k}`); } catch { return null; } }, set(k,v) { try { v === null ? localStorage.removeItem(`svoi:${k}`) : localStorage.setItem(`svoi:${k}`,v); } catch {} }};
 const standalone = Boolean(window.__STANDALONE__);
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -55,13 +56,12 @@ function tone(type = 'chip') {
 async function api(path, data) {
   if (cloud) { const {data} = await cloud.auth.getSession(); token = data.session?.access_token; path = config.supabaseUrl + '/functions/v1/game' + path.replace('/api',''); }
   const controller=new AbortController(), timeout=setTimeout(()=>controller.abort(),12000);
-  let response;
+  let response,result;
   try { response = await fetch(path, {signal:controller.signal,method: data === undefined ? 'GET' : 'POST',
     headers: {...(cloud?{apikey:config.publishableKey}:{}),...(data === undefined ? {} : {'Content-Type':'application/json'}), ...(token ? {Authorization:`Bearer ${token}`} : {})},
-    ...(data === undefined ? {} : {body: JSON.stringify(data)})}); }
+    ...(data === undefined ? {} : {body: JSON.stringify(data)})}); result=await response.json(); }
   catch(e){if(e.name==='AbortError')throw new Error('Сервер отвечает слишком долго. Повторите попытку.');throw e;}
   finally{clearTimeout(timeout);}
-  const result = await response.json();
   if (!response.ok) { const e = new Error(result.error || 'Не удалось выполнить запрос'); e.status = response.status; throw e; }
   return result;
 }
@@ -111,14 +111,27 @@ class OnlineGame {
     }
   }
   async cloudRun() {
-    this.channel=cloud.channel(`room:${this.roomId}:${user.id}`).on('postgres_changes',{event:'*',schema:'public',table:'svoi_views',filter:`room_id=eq.${this.roomId}`},()=>this.refresh()).subscribe(status=>{if(status==='SUBSCRIBED')this.refresh();else if(['CHANNEL_ERROR','TIMED_OUT','CLOSED'].includes(status))setConnection(false);});
+    this.channel=cloud.channel(`room:${this.roomId}:${user.id}`).on('postgres_changes',{event:'*',schema:'public',table:'svoi_views',filter:`room_id=eq.${this.roomId}`},event=>{
+      if(this.closed||document.hidden)return;
+      const row=event.new;
+      if(row?.user_id===user.id && row.room_id===this.roomId && row.payload){this.receive({...row.payload,revision:Number(row.revision)});}
+      else this.refresh();
+    }).subscribe(status=>{if(this.closed)return;if(status==='SUBSCRIBED')this.refresh();else if(['CHANNEL_ERROR','TIMED_OUT','CLOSED'].includes(status))setConnection(false);});
     await this.refresh();
     this.poll=setInterval(()=>{if(!document.hidden)this.refresh();},15000);
   }
+  receive(packet){
+    if(this.closed)return;
+    if(Number.isSafeInteger(packet.revision)){
+      if(packet.revision<(this.revision??-1))return;
+      this.revision=packet.revision;
+    }
+    setConnection(true);handlePacket(packet);
+  }
   async refresh(){
     if(this.refreshing||this.closed||document.hidden)return;this.refreshing=true;
-    try{const packet=await api(`/api/room?room=${this.roomId}`);if(!this.closed){setConnection(true);handlePacket(packet);}}
-    catch(e){setConnection(false);if([401,403,404].includes(e.status)){this.close();handlePacket({type:'denied',message:e.message});}}
+    try{const packet=await api(`/api/room?room=${this.roomId}`);this.receive(packet);}
+    catch(e){if(this.closed)return;setConnection(false);if([401,403,404].includes(e.status)){this.close();handlePacket({type:'denied',message:e.message});}}
     finally{this.refreshing=false;}
   }
   async send(action, data = {}) {
@@ -134,6 +147,7 @@ class OnlineGame {
 
 }
 function setConnection(value) {
+  if(connected===value)return;
   connected = value;
   $('connection').classList.toggle('offline', !value);
   $('connection').querySelector('span').textContent = state?.demo ? 'Локальное демо' : value ? 'На связи' : 'Восстанавливаем связь';
@@ -571,7 +585,7 @@ $('fullscreen').addEventListener('click',async ()=>{
   try { const tg=telegram();if(tg?.initData&&tg.isVersionAtLeast('8.0')) tg.isFullscreen?tg.exitFullscreen():tg.requestFullscreen();else if(document.fullscreenElement) await document.exitFullscreen();else if(document.documentElement.requestFullscreen) await document.documentElement.requestFullscreen();else toast('Полный экран доступен внутри Telegram'); }
   catch {toast('Не удалось включить полный экран');}
 });
-document.addEventListener('visibilitychange',()=>{if(!document.hidden && state){render(null);if(!state.demo) api(`/api/room?room=${state.room.id}`).then(handlePacket).catch(()=>{});}});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden){if(state)render(null);if(cloud)transport?.refresh();}});
 async function init() {
   if(standalone) {$('create-room').innerHTML='Начать демо <span>→</span>';$('join-room').textContent='Как играть с друзьями';return;}
   try {

@@ -123,3 +123,22 @@ test('every initial buy-in, including owner, requires explicit admin approval',a
   v=await s.peek(roomId,a.id);assert.equal(v.table.players.reduce((n,p)=>n+p.stack,0),4000);
  }finally{await db.close();}
 });
+
+test('batched persistence keeps query count bounded and read snapshots do not lock',async()=>{
+ const f=await fixture();try{
+  const queries=[];
+  const wrap=tx=>({...tx,query:(q,p)=>{queries.push(q);return tx.query(q,p);}});
+  f.s.db={...wrap(f.db),transaction:fn=>f.db.transaction(tx=>fn(wrap(tx)))};
+  const before=await f.s.peek(f.roomId,f.a.id);
+  assert.equal(queries.length,1);assert.ok(!queries[0].includes('for update'));
+  queries.length=0;
+  await f.s.command(f.a,{roomId:f.roomId,action:'start',requestId:uid(),handId:before.table.handId,version:before.table.version});
+  assert.ok(queries.length<=8,`unexpected round trips: ${queries.length}`);
+  const after=await f.s.peek(f.roomId,f.a.id);assert.ok(after.revision>before.revision);
+  const events=(await f.db.query('select event_id from private.events where room_id=$1',[f.roomId])).rows;
+  const raw=(await f.db.query('select state from private.rooms where id=$1',[f.roomId])).rows[0].state;
+  assert.equal(raw.savedEventId,Math.max(...events.map(e=>Number(e.event_id))));
+  const views=(await f.db.query('select payload from public.svoi_views where room_id=$1',[f.roomId])).rows;
+  assert.ok(views.every(v=>v.payload.revision===after.revision));
+ }finally{await f.db.close();}
+});

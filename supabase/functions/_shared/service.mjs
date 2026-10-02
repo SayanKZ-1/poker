@@ -33,13 +33,16 @@ export class GameService {
  async save(tx,r) {
   const t=r.table; t.assertChips();
   const due=r.closed?null:(t.rebuyReview?.expiresAt??t.deadline??t.nextHandAt);
-  await tx.query('update private.rooms set state=$2,invite_token=$3,short_code=$4,due_at=$5,revision=revision+1,updated_at=now() where id=$1',[r.id,tx.json({...r,table:t.serialize()}),r.inviteToken,r.code,due]);
-  for(const e of t.history)await tx.query('insert into private.events values($1,$2,$3,$4) on conflict do nothing',[r.id,e.id,e.handId,tx.json(e)]);
-  const {rows}=await tx.query('select revision from private.rooms where id=$1',[r.id]);
+  const events=t.history.filter(e=>e.id>(r.savedEventId||0));
+  r.savedEventId=Math.max(r.savedEventId||0,...events.map(e=>e.id));
+  const {rows}=await tx.query('update private.rooms set state=$2,invite_token=$3,short_code=$4,due_at=$5,revision=revision+1,updated_at=now() where id=$1 returning revision',[r.id,tx.json({...r,table:t.serialize()}),r.inviteToken,r.code,due]);
+  if(events.length)await tx.query('insert into private.events select $1,(e->>\'id\')::bigint,(e->>\'handId\')::integer,e from jsonb_array_elements($2::jsonb) e on conflict do nothing',[r.id,tx.json(events)]);
   const members=new Set([...t.players.map(p=>p.id),...Object.keys(r.pending)]);
   const old=await tx.query('select user_id from public.svoi_views where room_id=$1',[r.id]);
   for(const row of old.rows)members.add(row.user_id); // deliver revocation without ever exposing a table
-  for(const u of members)await tx.query('insert into public.svoi_views values($1,$2,$3,$4) on conflict(room_id,user_id) do update set revision=excluded.revision,payload=excluded.payload',[r.id,u,rows[0].revision,tx.json(this.snapshot(r,u))]);
+  const revision=Number(rows[0].revision);
+  const views=[...members].map(u=>({user_id:u,payload:{...this.snapshot(r,u),revision}}));
+  await tx.query('insert into public.svoi_views select $1,v.user_id,$2,v.payload from jsonb_to_recordset($3::jsonb) as v(user_id text,payload jsonb) on conflict(room_id,user_id) do update set revision=excluded.revision,payload=excluded.payload',[r.id,revision,tx.json(views)]);
  }
  async create(user,data) {
   await this.limit(`create:${user.id}`,8);
@@ -77,9 +80,13 @@ export class GameService {
    r.pending[user.id]={id:user.id,name:user.name,buyIn};await this.save(tx,r);return {roomId:r.id,pending:true};
   });
  }
- async peek(roomId,userId){return this.locked(roomId,async(tx,r)=>{
-  const snap=this.snapshot(r,userId);ensure(snap.type!=='denied','Нет доступа к комнате',403);return snap;
- });}
+ async peek(roomId,userId){
+  const {rows}=await this.db.query('select state,revision from private.rooms where id=$1',[roomId]);
+  ensure(rows.length,'Комната не найдена или уже закрыта',404);
+  const r=this.restore(rows[0]);ensure(!r.closed,'Комната не найдена или уже закрыта',404);
+  const snap=this.snapshot(r,userId);ensure(snap.type!=='denied','Нет доступа к комнате',403);
+  return {...snap,revision:Number(rows[0].revision)};
+ }
  async command(user,d){
   ensure(typeof d.requestId==='string'&&/^[\w-]{10,100}$/.test(d.requestId),'Некорректный идентификатор запроса');
   ensure(Object.hasOwn(fields,d.action),'Неизвестная команда');
